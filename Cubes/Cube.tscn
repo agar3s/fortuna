@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Cubes/Cube.gd" type="Script" id=1]
 [ext_resource path="res://Cubes/Face.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
 
 [node name="Cube" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,3 +27,8 @@ visible = false
 
 [node name="Face6" parent="Faces" instance=ExtResource( 2 )]
 visible = false
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 1 )
