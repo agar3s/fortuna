@@ -2,6 +2,7 @@ extends Node2D
 
 signal on_lock
 signal on_keep
+signal cube_rolled
 
 export (int) var id = 0 setget set_id
 export (Array, int) var face_indexes = [0, 1, 2, 3, 4, 5]
@@ -18,9 +19,12 @@ func _ready():
 		i += 1
 	$Hitbox.connect('input_event', self, 'on_input_event')
 
+func can_roll():
+	return !locked and !keeped
 
 func roll():
-	if keeped: return
+	if !can_roll(): return
+	yield (get_tree().create_timer(0.5), 'timeout')
 	self.set_face(randi()%6)
 
 
@@ -28,7 +32,11 @@ func set_face(index):
 	self.face_up = index
 	for child in $Faces.get_children():
 		child.hide()
-	$Faces.get_child(self.face_up).show()
+	
+	var current_face = $Faces.get_child(self.face_up)
+	current_face.show()
+	
+	emit_signal('cube_rolled', current_face.id)
 
 
 func set_id(value):
@@ -40,7 +48,7 @@ func set_keep(value):
 	keeped = value
 	emit_signal('on_keep', keeped)
 	# temp visual feedback
-	self.rotation_degrees += 180
+	self.rotation_degrees = 180 if keeped else 0
 
 
 func set_lock(value):
@@ -54,3 +62,7 @@ func on_input_event(_node, _event, _id):
 
 func get_face_value():
 	return $Faces.get_child(face_up).id
+	
+func reset():
+	locked = false
+	set_keep(false)

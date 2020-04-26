@@ -1,17 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Cubes/Cube.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sandbox/Sandbox.gd" type="Script" id=2]
+[ext_resource path="res://CubeBattle/BattleEngine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cubes/CubeSet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sandbox/SimpleCube.gd" type="Script" id=4]
 [ext_resource path="res://Sandbox/SubsetCubes.gd" type="Script" id=5]
+[ext_resource path="res://CubeBattle/Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sandbox/Arena.gd" type="Script" id=7]
 
 [node name="Sandbox" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="SimpleCube" type="Node2D" parent="."]
 position = Vector2( 5, 27 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Button" type="Button" parent="SimpleCube"]
 margin_left = 27.8697
@@ -39,48 +43,115 @@ __meta__ = {
 }
 
 [node name="SubsetCubes" type="Node2D" parent="."]
-position = Vector2( 2, 27 )
+position = Vector2( 22.5826, 182.104 )
 script = ExtResource( 5 )
 
 [node name="CubeSet" parent="SubsetCubes" instance=ExtResource( 3 )]
-position = Vector2( 374.576, 38.176 )
+position = Vector2( 118.764, 33.7655 )
 scale = Vector2( 2, 2 )
 
 [node name="Roll" type="Button" parent="SubsetCubes"]
-margin_left = 267.209
-margin_top = 94.3402
-margin_right = 353.209
-margin_bottom = 114.34
+margin_left = 11.3973
+margin_top = 89.9296
+margin_right = 97.3973
+margin_bottom = 109.93
 text = "Roll 3 dices"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Reset" type="Button" parent="SubsetCubes"]
-margin_left = 372.354
-margin_top = 94.0766
-margin_right = 498.354
-margin_bottom = 114.077
+margin_left = 116.542
+margin_top = 89.6661
+margin_right = 242.542
+margin_bottom = 109.666
 text = "Reset roll counter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Execute" type="Button" parent="SubsetCubes"]
-margin_left = 266.0
-margin_top = 121.0
-margin_right = 328.0
-margin_bottom = 141.0
+margin_left = 10.188
+margin_top = 116.589
+margin_right = 72.188
+margin_bottom = 136.589
 text = "Execute"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DebugSet1" type="RichTextLabel" parent="SubsetCubes"]
-margin_left = 515.69
-margin_top = 3.91151
-margin_right = 675.69
-margin_bottom = 80.9115
+margin_left = -6.5826
+margin_top = 145.896
+margin_right = 153.417
+margin_bottom = 222.896
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Arena" type="Node2D" parent="."]
+position = Vector2( 373.853, 42.8819 )
+script = ExtResource( 7 )
+
+[node name="PlayerA" parent="Arena" instance=ExtResource( 6 )]
+hit_points = 20
+character_name = "Player  A"
+active = true
+
+[node name="PlayerB" parent="Arena" instance=ExtResource( 6 )]
+position = Vector2( 305.798, -4.41055 )
+hit_points = 20
+character_name = "Player B"
+
+[node name="RollA" type="Button" parent="Arena"]
+margin_left = 90.1467
+margin_top = 245.118
+margin_right = 126.147
+margin_bottom = 265.118
+text = "Roll"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExecuteA" type="Button" parent="Arena"]
+margin_left = 140.133
+margin_top = 245.853
+margin_right = 202.133
+margin_bottom = 265.853
+text = "Execute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RollB" type="Button" parent="Arena"]
+margin_left = 290.147
+margin_top = 245.118
+margin_right = 326.147
+margin_bottom = 265.118
+text = "Roll"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExecuteB" type="Button" parent="Arena"]
+margin_left = 340.133
+margin_top = 245.118
+margin_right = 402.133
+margin_bottom = 265.118
+text = "Execute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleEngine" parent="Arena" instance=ExtResource( 2 )]
+
+[node name="dividers" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="dividers"]
+points = PoolVector2Array( 320, 0, 320, 336 )
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="dividers"]
+position = Vector2( 0, -7 )
+points = PoolVector2Array( 0, 168, 320, 168 )
+width = 3.0
