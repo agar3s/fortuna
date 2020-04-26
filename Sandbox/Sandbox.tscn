@@ -45,12 +45,31 @@ script = ExtResource( 5 )
 position = Vector2( 343.481, 56.8859 )
 scale = Vector2( 2, 2 )
 
-[node name="Button" type="Button" parent="SubsetCubes"]
-margin_left = 300.413
-margin_top = 107.516
-margin_right = 383.413
-margin_bottom = 127.516
+[node name="Roll" type="Button" parent="SubsetCubes"]
+margin_left = 238.749
+margin_top = 107.78
+margin_right = 324.749
+margin_bottom = 127.78
 text = "Roll 3 dices"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Launch" type="Button" parent="SubsetCubes"]
+margin_left = 343.894
+margin_top = 107.516
+margin_right = 469.894
+margin_bottom = 127.516
+text = "Reset roll counter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugSet1" type="RichTextLabel" parent="SubsetCubes"]
+margin_left = 473.0
+margin_top = 30.0
+margin_right = 633.0
+margin_bottom = 107.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
