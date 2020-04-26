@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cubes/Assets/DiceParts.png" type="Texture" id=1]
+[ext_resource path="res://Cubes/Face.gd" type="Script" id=2]
+
+[node name="Face" type="Node2D"]
+script = ExtResource( 2 )
+icon = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 20
+hframes = 16
