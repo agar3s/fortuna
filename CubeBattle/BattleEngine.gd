@@ -37,13 +37,18 @@ func resolveCubesFromB(cubes):
 
 func resolveCubes(origin, target, values: Array):
 	values.sort()
-	var combo = PoolStringArray(values).join('-')
-	print (combo)
 	
-	# check this combos in different stages
-	# validate match of 3 => execute match 3
-	# validate match of 2 => execute match 2
-	# validate match of 1 => execute match 1
-	print('combo? ', $SpellChecker.values.has(combo), ' ', combo)
-	print('resolve execution ', origin, target, values)
+	# check combo of 3
+	var combo = PoolStringArray(values).join('-')
+	if $SpellChecker.values.has(combo):
+		return [combo]
+	
+	combo = ['%s-%s' % [values[0], values[1]], values[2]]
+	if $SpellChecker.values.has(combo[0]):
+		return combo
+	
+	combo = [values[0], '%s-%s' % [values[1], values[2]]]
+	if $SpellChecker.values.has(combo[1]):
+		return combo
 
+	return values

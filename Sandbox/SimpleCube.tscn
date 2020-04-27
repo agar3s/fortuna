@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cubes/Cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sandbox/SimpleCube.gd" type="Script" id=2]
+
+[node name="SimpleCube" type="Node2D"]
+position = Vector2( 5, 27 )
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 147.0
+margin_top = 69.0
+margin_right = 226.0
+margin_bottom = 89.0
+text = "Roll 1 dice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cube" parent="." instance=ExtResource( 1 )]
+position = Vector2( 91, 37 )
+scale = Vector2( 2, 2 )
+id = "004"
+
+[node name="DebugCube1" type="RichTextLabel" parent="."]
+margin_left = 139.0
+margin_top = 13.0
+margin_right = 247.0
+margin_bottom = 69.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 3.0
+margin_top = -19.0
+margin_right = 51.0
+margin_bottom = 85.0
+allow_rmb_select = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="faces" type="Node2D" parent="."]
+position = Vector2( 67, -11 )

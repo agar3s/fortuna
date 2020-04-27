@@ -19,7 +19,7 @@ const values = {
 	},
 	'02': {
 		'id': '02',
-		'icon': 5,
+		'icon': 58,
 		'instant_effect': true,
 		'title': 'Mind Lock',
 		'description': 'Lock the dice.\nX3: apply 3 damage to yourself.',
@@ -103,7 +103,7 @@ const values = {
 	},
 	'09': {
 		'id': '09',
-		'icon': 66,
+		'icon': 55,
 		'instant_effect': false,
 		'title': 'Harden',
 		'description': 'Prevent 1 future damage.',

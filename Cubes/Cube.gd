@@ -4,8 +4,8 @@ signal on_lock
 signal on_keep
 signal cube_rolled
 
-export (int) var id = 0 setget set_id
-export (Array, int) var face_indexes = ['01', '02', '03', '04', '05', '06']
+export (String) var id = '001' setget set_id
+export (Array, int) var face_indexes = ['01','01','01','01','01','01']
 export (String) var title = 'sample cube'
 
 var face_up = 0
@@ -13,14 +13,13 @@ var locked = false setget set_lock
 var keeped = false setget set_keep
 
 func _ready():
-	var i = 0
-	for child in $Faces.get_children():
-		child.id = face_indexes[i]
-		i += 1
+	set_id(self.id)
 	$Hitbox.connect('input_event', self, 'on_input_event')
+
 
 func can_roll():
 	return !locked and !keeped
+
 
 func roll():
 	if !can_roll(): return
@@ -41,6 +40,11 @@ func set_face(index):
 
 func set_id(value):
 	id = value
+	face_indexes = CubeConfigurations.cubes[id].faces
+	var i = 0
+	for child in $Faces.get_children():
+		child.id = face_indexes[i]
+		i += 1
 
 
 func set_keep(value):
@@ -60,8 +64,10 @@ func on_input_event(_node, _event, _id):
 	if !locked && _event is InputEventMouseButton && _event.pressed:
 		set_keep(!keeped)
 
+
 func get_face_value():
 	return $Faces.get_child(face_up).id
+
 	
 func reset():
 	locked = false

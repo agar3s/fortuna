@@ -4,7 +4,7 @@ signal on_execute
 signal execute_unlocked
 signal cubes_rolled
 
-export (Array, int) var cube_indexes = [0, 1, 2]
+export (Array, String) var cube_indexes = ['001', '001', '001']
 
 var roll_count = 0
 var roll_limit = 3

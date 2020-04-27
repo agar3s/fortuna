@@ -8,7 +8,14 @@ func _ready():
 	$Button.connect("button_down", self, "roll_dice")
 	$Cube.connect('on_lock', self, 'update_debug')
 	$Cube.connect("on_keep", self, 'update_debug')
+	$Cube.connect("cube_rolled", self, 'update_debug')
+	$ItemList.connect("item_selected", self, 'load_dice')
 	update_debug('init')
+	for key in CubeConfigurations.cubes.keys():
+		$ItemList.add_item(key)
+	
+	load_dice(0)
+
 
 func roll_dice():
 	$Cube.roll()
@@ -20,3 +27,19 @@ func update_debug(value):
 	
 func test_signal():
 	print('test signal')
+
+func load_dice(index):
+	var key = $ItemList.get_item_text(index)
+	print(key)
+	$Cube.id = key
+
+	for child in $faces.get_children():
+		$faces.remove_child(child)
+
+	var i = 0
+	for child in $Cube/Faces.get_children():
+		var copy = child.duplicate()
+		copy.show()
+		copy.position.x += i*32
+		$faces.add_child(copy)
+		i+=1
