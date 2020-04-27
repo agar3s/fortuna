@@ -5,7 +5,7 @@ signal on_keep
 signal cube_rolled
 
 export (int) var id = 0 setget set_id
-export (Array, int) var face_indexes = [0, 1, 2, 3, 4, 5]
+export (Array, int) var face_indexes = ['01', '02', '03', '04', '05', '06']
 export (String) var title = 'sample cube'
 
 var face_up = 0

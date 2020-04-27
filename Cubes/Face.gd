@@ -12,8 +12,8 @@ func _ready():
 	$Sprite.frame = icon
 
 func set_id(value):
+	var properties = FaceDescription.values[value]
 	id = value
-	var properties = FaceDescription.values[id]
 	self.icon = properties.icon
 	self.instant_effect = properties.instant_effect
 	self.title = properties.title

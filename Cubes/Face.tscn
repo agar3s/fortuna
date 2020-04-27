@@ -11,3 +11,4 @@ icon = 0
 texture = ExtResource( 1 )
 vframes = 20
 hframes = 16
+frame = 4

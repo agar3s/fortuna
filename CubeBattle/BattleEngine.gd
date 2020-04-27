@@ -35,6 +35,15 @@ func resolveCubesFromB(cubes):
 	resolveCubes(playerB, playerA, cubes)
 	emit_signal("turn_ended", 2)
 
-func resolveCubes(origin, target, values):
+func resolveCubes(origin, target, values: Array):
+	values.sort()
+	var combo = PoolStringArray(values).join('-')
+	print (combo)
+	
+	# check this combos in different stages
+	# validate match of 3 => execute match 3
+	# validate match of 2 => execute match 2
+	# validate match of 1 => execute match 1
+	print('combo? ', $SpellChecker.values.has(combo), ' ', combo)
 	print('resolve execution ', origin, target, values)
 
