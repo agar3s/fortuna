@@ -996,3 +996,42 @@ const values = {
 		}]
 	}
 }
+
+
+func find_combos(faces: Array):
+	faces.sort()
+	
+	# check combo of 3
+	var combo = '%s-%s-%s' % faces
+	if values.has(combo):
+		return [combo]
+	
+	combo = ['%s-%s' % [faces[0], faces[1]], faces[2]]
+	if values.has(combo[0]):
+		return combo
+	
+	combo = [faces[0], '%s-%s' % [faces[1], faces[2]]]
+	if values.has(combo[1]):
+		return combo
+
+	return faces
+
+func find_probabilities(faces1: Array, faces2: Array, faces3: Array):
+	var combinations = []
+	
+	for a in faces1:
+		for b in faces2:
+			for c in faces3:
+				combinations.append([a, b, c])
+	
+	var unique_combos = {}
+	for combination in combinations:
+		var combos = find_combos(combination)
+		for combo in combos:
+			if not unique_combos.has(combo):
+				unique_combos[combo] = { 'total': 0, 'prob': 0, 'triple': combo.length() == 8 }
+			unique_combos[combo].total += 1.0
+			unique_combos[combo].prob = 100*unique_combos[combo].total/combinations.size()
+	
+	return unique_combos
+	

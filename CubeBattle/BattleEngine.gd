@@ -36,19 +36,4 @@ func resolveCubesFromB(cubes):
 	emit_signal("turn_ended", 2)
 
 func resolveCubes(origin, target, values: Array):
-	values.sort()
-	
-	# check combo of 3
-	var combo = PoolStringArray(values).join('-')
-	if $SpellChecker.values.has(combo):
-		return [combo]
-	
-	combo = ['%s-%s' % [values[0], values[1]], values[2]]
-	if $SpellChecker.values.has(combo[0]):
-		return combo
-	
-	combo = [values[0], '%s-%s' % [values[1], values[2]]]
-	if $SpellChecker.values.has(combo[1]):
-		return combo
-
-	return values
+	return $SpellChecker.find_combos(values)

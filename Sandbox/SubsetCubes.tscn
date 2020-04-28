@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sandbox/SubsetCubes.gd" type="Script" id=2]
+[ext_resource path="res://Cubes/CubeSet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CubeBattle/BattleEngine.tscn" type="PackedScene" id=5]
+
+[node name="SubsetCubes" type="Node2D"]
+position = Vector2( 24, 16 )
+script = ExtResource( 2 )
+
+[node name="CubeSet" parent="." instance=ExtResource( 4 )]
+position = Vector2( 50.4174, 9.896 )
+cube_indexes = [ "001", "002", "003" ]
+
+[node name="Roll" type="Button" parent="."]
+margin_left = -16.0
+margin_top = 120.0
+margin_right = 70.0
+margin_bottom = 140.0
+text = "Roll 3 dices"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+margin_left = -16.0
+margin_top = 168.0
+margin_right = 110.0
+margin_bottom = 188.0
+text = "Reset roll counter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Execute" type="Button" parent="."]
+margin_left = -16.0
+margin_top = 144.0
+margin_right = 46.0
+margin_bottom = 164.0
+text = "Execute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugSet1" type="RichTextLabel" parent="."]
+margin_left = 128.0
+margin_top = -8.0
+margin_right = 336.0
+margin_bottom = 368.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugSet2" type="RichTextLabel" parent="."]
+margin_left = -16.0
+margin_top = 208.0
+margin_right = 112.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleEngine" parent="." instance=ExtResource( 5 )]
+position = Vector2( -16, 0 )
+
+[node name="Cube01" type="ItemList" parent="."]
+margin_left = -13.0
+margin_top = 32.0
+margin_right = 27.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cube02" type="ItemList" parent="."]
+margin_left = 29.0
+margin_top = 32.0
+margin_right = 72.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cube03" type="ItemList" parent="."]
+margin_left = 74.0
+margin_top = 32.0
+margin_right = 116.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

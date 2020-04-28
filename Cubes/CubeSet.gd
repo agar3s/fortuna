@@ -67,4 +67,14 @@ func execute():
 	if locked || roll_count == 0: return
 	locked = true
 	emit_signal('on_execute', get_combo())
-	
+
+
+func get_available_faces():
+	var faces = []
+	for cube in $Cubes.get_children():
+		if cube.can_roll():
+			faces.append(cube.face_indexes)
+		else:
+			faces.append([cube.get_face_value()])
+	return faces
+
