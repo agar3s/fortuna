@@ -5,6 +5,7 @@ signal execution_solved
 export (int) var hit_points = 1 setget set_hit_points
 export (String) var character_name = 'demo'
 export (bool) var active = false setget set_active
+export (int) var order = 1
 
 func _ready():
 	$Stats/LabelName.text = character_name.capitalize()

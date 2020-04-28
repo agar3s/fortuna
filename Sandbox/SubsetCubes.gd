@@ -8,6 +8,7 @@ func _ready():
 	$Execute.connect("button_down", self, 'execute_cubes')
 	$CubeSet.connect("on_execute", self, 'execute_result')
 	$CubeSet.connect("cubes_rolled", self, 'update_rolls')
+	$BattleEngine.connect('instants_triggered', self, 'display_instants')
 
 	
 	$Cube01.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube1])
@@ -20,6 +21,8 @@ func _ready():
 	$CubeSet/Cubes/Cube1.connect("on_lock", self, 'update_face')
 	$CubeSet/Cubes/Cube2.connect("on_lock", self, 'update_face')
 	$CubeSet/Cubes/Cube3.connect("on_lock", self, 'update_face')
+	
+	
 	
 	for key in CubeConfigurations.cubes.keys():
 		$Cube01.add_item(key)
@@ -42,6 +45,9 @@ func execute_cubes():
 func update_rolls(values):
 	update_debug_text()
 	update_probabilities()
+	# check instants?
+	print('update rolls from subset', values)
+	$BattleEngine.resolveInstants(values, {'order': 1})
 
 
 func update_debug_text():
@@ -54,9 +60,12 @@ func update_debug_text():
 		str(computed_values)
 	]
 
+func display_instants(instants, player):
+	print('should execute instants from %s' % [player.order])
+	print(instants)
 
 func execute_result(combo):
-	computed_values = $BattleEngine.resolveCubes('origin', 'target', combo)
+	computed_values = $BattleEngine.get_node("SpellChecker").find_combos(combo)
 	print(computed_values)
 
 

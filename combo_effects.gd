@@ -4,11 +4,22 @@ extends Node
 const values = {
 	# Demon invocation
 	'01': {
-		'effects': []
+		'effects': [],
+		'instants': [{
+			'type': 'transfer_demon_counter',
+			'quantity': 1,
+			'from': 'pool',
+			'to': 'player'
+		}]
 	},
 	# Mind Lock
 	'02': {
-		'effects': []
+		'effects': [],
+		'instants': [{
+			'type': 'lock_dice',
+			'target': 'player',
+			'from': 'player'
+		}]
 	},
 	# Mind Lock
 	'02-02-02': {
@@ -37,7 +48,14 @@ const values = {
 	},
 	# Burnout
 	'03': {
-		'effects': []
+		'effects': [],
+		'instants': [{
+			'type': 'apply_damage',
+			'damage': 1,
+			'damage_type': 'neutral',
+			'from': 'player',
+			'to': 'player'
+		}]
 	},
 	# Panic
 	'04': {
@@ -47,6 +65,11 @@ const values = {
 			'damage_type': 'neutral',
 			'from': 'player',
 			'to': 'player'
+		}],
+		'instants': [{
+			'type': 'lock_dice',
+			'target': 'player',
+			'from': 'player'
 		}]
 	},
 	# Panic X2
@@ -71,7 +94,15 @@ const values = {
 	},
 	# Doubt
 	'05': {
-		'effects': []
+		'effects': [],
+		'instants': [{
+			'type': 'unlock_dice',
+			'target': 'all',
+			'from': 'player'
+		}, {
+			'type': 'roll',
+			'target': 'player'
+		}]
 	},
 	# Fire Ball
 	'06':{
@@ -175,7 +206,7 @@ const values = {
 		}, {
 			'type': 'modify_roll_limit',
 			'value': -1,
-			'turns': '1',
+			'turns': 1,
 			'from': 'player',
 			'to': 'enemy'
 		}]
@@ -245,7 +276,7 @@ const values = {
 		}, {
 			'type': 'modify_roll_limit',
 			'value': 1,
-			'turns': '1',
+			'turns': 1,
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -261,7 +292,7 @@ const values = {
 		}, {
 			'type': 'modify_roll_limit',
 			'value': 1,
-			'turns': '2',
+			'turns': 2,
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -511,7 +542,7 @@ const values = {
 			'type': 'recover_continuous_damage',
 			'hit_points': 1,
 			'turns': 2,
-			'to': 'enemy'
+			'to': 'player'
 		}]
 	},
 	# Heal x3  critic
@@ -524,7 +555,7 @@ const values = {
 			'type': 'recover_continuous_damage',
 			'hit_points': 1,
 			'turns': 5,
-			'to': 'enemy'
+			'to': 'player'
 		}]
 	},
 	# Control

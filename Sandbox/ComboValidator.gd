@@ -124,7 +124,7 @@ func run_tests():
 	var passed = 0
 	var failed = 0
 	for test in tests:
-		var res = $BattleEngine.resolveCubes('origin', 'target', test[0])
+		var res = $BattleEngine.get_node('SpellChecker').find_combos(test[0])
 		if res == test[1]:
 			passed +=1
 		else:
