@@ -34,3 +34,14 @@ func set_active(value):
 		$CubeSet.reset()
 	else:
 		$CubeSet.locked = true
+
+
+func cast(type):
+	print('cast a spell type: ', type)
+
+
+func get_damage(damage, type):
+	print('get %s of %s damage' % [damage, type])
+	hit_points -= damage
+	
+	

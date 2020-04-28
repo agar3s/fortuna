@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 const Character = preload("res://CubeBattle/Character.gd")
 
 signal turn_ended
@@ -53,5 +53,9 @@ func solve_execution(values, player):
 
 func apply_spell(spell, from, to, cube_index=-1):
 	print('do something ', spell.type)
-	print('instant ', cube_index)
+	$SpellCaster.parse_spell(spell, from, to, cube_index)
+
+
+
+
 

@@ -62,7 +62,6 @@ __meta__ = {
 }
 
 [node name="BattleEngine" parent="." instance=ExtResource( 5 )]
-position = Vector2( -16, 0 )
 
 [node name="Cube01" type="ItemList" parent="."]
 margin_left = -13.0
