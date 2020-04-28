@@ -2,14 +2,16 @@ extends Node2D
 
 var cube_debug_text = "Faces: %s %s %s\nRoll Count: %s\nCan roll?: %s\nCombo: %s"
 var computed_values = ''
+
 func _ready():
+	randomize()
 	$Roll.connect("button_down", self, 'roll_cubes')
 	$Reset.connect("button_down", self, 'reset_cubes')
-	$Execute.connect("button_down", self, 'execute_cubes')
-	$CubeSet.connect("on_execute", self, 'execute_result')
 	$CubeSet.connect("cubes_rolled", self, 'update_rolls')
-	$BattleEngine.connect('instants_triggered', self, 'display_instants')
-
+	$CubeSet.connect("on_execute", self, 'execute_result')
+	$Execute.connect("button_down", self, 'execute_cubes')
+	$BattleEngine.player_a = $PlayerA
+	$BattleEngine.player_b = $PlayerB
 	
 	$Cube01.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube1])
 	$Cube02.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube2])
@@ -46,8 +48,8 @@ func update_rolls(values):
 	update_debug_text()
 	update_probabilities()
 	# check instants?
-	print('update rolls from subset', values)
-	$BattleEngine.resolveInstants(values, {'order': 1})
+	print('\n\nupdate rolls from subset', values)
+	$BattleEngine.solve_instants(values, $PlayerA)
 
 
 func update_debug_text():
@@ -60,12 +62,10 @@ func update_debug_text():
 		str(computed_values)
 	]
 
-func display_instants(instants, player):
-	print('should execute instants from %s' % [player.order])
-	print(instants)
 
 func execute_result(combo):
-	computed_values = $BattleEngine.get_node("SpellChecker").find_combos(combo)
+	print('\n\nexecute result?')
+	$BattleEngine.solve_execution(combo, $PlayerA)
 	print(computed_values)
 
 

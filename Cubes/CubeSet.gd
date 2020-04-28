@@ -25,7 +25,16 @@ func propagate_instant_effect(face):
 	cubes_done += 1
 	new_faces.append(face)
 	if cubes_done == cubes_thrown:
-		emit_signal('cubes_rolled', new_faces)
+		cubes_rolled()
+
+func cubes_rolled():
+	emit_signal('cubes_rolled', new_faces)
+	
+	roll_count += 1
+	if roll_count == 1:
+		emit_signal("execute_unlocked")
+	if roll_count >= roll_limit:
+		execute()
 
 
 func roll_cubes():
@@ -38,12 +47,6 @@ func roll_cubes():
 		if cube.can_roll():
 			cubes_thrown += 1
 		cube.roll()
-	
-	roll_count += 1
-	if roll_count == 1:
-		emit_signal("execute_unlocked")
-	if roll_count >= roll_limit:
-		execute()
 
 
 func can_roll():
