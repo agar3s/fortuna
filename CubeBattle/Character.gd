@@ -37,11 +37,16 @@ func set_active(value):
 
 
 func cast(type):
-	print('cast a spell type: ', type)
+	print(order, ') cast a spell type: ', type)
 
 
 func get_damage(damage, type):
-	print('get %s of %s damage' % [damage, type])
+	print(order, ') get %s of %s damage' % [damage, type])
 	hit_points -= damage
+
+
+func recover_damage(hit_points):
+	print(order, ') recover %s hit points' % [hit_points])
+	self.hit_points += hit_points
 	
 	
