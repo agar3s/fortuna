@@ -1,6 +1,6 @@
 extends Node2D
 
-var cube_debug_text = "Faces: %s %s %s\nRoll Count: %s\nCan roll?: %s\nCombo: %s"
+var cube_debug_text = "Faces: %s %s %s\nRoll Count: %s\nCan roll?: %s\nCombo: %s\nDemon pool: %s\nPlayerA demon tokens: %s\nPlayerA hp: %s\nPlayerB demon tokens: %s\nPlayerB hp: %s"
 var computed_values = ''
 
 func _ready():
@@ -12,6 +12,7 @@ func _ready():
 	$Execute.connect("button_down", self, 'execute_cubes')
 	$BattleEngine.player_a = $PlayerA
 	$BattleEngine.player_b = $PlayerB
+	$BattleEngine.demon_pool = $DemonPool
 	
 	$Cube01.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube1])
 	$Cube02.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube2])
@@ -45,11 +46,11 @@ func execute_cubes():
 	update_debug_text()
 
 func update_rolls(values):
-	update_debug_text()
-	update_probabilities()
 	# check instants?
 	print('\n\nupdate rolls from subset', values)
 	$BattleEngine.solve_instants(values, $PlayerA)
+	update_debug_text()
+	update_probabilities()
 
 
 func update_debug_text():
@@ -59,7 +60,12 @@ func update_debug_text():
 		$CubeSet/Cubes/Cube3.face_up,
 		$CubeSet.roll_count,
 		$CubeSet.can_roll(),
-		str(computed_values)
+		str(computed_values),
+		$DemonPool.demon_tokens,
+		$PlayerA.demon_tokens,
+		$PlayerA.hit_points,
+		$PlayerB.demon_tokens,
+		$PlayerB.hit_points,
 	]
 
 

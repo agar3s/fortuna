@@ -9,11 +9,23 @@ func apply_damage(damage, type, from, to):
 
 func recover_damage(hit_points, to):
 	to.recover_damage(hit_points)
+	
 
+func transfer_demon_counter(quantity, from, to):
+	print('parse %s tokens ' % quantity)
+	if quantity is String and quantity == 'all':
+		quantity = from.demon_tokens
+	
+	quantity = quantity if from.demon_tokens >= quantity else from.demon_tokens
+	
+	from.demon_tokens -= quantity
+	to.demon_tokens += quantity
+	
 
-func parse_spell(spell, player, enemy, cube_index):
+func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	var from = player
 	var to = enemy
+	print('parsing spell> ', spell.type)
 	if spell.has('to') and spell.to == 'player':
 		to = player
 		
@@ -22,3 +34,10 @@ func parse_spell(spell, player, enemy, cube_index):
 
 	if spell.type == 'recover_damage':
 		recover_damage(spell.hit_points, to)
+
+	if spell.type == 'transfer_demon_counter':
+		if spell.from == 'pool':
+			from = demon_pool
+		if spell.to == 'pool':
+			to = demon_pool
+		transfer_demon_counter(spell.quantity, from, to)

@@ -17,12 +17,13 @@ _global_script_class_icons={
 
 config/name="fortuna"
 run/main_scene="res://Sandbox/Sandbox.tscn"
-config/icon="res://icon.png"
+config/icon="res://icon.jpg"
 
 [autoload]
 
 FaceDescription="*res://face_description.gd"
 CubeConfigurations="*res://cube_configurations.gd"
+Events="*res://Events.gd"
 
 [display]
 

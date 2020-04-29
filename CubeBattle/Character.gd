@@ -7,9 +7,12 @@ export (String) var character_name = 'demo'
 export (bool) var active = false setget set_active
 export (int) var order = 1
 
+var demon_tokens = 0
+
 func _ready():
 	$Stats/LabelName.text = character_name.capitalize()
 	$CubeSet.connect('on_execute', self, 'resolve_execution')
+	Events.connect('demon_pool_empty', self, 'resolve_demon_tokens')
 
 
 func set_hit_points(value):
@@ -48,5 +51,15 @@ func get_damage(damage, type):
 func recover_damage(hit_points):
 	print(order, ') recover %s hit points' % [hit_points])
 	self.hit_points += hit_points
+
 	
+func add_demon_tokens(value):
+	demon_tokens += value
+
 	
+func remove_demon_tokens(value):
+	demon_tokens -= value
+
+func resolve_demon_tokens():
+	get_damage(demon_tokens, 'demons')
+	demon_tokens = 0
