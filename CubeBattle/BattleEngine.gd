@@ -15,14 +15,14 @@ func _ready():
 func set_player_a(value):
 	player_a = value
 	player_a.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_a])
-	player_a.connect('execution_solved', self, 'solve_execution', [player_a])
+	player_a.connect('cast_solved', self, 'solve_cast', [player_a])
 	player_a.order = 1
 
 
 func set_player_b(value):
 	player_b = value
 	player_b.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_b])
-	player_b.connect('execution_solved', self, 'solve_execution', [player_b])
+	player_b.connect('cast_solved', self, 'solve_cast', [player_b])
 	player_a.order = 2
 
 
@@ -47,9 +47,9 @@ func solve_instants(faces, player):
 	emit_signal('instants_triggered', instant_effects, player)
 
 
-func solve_execution(values, player):
+func solve_cast(values, player):
 	var oponent = player_b if player == player_a else player_a
-	print('solve execution values')
+	print('solve cast values')
 	print(values)
 	var combos = $SpellChecker.find_combos(values)
 	print(combos)

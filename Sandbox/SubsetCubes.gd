@@ -8,8 +8,8 @@ func _ready():
 	$Roll.connect("button_down", self, 'roll_cubes')
 	$Reset.connect("button_down", self, 'reset_cubes')
 	$CubeSet.connect("cubes_rolled", self, 'update_rolls')
-	$CubeSet.connect("on_execute", self, 'execute_result')
-	$Execute.connect("button_down", self, 'execute_cubes')
+	$CubeSet.connect("on_cast", self, 'cast_result')
+	$Execute.connect("button_down", self, 'cast_cubes')
 	$BattleEngine.player_a = $PlayerA
 	$BattleEngine.player_b = $PlayerB
 	$BattleEngine.demon_pool = $DemonPool
@@ -43,8 +43,8 @@ func reset_cubes():
 	$CubeSet.reset()
 	update_debug_text()
 
-func execute_cubes():
-	$CubeSet.execute()
+func cast_cubes():
+	$CubeSet.cast()
 	update_debug_text()
 
 func update_rolls(values):
@@ -71,9 +71,9 @@ func update_debug_text():
 	]
 
 
-func execute_result(combo):
-	print('\n\nexecute result?')
-	$BattleEngine.solve_execution(combo, $PlayerA)
+func cast_result(combo):
+	print('\n\ncast result?')
+	$BattleEngine.solve_cast(combo, $PlayerA)
 	print(computed_values)
 
 
@@ -84,7 +84,7 @@ func load_dice(index, cube):
 	update_probabilities()
 
 
-func update_face(value):
+func update_face(_value):
 	update_probabilities()
 
 

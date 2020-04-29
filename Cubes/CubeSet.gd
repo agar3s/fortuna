@@ -1,7 +1,7 @@
 extends Node2D
 
-signal on_execute
-signal execute_unlocked
+signal on_cast
+signal cast_unlocked
 signal cubes_rolled
 
 export (Array, String) var cube_indexes = ['001', '001', '001']
@@ -32,9 +32,9 @@ func cubes_rolled():
 	
 	roll_count += 1
 	if roll_count == 1:
-		emit_signal("execute_unlocked")
+		emit_signal('cast_unlocked')
 	if roll_count >= roll_limit:
-		execute()
+		cast()
 
 
 func roll_cubes():
@@ -66,10 +66,10 @@ func get_combo():
 	return combo
 
 
-func execute():
+func cast():
 	if locked || roll_count == 0: return
 	locked = true
-	emit_signal('on_execute', get_combo())
+	emit_signal('on_cast', get_combo())
 
 
 func get_available_faces():

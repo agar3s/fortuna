@@ -8,10 +8,10 @@ func _ready():
 	$BattleEngine.demon_pool = $DemonPool
 
 	$RollA.connect("button_down", $PlayerA, 'roll')
-	$ExecuteA.connect("button_down", $PlayerA, 'send_execute')
+	$ExecuteA.connect("button_down", $PlayerA, 'send_cast')
 
 	$RollB.connect("button_down", $PlayerB, 'roll')
-	$ExecuteB.connect("button_down", $PlayerB, 'send_execute')
+	$ExecuteB.connect("button_down", $PlayerB, 'send_cast')
 	$PlayerB/Body.flip_h = true
 	
 	$BattleEngine.connect('turn_ended', self, 'on_player_turn_end')

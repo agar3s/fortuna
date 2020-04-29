@@ -120,7 +120,6 @@ func run_tests():
 	]
 
 	$DebugComboList.text = 'values \t\t   combo found\t   test\n'
-	var i = 0
 	var passed = 0
 	var failed = 0
 	for test in tests:
@@ -130,6 +129,5 @@ func run_tests():
 		else:
 			failed += 1
 		$DebugComboList.text += '%s \t %s\t%s\n' % [test[0], res, res==test[1]]
-		i += 1
 	$DebugComboList.text += '\ntest finished %s passed %s failed' % [passed, failed]
 

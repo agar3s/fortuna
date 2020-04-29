@@ -1,6 +1,6 @@
 extends Node2D
 
-signal execution_solved
+signal cast_solved
 
 export (int) var hit_points = 20 setget set_hit_points
 export (String) var character_name = 'demo'
@@ -14,7 +14,7 @@ export (int) var max_hit_points = 20
 
 func _ready():
 	$Stats/LabelName.text = character_name.capitalize()
-	$CubeSet.connect('on_execute', self, 'resolve_execution')
+	$CubeSet.connect('on_cast', self, 'resolve_cast')
 	Events.connect('demon_pool_empty', self, 'resolve_demon_tokens')
 
 
@@ -25,8 +25,8 @@ func set_hit_points(value):
 func roll():
 	$CubeSet.roll_cubes()
 
-func send_execute():
-	$CubeSet.execute()
+func send_cast():
+	$CubeSet.cast()
 
 func lock_cubes(cube_indexes):
 	print('going to lock ', cube_indexes)
@@ -40,11 +40,11 @@ func force_unlock_cubes(cube_indexes):
 		$CubeSet.get_node('Cubes').get_child(index).force_unlock()
 		print('cube unlocked ', index)
 
-func resolve_execution(combo):
-	emit_signal("execution_solved", combo)
+func resolve_cast(combo):
+	emit_signal('cast_solved', combo)
 
 func resolve_instants(combo):
-	emit_signal("execution_solved", combo)
+	emit_signal('cast_solved', combo)
 
 func set_active(value):
 	active = value
@@ -61,7 +61,6 @@ func cast(type):
 func get_damage(damage, type):
 	print(order, ') get %s of %s damage' % [damage, type])
 	if armor > 0:
-		var temp = damage
 		armor -= damage
 		if armor < 0:
 			damage = -armor

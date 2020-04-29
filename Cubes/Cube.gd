@@ -12,6 +12,7 @@ var face_up = 0
 var locked = false setget set_lock
 var keeped = false setget set_keep
 var keepable = true
+var rolling = false
 
 func _ready():
 	set_id(self.id)
@@ -21,24 +22,28 @@ func _ready():
 func can_roll():
 	return !locked and !keeped
 
-
 func roll():
 	if !can_roll(): return
-	keepable = true
-	yield (get_tree().create_timer(0.5), 'timeout')
+	rolling = true
+	yield (get_tree().create_timer(0.2), 'timeout')
+	rolling = false
+	yield (get_tree().create_timer(0.05), 'timeout')
 	self.set_face(randi()%6)
-	
+	yield (get_tree().create_timer(0.07), 'timeout')
+	self.set_face(randi()%6)
+	yield (get_tree().create_timer(0.1), 'timeout')
+	self.set_face(randi()%6)
+	keepable = true
+	emit_signal('cube_rolled', $Faces.get_child(face_up).id)
 
+func _process(_delta):
+	if rolling:
+		set_face(randi()%6)
 
 func set_face(index):
-	self.face_up = index
-	for child in $Faces.get_children():
-		child.hide()
-	
-	var current_face = $Faces.get_child(self.face_up)
-	current_face.show()
-	
-	emit_signal('cube_rolled', current_face.id)
+	$Faces.get_child(face_up).hide()
+	face_up = index
+	$Faces.get_child(face_up).show()
 
 
 func set_id(value):
