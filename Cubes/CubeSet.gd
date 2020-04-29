@@ -4,7 +4,7 @@ signal on_cast
 signal cast_unlocked
 signal cubes_rolled
 
-export (Array, String) var cube_indexes = ['001', '001', '001']
+export (Array, String) var cube_indexes = ['001', '001', '001'] setget set_cube_indexes
 
 var roll_count = 0
 var roll_limit = 3
@@ -22,11 +22,21 @@ func _ready():
 		child.connect('cube_rolled', self, 'propagate_instant_effect')
 		i += 1
 
+
+func set_cube_indexes(values):
+	cube_indexes = values
+	var i = 0
+	for child in $Cubes.get_children():
+		child.id = cube_indexes[i]
+		i += 1
+
+	
 func propagate_instant_effect(face, cube_index):
 	cubes_done += 1
 	new_faces.append([face, cube_index])
 	if cubes_done == cubes_thrown:
 		cubes_rolled()
+
 
 func cubes_rolled():
 	emit_signal('cubes_rolled', new_faces)
@@ -59,6 +69,7 @@ func reset():
 	locked = false
 	for child in $Cubes.get_children():
 		child.reset()
+
 
 func get_combo():
 	var combo = []

@@ -13,10 +13,12 @@ script = ExtResource( 4 )
 position = Vector2( -8, -16 )
 character_name = "Player  A"
 active = true
+cube_indexes = [ "001", "002", "021" ]
 
 [node name="PlayerB" parent="." instance=ExtResource( 7 )]
 position = Vector2( 304, -16 )
 character_name = "Player B"
+cube_indexes = [ "003", "006", "011" ]
 
 [node name="RollA" type="Button" parent="."]
 margin_left = 90.1467

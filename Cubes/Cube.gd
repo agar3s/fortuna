@@ -41,9 +41,9 @@ func _process(_delta):
 	if rolling:
 		set_face(randi()%6)
 
-func set_face(index):
+func set_face(face_index):
 	$Faces.get_child(face_up).hide()
-	face_up = index
+	face_up = face_index
 	$Faces.get_child(face_up).show()
 
 
