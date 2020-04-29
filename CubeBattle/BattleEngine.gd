@@ -34,15 +34,13 @@ func solve_instants(faces, player):
 	var oponent = player_b if player == player_a else player_a
 	print('resolve instants for %s' % [player.order], faces)
 	var instant_effects = []
-	var i = 0
+	
 	for face in faces:
-		var spell: Dictionary = $SpellChecker.values[face]
-
+		var spell: Dictionary = $SpellChecker.values[face[0]]
 		if spell.has('instants'):
 			for instant in spell.instants:
-				instant_effects.append([i, instant])
-				apply_spell(instant, player, oponent, i)
-		i += 1
+				instant_effects.append([face[1], instant])
+				apply_spell(instant, player, oponent, face[1])
 	
 	emit_signal('instants_triggered', instant_effects, player)
 

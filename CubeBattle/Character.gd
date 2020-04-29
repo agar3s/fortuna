@@ -48,6 +48,7 @@ func resolve_instants(combo):
 
 func set_active(value):
 	active = value
+	print ('set active cubes: ', value)
 	if active:
 		$CubeSet.reset()
 	else:

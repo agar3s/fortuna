@@ -18,12 +18,13 @@ func _ready():
 	var i = 0
 	for child in $Cubes.get_children():
 		child.id = cube_indexes[i]
+		child.index = i
 		child.connect('cube_rolled', self, 'propagate_instant_effect')
 		i += 1
 
-func propagate_instant_effect(face):
+func propagate_instant_effect(face, cube_index):
 	cubes_done += 1
-	new_faces.append(face)
+	new_faces.append([face, cube_index])
 	if cubes_done == cubes_thrown:
 		cubes_rolled()
 

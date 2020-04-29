@@ -14,6 +14,7 @@ func set_demon_tokens(value):
 
 	if demon_tokens <= 0:
 		print("emit empty pool")
+		yield (get_tree().create_timer(0.1), 'timeout')
 		Events.emit_signal('demon_pool_empty')
 		demon_tokens = limit
 

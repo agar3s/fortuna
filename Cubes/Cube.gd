@@ -13,6 +13,7 @@ var locked = false setget set_lock
 var keeped = false setget set_keep
 var keepable = true
 var rolling = false
+var index = 0
 
 func _ready():
 	set_id(self.id)
@@ -34,7 +35,7 @@ func roll():
 	yield (get_tree().create_timer(0.1), 'timeout')
 	self.set_face(randi()%6)
 	keepable = true
-	emit_signal('cube_rolled', $Faces.get_child(face_up).id)
+	emit_signal('cube_rolled', $Faces.get_child(face_up).id, index)
 
 func _process(_delta):
 	if rolling:
@@ -56,7 +57,7 @@ func set_id(value):
 
 
 func set_keep(value):
-	if !keepable or locked: return
+	if value and (!keepable or locked): return
 	keeped = value
 	emit_signal('on_keep', keeped)
 	# temp visual feedback
@@ -80,8 +81,7 @@ func get_face_value():
 	
 func reset():
 	locked = false
-	keepable = true
-	print('set keepable ', keepable)
+	keepable = false
 	set_keep(false)
 
 func force_unlock():
