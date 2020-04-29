@@ -93,11 +93,9 @@ __meta__ = {
 
 [node name="PlayerA" parent="." instance=ExtResource( 1 )]
 visible = false
-hit_points = 20
 
 [node name="PlayerB" parent="." instance=ExtResource( 1 )]
 visible = false
-hit_points = 20
 armor = 3
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]

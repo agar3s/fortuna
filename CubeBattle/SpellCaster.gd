@@ -23,6 +23,13 @@ func transfer_demon_counter(quantity, from, to):
 
 func prevent_damage(damage, to):
 	to.armor += damage
+
+func lock_dice(target, from, cube_index):
+	var lock_candidates = []
+	if target == 'self':
+		lock_candidates = [cube_index]
+	
+	from.lock_cubes(lock_candidates)
 	
 
 func parse_spell(spell, player, enemy, cube_index, demon_pool):
@@ -47,3 +54,6 @@ func parse_spell(spell, player, enemy, cube_index, demon_pool):
 
 	if spell.type == 'prevent_damage':
 		prevent_damage(spell.damage, to)
+	
+	if spell.type == 'lock_dice':
+		lock_dice(spell.target, from, cube_index)

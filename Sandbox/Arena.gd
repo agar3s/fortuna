@@ -5,6 +5,7 @@ extends Node2D
 func _ready():
 	$BattleEngine.player_a = $PlayerA
 	$BattleEngine.player_b = $PlayerB
+	$BattleEngine.demon_pool = $DemonPool
 
 	$RollA.connect("button_down", $PlayerA, 'roll')
 	$ExecuteA.connect("button_down", $PlayerA, 'send_execute')

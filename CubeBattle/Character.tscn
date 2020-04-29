@@ -11,17 +11,27 @@ __meta__ = {
 }
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 37.815, 49.0931 )
+position = Vector2( 37.815, 72.0931 )
 scale = Vector2( 0.243728, 0.243728 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="CubeSet" parent="." instance=ExtResource( 1 )]
-position = Vector2( 94.1434, 212.495 )
+position = Vector2( 94.1434, 235.495 )
 cube_indexes = [ "001", "002", "003" ]
 
 [node name="Stats" type="Node2D" parent="."]
 position = Vector2( 19.0193, 13.6549 )
+
+[node name="LabelName" type="Label" parent="Stats"]
+margin_left = 5.36442
+margin_top = -3.41372
+margin_right = 141.364
+margin_bottom = 10.5863
+text = "NAME_PLACEHOLDER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LabelHP" type="Label" parent="Stats"]
 margin_left = 5.85209
@@ -33,12 +43,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelName" type="Label" parent="Stats"]
-margin_left = 5.36442
-margin_top = -3.41372
-margin_right = 141.364
-margin_bottom = 10.5863
-text = "NAME_PLACEHOLDER"
+[node name="LabelDemon" type="Label" parent="Stats"]
+margin_left = 5.85209
+margin_top = 30.1426
+margin_right = 76.8521
+margin_bottom = 44.1426
+text = "Demon Tokens: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelArmor" type="Label" parent="Stats"]
+margin_left = 97.8521
+margin_top = 15.1426
+margin_right = 168.852
+margin_bottom = 29.1426
+text = "Armor: "
 __meta__ = {
 "_edit_use_anchors_": false
 }

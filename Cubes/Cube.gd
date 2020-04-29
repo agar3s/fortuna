@@ -56,6 +56,7 @@ func set_keep(value):
 
 
 func set_lock(value):
+	print('locking dice ', value)
 	locked = value
 	emit_signal('on_lock', locked)
 

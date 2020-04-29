@@ -18,6 +18,8 @@ func _ready():
 	$Cube02.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube2])
 	$Cube03.connect("item_selected", self, 'load_dice', [$CubeSet/Cubes/Cube3])
 	
+	
+	
 	$CubeSet/Cubes/Cube1.connect("on_keep", self, 'update_face')
 	$CubeSet/Cubes/Cube2.connect("on_keep", self, 'update_face')
 	$CubeSet/Cubes/Cube3.connect("on_keep", self, 'update_face')

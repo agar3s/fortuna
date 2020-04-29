@@ -2,15 +2,15 @@ extends Node2D
 
 signal execution_solved
 
-export (int) var hit_points = 1 setget set_hit_points
+export (int) var hit_points = 20 setget set_hit_points
 export (String) var character_name = 'demo'
 export (bool) var active = false setget set_active
 export (int) var order = 1
 
-var demon_tokens = 0
+var demon_tokens = 0 setget set_demon_tokens
 export (int) var armor = 0 setget set_armor
 export (int) var max_armor = 3
-export (int) var max_hit_points = 3
+export (int) var max_hit_points = 20
 
 func _ready():
 	$Stats/LabelName.text = character_name.capitalize()
@@ -27,6 +27,12 @@ func roll():
 
 func send_execute():
 	$CubeSet.execute()
+
+func lock_cubes(cube_indexes):
+	print('going to lock ', cube_indexes)
+	for index in cube_indexes:
+		$CubeSet.get_node('Cubes').get_child(index).locked = true
+		print('cube locked ', index)
 
 func resolve_execution(combo):
 	emit_signal("execution_solved", combo)
@@ -53,32 +59,38 @@ func get_damage(damage, type):
 		armor -= damage
 		if armor < 0:
 			damage = -armor
+			armor = 0
+			$Stats/LabelArmor.text = 'Armor: ' + str(armor)
 		else:
+			$Stats/LabelArmor.text = 'Armor: ' + str(armor)
 			return
 	
 	hit_points -= damage
+	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
 
 
-func recover_damage(hit_points):
-	print(order, ') recover %s hit points' % [hit_points])
-	self.hit_points += hit_points
-	if self.hit_points > max_hit_points:
-		self.hit_points = max_hit_points
+func recover_damage(value):
+	print(order, ') recover %s hit points' % [value])
+	hit_points += value
+	if hit_points > max_hit_points:
+		hit_points = max_hit_points
+
+	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
 
 
-func add_demon_tokens(value):
-	demon_tokens += value
+func set_demon_tokens(value):
+	demon_tokens = value
+	$Stats/LabelDemon.text = 'Demon tokens: ' + str(demon_tokens)
 
-	
-func remove_demon_tokens(value):
-	demon_tokens -= value
 
 func resolve_demon_tokens():
 	get_damage(demon_tokens, 'demons')
 	demon_tokens = 0
+	$Stats/LabelDemon.text = 'Demon tokens: ' + str(demon_tokens)
 
 
 func set_armor(value):
 	armor = value
 	if armor > max_armor:
 		armor = max_armor
+	$Stats/LabelArmor.text = 'Armor: ' + str(armor)

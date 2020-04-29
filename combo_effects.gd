@@ -17,7 +17,7 @@ const values = {
 		'effects': [],
 		'instants': [{
 			'type': 'lock_dice',
-			'target': 'player',
+			'target': 'self',
 			'from': 'player'
 		}]
 	},
@@ -68,7 +68,7 @@ const values = {
 		}],
 		'instants': [{
 			'type': 'lock_dice',
-			'target': 'player',
+			'target': 'self',
 			'from': 'player'
 		}]
 	},
