@@ -93,9 +93,11 @@ __meta__ = {
 
 [node name="PlayerA" parent="." instance=ExtResource( 1 )]
 visible = false
+position = Vector2( 317.778, 4.64395 )
 
 [node name="PlayerB" parent="." instance=ExtResource( 1 )]
 visible = false
+position = Vector2( 534.717, 6.6342 )
 armor = 3
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]

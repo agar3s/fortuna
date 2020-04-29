@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sandbox/SimpleCube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CubeBattle/BattleEngine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sandbox/SubsetCubes.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CubeBattle/DemonPool.tscn" type="PackedScene" id=4]
-[ext_resource path="res://CubeBattle/Character.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sandbox/Arena.gd" type="Script" id=7]
+[ext_resource path="res://Sandbox/Arena.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sandbox/ComboValidator.gd" type="Script" id=8]
 
 [node name="Sandbox" type="Node2D"]
@@ -15,63 +13,7 @@
 [node name="SubsetCubes" parent="." instance=ExtResource( 3 )]
 position = Vector2( 24, 176 )
 
-[node name="Arena" type="Node2D" parent="."]
-position = Vector2( 472, 48 )
-script = ExtResource( 7 )
-
-[node name="PlayerA" parent="Arena" instance=ExtResource( 6 )]
-position = Vector2( -8, -16 )
-character_name = "Player  A"
-active = true
-
-[node name="PlayerB" parent="Arena" instance=ExtResource( 6 )]
-position = Vector2( 304, -16 )
-character_name = "Player B"
-
-[node name="RollA" type="Button" parent="Arena"]
-margin_left = 90.1467
-margin_top = 245.118
-margin_right = 126.147
-margin_bottom = 265.118
-text = "Roll"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExecuteA" type="Button" parent="Arena"]
-margin_left = 140.133
-margin_top = 245.853
-margin_right = 202.133
-margin_bottom = 265.853
-text = "Execute"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RollB" type="Button" parent="Arena"]
-margin_left = 290.147
-margin_top = 245.118
-margin_right = 326.147
-margin_bottom = 265.118
-text = "Roll"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExecuteB" type="Button" parent="Arena"]
-margin_left = 340.133
-margin_top = 245.118
-margin_right = 402.133
-margin_bottom = 265.118
-text = "Execute"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BattleEngine" parent="Arena" instance=ExtResource( 2 )]
-
-[node name="DemonPool" parent="Arena" instance=ExtResource( 4 )]
-position = Vector2( 96, -32 )
+[node name="Arena" parent="." instance=ExtResource( 4 )]
 
 [node name="ComboValidator" type="Node2D" parent="."]
 position = Vector2( 400, 392 )

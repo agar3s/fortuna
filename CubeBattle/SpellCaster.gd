@@ -28,9 +28,25 @@ func lock_dice(target, from, cube_index):
 	var lock_candidates = []
 	if target == 'self':
 		lock_candidates = [cube_index]
-	
+	if target == 'all':
+		lock_candidates = [0, 1, 2]
+
 	from.lock_cubes(lock_candidates)
-	
+
+
+func unlock_dice(target, from, cube_index):
+	var unlock_candidates = []
+	if target == 'self':
+		unlock_candidates = [cube_index]
+	if target == 'all':
+		unlock_candidates = [0, 1, 2]
+
+	from.force_unlock_cubes(unlock_candidates)
+
+func roll(target, from):
+	if target == 'player':
+		Events.emit_signal('roll_scheduled', from)
+
 
 func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	var from = player
@@ -57,3 +73,10 @@ func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	
 	if spell.type == 'lock_dice':
 		lock_dice(spell.target, from, cube_index)
+	
+	if spell.type == 'unlock_dice':
+		unlock_dice(spell.target, from, cube_index)
+	
+	if spell.type == 'roll':
+		roll(spell.target, from)
+	

@@ -9,7 +9,7 @@ var player_b setget set_player_b
 var demon_pool setget set_demon_pool
 
 func _ready():
-	pass
+	Events.connect('roll_scheduled', self, 'schedule_roll')
 
 
 func set_player_a(value):
@@ -65,7 +65,10 @@ func apply_spell(spell, from, to, cube_index=-1):
 	print('do something ', spell.type)
 	$SpellCaster.parse_spell(spell, from, to, cube_index, demon_pool)
 
-
+func schedule_roll(character):
+	print('scheduling roll for player')
+	yield (get_tree().create_timer(0.2), 'timeout')
+	character.roll()
 
 
 

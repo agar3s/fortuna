@@ -34,6 +34,12 @@ func lock_cubes(cube_indexes):
 		$CubeSet.get_node('Cubes').get_child(index).locked = true
 		print('cube locked ', index)
 
+func force_unlock_cubes(cube_indexes):
+	for index in cube_indexes:
+		print($CubeSet.get_node('Cubes').get_child(index))
+		$CubeSet.get_node('Cubes').get_child(index).force_unlock()
+		print('cube unlocked ', index)
+
 func resolve_execution(combo):
 	emit_signal("execution_solved", combo)
 

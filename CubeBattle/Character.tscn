@@ -18,7 +18,7 @@ centered = false
 
 [node name="CubeSet" parent="." instance=ExtResource( 1 )]
 position = Vector2( 94.1434, 235.495 )
-cube_indexes = [ "001", "002", "003" ]
+cube_indexes = [ "005", "002", "005" ]
 
 [node name="Stats" type="Node2D" parent="."]
 position = Vector2( 19.0193, 13.6549 )

@@ -11,6 +11,7 @@ export (String) var title = 'sample cube'
 var face_up = 0
 var locked = false setget set_lock
 var keeped = false setget set_keep
+var keepable = true
 
 func _ready():
 	set_id(self.id)
@@ -23,8 +24,10 @@ func can_roll():
 
 func roll():
 	if !can_roll(): return
+	keepable = true
 	yield (get_tree().create_timer(0.5), 'timeout')
 	self.set_face(randi()%6)
+	
 
 
 func set_face(index):
@@ -48,7 +51,7 @@ func set_id(value):
 
 
 func set_keep(value):
-	if locked: return
+	if !keepable or locked: return
 	keeped = value
 	emit_signal('on_keep', keeped)
 	# temp visual feedback
@@ -72,4 +75,13 @@ func get_face_value():
 	
 func reset():
 	locked = false
+	keepable = true
+	print('set keepable ', keepable)
 	set_keep(false)
+
+func force_unlock():
+	locked = false
+	keeped = false
+	keepable = false
+	print('set keepable ', keepable)
+
