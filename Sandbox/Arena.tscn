@@ -17,8 +17,8 @@ cube_indexes = [ "001", "002", "021" ]
 
 [node name="PlayerB" parent="." instance=ExtResource( 7 )]
 position = Vector2( 304, -16 )
-character_name = "Player B"
-cube_indexes = [ "003", "006", "011" ]
+character_name = "Player B -set  777"
+cube_indexes = [ "004", "004", "004" ]
 
 [node name="RollA" type="Button" parent="."]
 margin_left = 90.1467

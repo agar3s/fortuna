@@ -2,7 +2,7 @@ extends Node2D
 
 var demon_tokens = 7 setget set_demon_tokens
 const limit = 7
-
+var demon_armor = 0
 
 func _ready():
 	pass
