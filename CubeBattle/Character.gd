@@ -47,6 +47,9 @@ func roll():
 
 func send_cast():
 	$CubeSet.cast()
+	
+func is_critical_roll():
+	return $CubeSet.roll_count == 1
 
 
 func lock_cubes(_cube_indexes):

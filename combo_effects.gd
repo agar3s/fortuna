@@ -222,7 +222,7 @@ const values = {
 		}, {
 			'type': 'modify_roll_limit_state',
 			'value': -2,
-			'turns': '1',
+			'turns': 1,
 			'from': 'player',
 			'to': 'enemy'
 			
@@ -553,8 +553,8 @@ const values = {
 			'to': 'player'
 		},{
 			'type': 'recover_continuous_damage',
-			'hit_points': 1,
-			'turns': 5,
+			'hit_points': 2,
+			'turns': 3,
 			'to': 'player'
 		}]
 	},
@@ -987,7 +987,7 @@ const values = {
 			'type': 'apply_continuous_damage',
 			'damage': 1,
 			'damage_type': 'shadow',
-			'turns': 2,
+			'turns': 3,
 			'from': 'player',
 			'to': 'enemy'
 		}]
@@ -1029,11 +1029,14 @@ const values = {
 }
 
 
-func find_combos(faces: Array):
+func find_combos(faces: Array, is_critical = false):
 	faces.sort()
 	
 	# check combo of 3
 	var combo = '%s-%s-%s' % faces
+	if is_critical and values.has(combo + '!'):
+		return [combo + '!']
+		
 	if values.has(combo):
 		return [combo]
 	

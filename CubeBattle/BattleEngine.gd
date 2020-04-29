@@ -25,7 +25,7 @@ func set_player_b(value: Character):
 	player_b.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_b])
 	player_b.connect('cast_solved', self, 'solve_cast', [player_b])
 	player_b.connect('states_triggered', self, 'solve_states', [player_b])
-	player_a.order = 2
+	player_b.order = 2
 
 
 func set_demon_pool(value):
@@ -51,14 +51,14 @@ func solve_cast(values, player):
 	var oponent = player_b if player == player_a else player_a
 	print('solve cast values')
 	print(values)
-	var combos = $SpellChecker.find_combos(values)
+	var combos = $SpellChecker.find_combos(values, player.is_critical_roll())
 	print(combos)
 	# curses apply first
 	for value in combos:
 		for spell in $SpellChecker.values[value].effects:
 			apply_spell(spell, player, oponent)
 
-	emit_signal("turn_ended", oponent.order)
+	emit_signal("turn_ended", player.order)
 
 
 func solve_states(effects, player):

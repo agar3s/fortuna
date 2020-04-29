@@ -17,7 +17,7 @@ position = Vector2( 24, 176 )
 position = Vector2( 408, 48 )
 
 [node name="ComboValidator" type="Node2D" parent="."]
-position = Vector2( 400, 392 )
+position = Vector2( 8, 440 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -26,7 +26,7 @@ __meta__ = {
 [node name="BattleEngine" parent="ComboValidator" instance=ExtResource( 2 )]
 
 [node name="DebugComboList" type="RichTextLabel" parent="ComboValidator"]
-margin_top = -32.0
+margin_top = 80.0
 margin_right = 312.0
 margin_bottom = 128.0
 __meta__ = {

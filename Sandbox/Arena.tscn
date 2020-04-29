@@ -64,3 +64,83 @@ __meta__ = {
 
 [node name="DemonPool" parent="." instance=ExtResource( 6 )]
 position = Vector2( 168, -32 )
+
+[node name="TextEdit1" type="TextEdit" parent="."]
+margin_left = 16.0
+margin_top = 272.0
+margin_right = 56.0
+margin_bottom = 296.0
+text = "001"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+margin_left = 65.0
+margin_top = 272.0
+margin_right = 105.0
+margin_bottom = 296.0
+text = "002"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+margin_left = 112.0
+margin_top = 272.0
+margin_right = 152.0
+margin_bottom = 296.0
+text = "021"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit4" type="TextEdit" parent="."]
+margin_left = 336.0
+margin_top = 272.0
+margin_right = 376.0
+margin_bottom = 296.0
+text = "003"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit5" type="TextEdit" parent="."]
+margin_left = 379.0
+margin_top = 272.0
+margin_right = 419.0
+margin_bottom = 296.0
+text = "006"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit6" type="TextEdit" parent="."]
+margin_left = 423.0
+margin_top = 272.0
+margin_right = 463.0
+margin_bottom = 296.0
+text = "011"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadDices" type="Button" parent="."]
+margin_left = 208.0
+margin_top = 280.0
+margin_right = 290.0
+margin_bottom = 300.0
+text = "Load Dices"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+margin_left = 205.0
+margin_top = 311.0
+margin_right = 295.0
+margin_bottom = 331.0
+text = "RESET GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
