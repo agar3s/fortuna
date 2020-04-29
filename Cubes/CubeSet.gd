@@ -7,7 +7,8 @@ signal cubes_rolled
 export (Array, String) var cube_indexes = ['001', '001', '001'] setget set_cube_indexes
 
 var roll_count = 0
-var roll_limit = 3
+var roll_limit = 3 setget set_roll_limit
+const roll_default_value = 3
 var locked = false
 
 var cubes_done = 0
@@ -66,6 +67,7 @@ func can_roll():
 
 func reset():
 	roll_count = 0
+	roll_limit = roll_default_value
 	locked = false
 	for child in $Cubes.get_children():
 		child.reset()
@@ -93,3 +95,8 @@ func get_available_faces():
 			faces.append([cube.get_face_value()])
 	return faces
 
+
+func set_roll_limit(value):
+	roll_limit = value
+	if roll_limit < 1:
+		roll_limit = 1

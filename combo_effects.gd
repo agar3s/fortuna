@@ -204,7 +204,7 @@ const values = {
 			'from': 'player',
 			'to': 'enemy'
 		}, {
-			'type': 'modify_roll_limit',
+			'type': 'modify_roll_limit_state',
 			'value': -1,
 			'turns': 1,
 			'from': 'player',
@@ -220,7 +220,7 @@ const values = {
 			'from': 'player',
 			'to': 'enemy'
 		}, {
-			'type': 'modify_roll_limit',
+			'type': 'modify_roll_limit_state',
 			'value': -2,
 			'turns': '1',
 			'from': 'player',
@@ -274,7 +274,7 @@ const values = {
 			'from': 'player',
 			'to': 'enemy'
 		}, {
-			'type': 'modify_roll_limit',
+			'type': 'modify_roll_limit_state',
 			'value': 1,
 			'turns': 1,
 			'from': 'player',
@@ -290,7 +290,7 @@ const values = {
 			'from': 'player',
 			'to': 'enemy'
 		}, {
-			'type': 'modify_roll_limit',
+			'type': 'modify_roll_limit_state',
 			'value': 1,
 			'turns': 2,
 			'from': 'player',
@@ -592,7 +592,7 @@ const values = {
 			'type': 'remove_state',
 			'to': 'player',
 			'quantity': 1,
-			'state_type': 'harmful'
+			'state_type': 'curse'
 		}]
 	},
 	# Focus X2
@@ -601,7 +601,7 @@ const values = {
 			'type': 'remove_state',
 			'to': 'player',
 			'quantity': 2,
-			'state_type': 'harmful'
+			'state_type': 'curse'
 		}]
 	},
 	# Focus
@@ -610,7 +610,7 @@ const values = {
 			'type': 'remove_state',
 			'to': 'player',
 			'quantity': 'all',
-			'state_type': 'harmful'
+			'state_type': 'curse'
 		}]
 	},
 	# Focus
@@ -619,7 +619,7 @@ const values = {
 			'type': 'remove_state',
 			'to': 'player',
 			'quantity': 'all',
-			'state_type': 'harmful'
+			'state_type': 'curse'
 		}, {
 			'type': 'transfer_demon_counter',
 			'quantity': 3,

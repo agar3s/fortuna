@@ -4,25 +4,27 @@ const Character = preload("res://CubeBattle/Character.gd")
 signal turn_ended
 signal instants_triggered
 
-var player_a setget set_player_a
-var player_b setget set_player_b
+var player_a: Character setget set_player_a
+var player_b: Character setget set_player_b
 var demon_pool setget set_demon_pool
 
 func _ready():
 	Events.connect('roll_scheduled', self, 'schedule_roll')
 
 
-func set_player_a(value):
+func set_player_a(value: Character):
 	player_a = value
 	player_a.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_a])
 	player_a.connect('cast_solved', self, 'solve_cast', [player_a])
+	player_a.connect('states_triggered', self, 'solve_states', [player_a])
 	player_a.order = 1
 
 
-func set_player_b(value):
+func set_player_b(value: Character):
 	player_b = value
 	player_b.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_b])
 	player_b.connect('cast_solved', self, 'solve_cast', [player_b])
+	player_b.connect('states_triggered', self, 'solve_states', [player_b])
 	player_a.order = 2
 
 
@@ -58,6 +60,14 @@ func solve_cast(values, player):
 
 	emit_signal("turn_ended", oponent.order)
 
+
+func solve_states(effects, player):
+	var oponent = player_b if player == player_a else player_a
+	print('\n\nSOLVE STATES for %s' % [player.order], effects)
+	
+	for effect in effects:
+		apply_spell(effect, player, oponent)
+	
 
 func apply_spell(spell, from, to, cube_index=-1):
 	print('do something ', spell.type)

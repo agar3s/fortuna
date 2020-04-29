@@ -38,6 +38,11 @@ func prevent_damage(damage, to):
 func prevent_demon_counter(quantity, to):
 	to.demon_armor += quantity
 
+func remove_state(quantity, type, to):
+	if quantity is String and quantity == 'all':
+		quantity = 100
+	to.remove_states(quantity, type)
+
 func lock_dice(target, from, cube_index):
 	var lock_candidates = []
 	if target == 'self':
@@ -75,7 +80,7 @@ func apply_damage_state(damage, type, turns, from, to):
 	}], turns, 'curse')
 
 
-func recover_damage_state(hit_points, turns, from, to):
+func recover_damage_state(hit_points, turns, from, _to):
 	from.add_state([{
 		'type': 'recover_damage',
 		'hit_points': hit_points,
@@ -100,6 +105,19 @@ func drain_damage_state(damage, type, turns, from, to):
 		'to': 'enemy'
 	}], turns, 'curse')
 
+
+func set_roll_limit_state(value, turns, to):
+	var state_type = 'curse' if value < 0 else 'defense'
+	to.add_state([{
+		'type': 'set_roll_limit',
+		'value': value,
+		'from': 'player',
+		'to': 'player'
+	}], turns, state_type)
+
+
+func set_roll_limit(value, to):
+	to.add_roll_limit(value)
 
 func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	var from = player
@@ -136,6 +154,9 @@ func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	if spell.type == 'roll':
 		roll(spell.target, from)
 	
+	if spell.type == 'remove_state':
+		remove_state(spell.quantity, spell.state_type, to)
+	
 	if spell.type == 'apply_continuous_damage':
 		apply_damage_state(spell.damage, spell.damage_type, spell.turns, from, to)
 
@@ -144,3 +165,9 @@ func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	
 	if spell.type == 'apply_continuous_drain_damage':
 		drain_damage_state(spell.damage, spell.damage_type, spell.turns, from, to)
+
+	if spell.type == 'modify_roll_limit_state':
+		set_roll_limit_state(spell.value, spell.turns, to)
+
+	if spell.type == 'set_roll_limit':
+		set_roll_limit(spell.value, to)

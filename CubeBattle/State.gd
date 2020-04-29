@@ -21,4 +21,5 @@ func set_type(_type):
 func set_turns(_turns):
 	turns = _turns
 	$Debug.text = '%s turns(%s) -> %s' % [type, turns, effects.size()]
-
+	if turns <= 0:
+		queue_free()

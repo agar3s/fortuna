@@ -1,6 +1,7 @@
 extends Node2D
 
 signal cast_solved
+signal states_triggered
 
 const State = preload("res://CubeBattle/State.tscn")
 
@@ -75,6 +76,7 @@ func set_active(value):
 	print ('set active cubes: ', value)
 	if active:
 		$CubeSet.reset()
+		resolve_states()
 	else:
 		$CubeSet.locked = true
 
@@ -129,11 +131,13 @@ func set_armor(value):
 		armor = max_armor
 	$Stats/LabelArmor.text = 'Armor: ' + str(armor)
 
+
 func set_demon_armor(value):
 	demon_armor = value
 	if demon_armor > max_demon_armor:
 		demon_armor = max_demon_armor
 	$Stats/LabelDemonArmor.text = 'Demon Armor: ' + str(demon_armor)
+
 
 func add_state(effects, turns, state_type):
 	var new_state = State.instance()
@@ -142,3 +146,27 @@ func add_state(effects, turns, state_type):
 	new_state.type = state_type
 	new_state.position.y += $States.get_child_count()*15
 	$States.add_child(new_state)
+
+
+func resolve_states():
+	var effects = []
+	for state in $States.get_children():
+		effects += state.effects
+		state.turns -= 1
+
+	emit_signal('states_triggered', effects)
+
+# how many removes
+func remove_states(quantity, type):
+	
+	for state in $States.get_children():
+		if state.type == type:
+			state.queue_free()
+			quantity -= 1
+			if quantity <= 0:
+				return
+
+# value is added to the limit
+func add_roll_limit(value):
+	$CubeSet.roll_limit += value
+
