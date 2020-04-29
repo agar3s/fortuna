@@ -48,39 +48,3 @@ position = Vector2( 133, 0 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 centered = false
-
-[node name="icon08" type="Sprite" parent="Pool"]
-position = Vector2( 156, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="icon09" type="Sprite" parent="Pool"]
-position = Vector2( 179, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="icon10" type="Sprite" parent="Pool"]
-position = Vector2( 202, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="icon11" type="Sprite" parent="Pool"]
-position = Vector2( 225, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="icon12" type="Sprite" parent="Pool"]
-position = Vector2( 249, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false
-
-[node name="icon13" type="Sprite" parent="Pool"]
-position = Vector2( 272, 0 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 2 )
-centered = false

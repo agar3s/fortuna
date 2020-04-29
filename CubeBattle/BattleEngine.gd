@@ -68,7 +68,10 @@ func apply_spell(spell, from, to, cube_index=-1):
 func schedule_roll(character):
 	print('scheduling roll for player')
 	yield (get_tree().create_timer(0.2), 'timeout')
-	character.roll()
+	if character == player_a:
+		player_a.roll()
+	if character == player_b:
+		player_b.roll()
 
 
 
