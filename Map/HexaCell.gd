@@ -5,7 +5,6 @@ signal mouse_entered
 signal mouse_exited
 
 export (int) var size = 68
-export (float) var size_relation = 0.06 setget set_size_relation
 
 var coordinates = Vector3(0.0, 0.0, 0.0) setget set_coordinates
 
@@ -15,7 +14,10 @@ var neighbor_hover = false setget set_neighbor_hover
 
 var neighbors = []
 
+# sprite width
 var width = 136
+
+# y value on the vector pointing from 0,0,0 to 0,-1,1
 var height_distance = 84
 
 func _ready():
@@ -73,7 +75,4 @@ func set_neighbor_hover(value):
 func on_input(_node, _event, _shape):
 	if _event is InputEventMouseButton and _event.pressed:
 		pass
-
-func set_size_relation(_size_relation):
-	size_relation = _size_relation
 

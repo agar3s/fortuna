@@ -4,5 +4,7 @@
 
 [node name="AutoGrid" type="Node2D"]
 script = ExtResource( 1 )
+map_height = 8
+map_width = 13
 
 [node name="Tiles" type="Node2D" parent="."]
