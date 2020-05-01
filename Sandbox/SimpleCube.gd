@@ -8,7 +8,7 @@ func _ready():
 	$Button.connect("button_down", self, "roll_dice")
 	$Cube.connect('on_lock', self, 'update_debug')
 	$Cube.connect("on_keep", self, 'update_debug')
-	$Cube.connect("cube_rolled", self, 'update_debug')
+	$Cube.connect("cube_rolled", self, 'cube_rolled')
 	$ItemList.connect("item_selected", self, 'load_dice')
 	update_debug('init')
 	for key in CubeConfigurations.cubes.keys():
@@ -20,6 +20,9 @@ func _ready():
 func roll_dice():
 	$Cube.roll()
 	update_debug('alo')
+
+func cube_rolled(value, _value):
+	update_debug(value)
 
 func update_debug(value):
 	print(value)

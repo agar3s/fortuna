@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://CubeBattle/BattleEngine.gd" type="Script" id=1]
+[ext_resource path="res://Arena/BattleEngine.gd" type="Script" id=1]
 [ext_resource path="res://combo_effects.gd" type="Script" id=2]
-[ext_resource path="res://CubeBattle/SpellCaster.gd" type="Script" id=3]
+[ext_resource path="res://Arena/SpellCaster.gd" type="Script" id=3]
+
 
 [node name="BattleEngine" type="Node"]
 script = ExtResource( 1 )

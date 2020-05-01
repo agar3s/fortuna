@@ -3,7 +3,7 @@ extends Node2D
 signal cast_solved
 signal states_triggered
 
-const State = preload("res://CubeBattle/State.tscn")
+const State = preload("res://Arena/State.tscn")
 
 export (String) var character_name = 'demo'
 export (bool) var active = false setget set_active

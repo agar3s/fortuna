@@ -1,5 +1,5 @@
 extends Node
-const Character = preload("res://CubeBattle/Character.gd")
+const Character = preload("res://Arena/Character.gd")
 
 signal turn_ended
 signal instants_triggered

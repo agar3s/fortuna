@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Placeholder.png-9995c36746865f42d2e44fcdbde6510b.stex"
+path="res://.import/icon.jpg-4cc94665343fae7c52a042bf080c183f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CubeBattle/Assets/Placeholder.png"
-dest_files=[ "res://.import/Placeholder.png-9995c36746865f42d2e44fcdbde6510b.stex" ]
+source_file="res://Arena/Assets/icon.jpg"
+dest_files=[ "res://.import/icon.jpg-4cc94665343fae7c52a042bf080c183f.stex" ]
 
 [params]
 

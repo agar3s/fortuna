@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="fortuna"
-run/main_scene="res://Sandbox/Sandbox.tscn"
+run/main_scene="res://Sandbox/SandboxArena.tscn"
 config/icon="res://icon.jpg"
 
 [autoload]
@@ -37,7 +37,6 @@ window/stretch/aspect="keep"
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
