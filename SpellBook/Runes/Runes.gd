@@ -1,6 +1,7 @@
 extends Node2D
 
 signal on_dropped
+signal on_turned
 
 var can_drag = false
 var current_button = -1
@@ -28,6 +29,8 @@ func on_input(_node, _event, _shape):
 			yield (get_tree().create_timer(0.05), 'timeout')
 			if colliding_area:
 				self.rotation_degrees -= 60
+			else:
+				emit_signal('on_turned')
 
 
 func drop():

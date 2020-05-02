@@ -17,6 +17,7 @@ __meta__ = {
 [node name="001" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, -37 )
 rotation = 0.523599
+active = true
 
 [node name="Collider" type="Area2D" parent="."]
 collision_layer = 2

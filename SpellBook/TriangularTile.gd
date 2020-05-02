@@ -1,16 +1,32 @@
+tool
 extends Node2D
 
-#signal pressed(button)
-#signal released(button)
+export (bool) var active = false setget set_active
+export (bool) var overlapped = false
+export (int) var bodies_entered = 0
 
 func _ready():
-	pass
-	#$Collider.connect('input_event', self, 'on_input')
-	
+	$Collider.connect("area_entered", self, "on_area_entered")
+	$Collider.connect("area_exited", self, "on_area_exited")
+	if active:
+		$Polygon2D2.color.a = 0.9
+	else:
+		$Polygon2D2.color.a = 0.1
 
+func is_correct():
+	return active == (bodies_entered > 0)
 
-#func on_input(_node, _event, _shape):
-#	if _event is InputEventMouseButton and _event.pressed:
-#		emit_signal('pressed', _event.button_index)
-#	if _event is InputEventMouseButton and !_event.pressed:
-#		emit_signal('released', _event.button_index)
+func on_area_entered(_area):
+	bodies_entered += 1
+	overlapped = true
+
+func on_area_exited(_area):
+	bodies_entered -= 1
+	overlapped = false
+
+func set_active(_active):
+	active = _active
+	if active:
+		$Polygon2D2.color.a = 0.9
+	else:
+		$Polygon2D2.color.a = 0.1

@@ -22,22 +22,27 @@ __meta__ = {
 [node name="001" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, -37 )
 rotation = 0.523599
+active = true
 
 [node name="002" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, 37 )
 rotation = 0.523599
+active = true
 
 [node name="003" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 43, 0 )
 rotation = -0.523599
+active = true
 
 [node name="004" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( -21, 37 )
 rotation = -0.523599
+active = true
 
 [node name="005" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( -42, 0 )
 rotation = 0.523599
+active = true
 
 [node name="Collider" type="Area2D" parent="."]
 collision_layer = 2

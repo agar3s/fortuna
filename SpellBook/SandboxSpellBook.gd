@@ -1,25 +1,17 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	print($TriangularGrid/triangles.get_child_count())
+	$Debug.text = 'Destroy this spell'
 	for piece in $pieces.get_children():
-		piece.connect('on_dropped', self, '_on_runned_drop', [piece])
-
-
-func _on_runned_drop(piece):
-	var minimal = 5000
-	var closest_anchor = piece.global_position
-	for point in $TriangularGrid/AnchorPoints.get_children():
-		var distance = piece.global_position.distance_squared_to(point.global_position)
-		if distance < minimal:
-			closest_anchor = point.global_position
-			minimal = distance
+		piece.connect('on_dropped', $TriangularGrid, '_on_rune_dropped', [piece])
+		piece.connect('on_turned', $TriangularGrid, '_on_rune_turned', [piece])
 	
-	piece.position = closest_anchor
+	$TriangularGrid.connect('triangles_checked', self, 'on_triangles_checked')
+
+func on_triangles_checked(correct):
+	if correct:
+		$Debug.text = 'solved!!!'
+	else:
+		$Debug.text = 'incorrect'
