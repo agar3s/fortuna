@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
+[ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Arena/DemonPool.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Arena/Assets/Alberich.png" type="Texture" id=4]
+[ext_resource path="res://Arena/BattleEngine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Arena/Arena.gd" type="Script" id=8]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 76, 114 )
+active = true
+hit_points = 10
+max_hit_points = 10
+body_scale = Vector2( 0.6, 0.6 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 650, 116 )
+order = 2
+hit_points = 10
+max_hit_points = 10
+body_texture = ExtResource( 4 )
+body_offset = Vector2( 0, -130 )
+body_scale = Vector2( 0.6, 0.6 )
+
+[node name="DemonPool" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 39 )
+
+[node name="CubeSection" type="Node2D" parent="."]
+position = Vector2( 511, 485 )
+
+[node name="Cast" type="Button" parent="CubeSection"]
+margin_left = 22.0
+margin_top = 11.0
+margin_right = 142.0
+margin_bottom = 46.0
+text = "Cast"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reroll" type="Button" parent="CubeSection"]
+margin_left = -142.0
+margin_top = 13.0
+margin_right = -22.0
+margin_bottom = 48.0
+text = "Roll"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CubesetPosition" type="Position2D" parent="CubeSection"]
+position = Vector2( 0, -43 )
+
+[node name="BattleEngine" parent="." instance=ExtResource( 7 )]

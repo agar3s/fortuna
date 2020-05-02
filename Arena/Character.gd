@@ -1,7 +1,9 @@
+tool
 extends Node2D
 
 signal cast_solved
 signal states_triggered
+signal defeated
 
 const State = preload("res://Arena/State.tscn")
 
@@ -19,17 +21,20 @@ var demon_tokens = 0 setget set_demon_tokens
 export (int) var demon_armor = 0 setget set_demon_armor
 export (int) var max_demon_armor = 3
 
+export (Texture) var body_texture = preload('res://Arena/Assets/Engel.png') setget set_body_texture
+export (Vector2) var body_offset = Vector2(0, 0) setget set_body_offset
+export (Vector2) var body_scale = Vector2(1.0, 1.0) setget set_body_scale
+
 export (Array, String) var cube_indexes = ['001', '001', '001']
 
 var states = []
 
 
 func _ready():
-	$Stats/LabelName.text = character_name.capitalize()
-	$Stats/LabelDemon.text = 'Demon tokens: ' + str(demon_tokens)
-	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
-	$Stats/LabelArmor.text = 'Armor: ' + str(armor)
-	$Stats/LabelDemonArmor.text = 'Demon Armor: ' + str(demon_armor)
+	
+	$Body.texture = body_texture
+	$Body.offset = body_offset
+	$Body.scale = body_scale
 	
 	$CubeSet.cube_indexes = cube_indexes
 	$CubeSet.connect('on_cast', self, 'resolve_cast')
@@ -101,10 +106,10 @@ func get_damage(damage, type):
 			damage = res
 			armor = 0
 		
-		$Stats/LabelArmor.text = 'Armor: ' + str(armor)
 	
 	hit_points -= damage
-	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
+	if hit_points <= 0:
+		emit_signal('defeated')
 
 
 func recover_damage(value):
@@ -172,4 +177,18 @@ func remove_states(quantity, type):
 # value is added to the limit
 func add_roll_limit(value):
 	$CubeSet.roll_limit += value
+
+
+func set_body_texture(_texture):
+	body_texture = _texture
+	$Body.texture = body_texture
+
+func set_body_offset(_body_offset):
+	body_offset = _body_offset
+	$Body.offset = body_offset
+
+
+func set_body_scale(_body_scale):
+	body_scale = _body_scale
+	$Body.scale = _body_scale
 

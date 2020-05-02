@@ -1,20 +1,24 @@
 extends Node
 const Character = preload("res://Arena/Character.gd")
 
+signal battle_over
 signal turn_ended
 signal instants_triggered
 
+export (String) var state = 'start'
 var player_a: Character setget set_player_a
 var player_b: Character setget set_player_b
 var demon_pool setget set_demon_pool
 
 func _ready():
+	# automatic roll scheduled by spell
 	Events.connect('roll_scheduled', self, 'schedule_roll')
 
 
 func set_player_a(value: Character):
 	player_a = value
 	player_a.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_a])
+	player_a.connect('defeated', self, 'player_defeated', [player_a])
 	player_a.connect('cast_solved', self, 'solve_cast', [player_a])
 	player_a.connect('states_triggered', self, 'solve_states', [player_a])
 	player_a.order = 1
@@ -23,10 +27,16 @@ func set_player_a(value: Character):
 func set_player_b(value: Character):
 	player_b = value
 	player_b.get_node('CubeSet').connect('cubes_rolled', self, 'solve_instants', [player_b])
+	player_b.connect('defeated', self, 'player_defeated', [player_b])
 	player_b.connect('cast_solved', self, 'solve_cast', [player_b])
 	player_b.connect('states_triggered', self, 'solve_states', [player_b])
 	player_b.order = 2
 
+
+func player_defeated(player):
+	state = 'finished'
+	var oponent = player_b if player == player_a else player_a
+	emit_signal('battle_over', oponent)
 
 func set_demon_pool(value):
 	demon_pool = value

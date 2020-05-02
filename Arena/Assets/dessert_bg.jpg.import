@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/18_pain.jpg-4e456e7279eeee61a8d97d3d6a85529c.stex"
+path="res://.import/dessert_bg.jpg-e5eb53667aecf2a7a502307a8cab818c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cubes/Assets/18_pain.jpg"
-dest_files=[ "res://.import/18_pain.jpg-4e456e7279eeee61a8d97d3d6a85529c.stex" ]
+source_file="res://Arena/Assets/dessert_bg.jpg"
+dest_files=[ "res://.import/dessert_bg.jpg-e5eb53667aecf2a7a502307a8cab818c.stex" ]
 
 [params]
 

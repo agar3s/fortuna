@@ -8,5 +8,5 @@ script = ExtResource( 2 )
 icon = 0
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

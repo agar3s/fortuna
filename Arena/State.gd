@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 export (int) var turns = 1 setget set_turns

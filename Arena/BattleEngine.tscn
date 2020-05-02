@@ -4,7 +4,6 @@
 [ext_resource path="res://combo_effects.gd" type="Script" id=2]
 [ext_resource path="res://Arena/SpellCaster.gd" type="Script" id=3]
 
-
 [node name="BattleEngine" type="Node"]
 script = ExtResource( 1 )
 

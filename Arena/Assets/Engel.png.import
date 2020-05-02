@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Placeholder.png-9c240181cb2c09f10661cba0eb9921a4.stex"
+path="res://.import/Engel.png-34d7542b0d390b03ce8e04885d786daa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arena/Assets/Placeholder.png"
-dest_files=[ "res://.import/Placeholder.png-9c240181cb2c09f10661cba0eb9921a4.stex" ]
+source_file="res://Arena/Assets/Engel.png"
+dest_files=[ "res://.import/Engel.png-34d7542b0d390b03ce8e04885d786daa.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
