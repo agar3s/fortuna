@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 0, -56, 68, -28, 68, 28, 0, 56, -68, 28, -68, -28 )
+polygon = PoolVector2Array( 0, -56, 66, -28, 66, 28, 0, 56, -66, 28, -66, -28 )
 
 [node name="DebugCoord" type="Label" parent="."]
 margin_left = -40.0

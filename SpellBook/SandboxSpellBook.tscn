@@ -1,0 +1,380 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SpellBook/TriangularTile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SpellBook/SandboxSpellBook.gd" type="Script" id=2]
+[ext_resource path="res://SpellBook/Runes/RuneA.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpellBook/Runes/RuneB.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SpellBook/Runes/RuneC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SpellBook/Runes/RuneE.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SpellBook/Runes/RuneF.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpellBook/Runes/RuneD.tscn" type="PackedScene" id=8]
+
+[node name="SandboxSpellBook" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="TriangularGrid" type="Node2D" parent="."]
+position = Vector2( 281, 43 )
+
+[node name="triangles" type="Node2D" parent="TriangularGrid"]
+modulate = Color( 1, 1, 1, 0.533333 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TriangularTile" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 37 )
+rotation = 0.523599
+
+[node name="TriangularTile12" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 37 )
+rotation = -0.523599
+
+[node name="TriangularTile2" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 286, 74 )
+rotation = 0.523599
+
+[node name="TriangularTile13" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 243, 74 )
+rotation = -0.523599
+
+[node name="TriangularTile4" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 158, 74 )
+rotation = 0.523599
+
+[node name="TriangularTile15" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 115, 74 )
+rotation = -0.523599
+
+[node name="TriangularTile3" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 111 )
+rotation = 0.523599
+
+[node name="TriangularTile14" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 111 )
+rotation = -0.523599
+
+[node name="TriangularTile8" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 185 )
+rotation = 0.523599
+
+[node name="TriangularTile19" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 185 )
+rotation = -0.523599
+
+[node name="TriangularTile7" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 286, 222 )
+rotation = 0.523599
+
+[node name="TriangularTile18" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 243, 222 )
+rotation = -0.523599
+
+[node name="TriangularTile6" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 158, 222 )
+rotation = 0.523599
+
+[node name="TriangularTile17" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 115, 222 )
+rotation = -0.523599
+
+[node name="TriangularTile5" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 259 )
+rotation = 0.523599
+
+[node name="TriangularTile16" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 259 )
+rotation = -0.523599
+
+[node name="TriangularTile42" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 286, 296 )
+rotation = 0.523599
+
+[node name="TriangularTile41" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 243, 296 )
+rotation = -0.523599
+
+[node name="TriangularTile40" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 158, 296 )
+rotation = 0.523599
+
+[node name="TriangularTile39" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 115, 296 )
+rotation = -0.523599
+
+[node name="TriangularTile38" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 333 )
+rotation = 0.523599
+
+[node name="TriangularTile37" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 333 )
+rotation = -0.523599
+
+[node name="TriangularTile54" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 286, 370 )
+rotation = 0.523599
+
+[node name="TriangularTile53" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 243, 370 )
+rotation = -0.523599
+
+[node name="TriangularTile52" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 158, 370 )
+rotation = 0.523599
+
+[node name="TriangularTile51" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 115, 370 )
+rotation = -0.523599
+
+[node name="TriangularTile50" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 222, 407 )
+rotation = 0.523599
+
+[node name="TriangularTile49" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 179, 407 )
+rotation = -0.523599
+
+[node name="TriangularTile24" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 94, 111 )
+rotation = 0.523599
+
+[node name="TriangularTile23" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 51, 111 )
+rotation = -0.523599
+
+[node name="TriangularTile11" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 158, 148 )
+rotation = 0.523599
+
+[node name="TriangularTile22" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 115, 148 )
+rotation = -0.523599
+
+[node name="TriangularTile10" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 30, 148 )
+rotation = 0.523599
+
+[node name="TriangularTile9" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 94, 185 )
+rotation = 0.523599
+
+[node name="TriangularTile20" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 51, 185 )
+rotation = -0.523599
+
+[node name="TriangularTile36" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 30, 222 )
+rotation = 0.523599
+
+[node name="TriangularTile35" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 94, 259 )
+rotation = 0.523599
+
+[node name="TriangularTile21" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 51, 259 )
+rotation = -0.523599
+
+[node name="TriangularTile48" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 30, 296 )
+rotation = 0.523599
+
+[node name="TriangularTile47" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 94, 333 )
+rotation = 0.523599
+
+[node name="TriangularTile46" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 51, 333 )
+rotation = -0.523599
+
+[node name="TriangularTile32" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 350, 111 )
+rotation = 0.523599
+
+[node name="TriangularTile31" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 307, 111 )
+rotation = -0.523599
+
+[node name="TriangularTile29" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 371, 148 )
+rotation = -0.523599
+
+[node name="TriangularTile34" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 371, 222 )
+rotation = -0.523599
+
+[node name="TriangularTile45" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 371, 296 )
+rotation = -0.523599
+
+[node name="TriangularTile28" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 286, 148 )
+rotation = 0.523599
+
+[node name="TriangularTile27" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 243, 148 )
+rotation = -0.523599
+
+[node name="TriangularTile26" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 350, 185 )
+rotation = 0.523599
+
+[node name="TriangularTile25" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 307, 185 )
+rotation = -0.523599
+
+[node name="TriangularTile33" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 350, 259 )
+rotation = 0.523599
+
+[node name="TriangularTile30" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 307, 259 )
+rotation = -0.523599
+
+[node name="TriangularTile44" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 350, 333 )
+rotation = 0.523599
+
+[node name="TriangularTile43" parent="TriangularGrid/triangles" instance=ExtResource( 1 )]
+position = Vector2( 307, 333 )
+rotation = -0.523599
+
+[node name="AnchorPoints" type="Node2D" parent="TriangularGrid"]
+
+[node name="Anchor01" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 1 )
+
+[node name="Anchor02" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 74 )
+
+[node name="Anchor08" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 73, 74 )
+
+[node name="Anchor09" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 328, 74 )
+
+[node name="Anchor11" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 73, 148 )
+
+[node name="Anchor10" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 328, 148 )
+
+[node name="Anchor13" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 73, 222 )
+
+[node name="Anchor12" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 328, 222 )
+
+[node name="Anchor15" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 73, 296 )
+
+[node name="Anchor14" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 328, 296 )
+
+[node name="Anchor17" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 73, 370 )
+
+[node name="Anchor16" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 328, 370 )
+
+[node name="Anchor03" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 148 )
+
+[node name="Anchor04" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 222 )
+
+[node name="Anchor05" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 296 )
+
+[node name="Anchor06" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 370 )
+
+[node name="Anchor07" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 201, 444 )
+
+[node name="Anchor18" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 37 )
+
+[node name="Anchor19" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 37 )
+
+[node name="Anchor39" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 407 )
+
+[node name="Anchor38" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 407 )
+
+[node name="Anchor21" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 111 )
+
+[node name="Anchor20" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 111 )
+
+[node name="Anchor23" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 111 )
+
+[node name="Anchor24" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 9, 111 )
+
+[node name="Anchor25" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 392, 111 )
+
+[node name="Anchor22" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 111 )
+
+[node name="Anchor29" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 185 )
+
+[node name="Anchor28" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 9, 185 )
+
+[node name="Anchor27" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 392, 185 )
+
+[node name="Anchor26" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 185 )
+
+[node name="Anchor33" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 259 )
+
+[node name="Anchor32" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 9, 259 )
+
+[node name="Anchor31" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 392, 259 )
+
+[node name="Anchor30" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 259 )
+
+[node name="Anchor37" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 137, 333 )
+
+[node name="Anchor36" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 9, 333 )
+
+[node name="Anchor35" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 392, 333 )
+
+[node name="Anchor34" type="Position2D" parent="TriangularGrid/AnchorPoints"]
+position = Vector2( 264, 333 )
+
+[node name="pieces" type="Node2D" parent="."]
+
+[node name="A" parent="pieces" instance=ExtResource( 3 )]
+position = Vector2( 818, 212 )
+
+[node name="B" parent="pieces" instance=ExtResource( 4 )]
+position = Vector2( 184, 378 )
+
+[node name="C" parent="pieces" instance=ExtResource( 5 )]
+position = Vector2( 787, 400 )
+
+[node name="D" parent="pieces" instance=ExtResource( 8 )]
+position = Vector2( 164, 137 )
+
+[node name="E" parent="pieces" instance=ExtResource( 6 )]
+position = Vector2( 87, 268 )
+
+[node name="F" parent="pieces" instance=ExtResource( 7 )]
+position = Vector2( 267, 121 )

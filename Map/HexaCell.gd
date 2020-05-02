@@ -4,8 +4,6 @@ extends Node2D
 signal mouse_entered
 signal mouse_exited
 
-export (int) var size = 68
-
 var coordinates = Vector3(0.0, 0.0, 0.0) setget set_coordinates
 
 var inversal_coords = Vector3(0.0, 0.0, 0.0)
@@ -15,10 +13,10 @@ var neighbor_hover = false setget set_neighbor_hover
 var neighbors = []
 
 # sprite width
-var width = 136
+var width = 132
 
 # y value on the vector pointing from 0,0,0 to 0,-1,1
-var height_distance = 84
+var height_distance = 82 + 2
 
 func _ready():
 	$Area2D.connect('input_event', self, 'on_input')

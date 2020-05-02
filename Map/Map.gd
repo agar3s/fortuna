@@ -3,6 +3,8 @@ extends Node2D
 
 var HexaCell = preload('res://Map/HexaCell.tscn')
 
+# grid snapping 68X84
+
 export (int) var map_height = 5 setget set_map_height
 export (int) var map_width = 7 setget set_map_width
 export (int) var grid_size = 74 setget set_grid_size
