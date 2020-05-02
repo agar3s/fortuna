@@ -13,8 +13,12 @@ export (float) var tile_size_relation = 1.1 setget set_tile_size_relation
 var map: Dictionary = {}
 
 func _ready():
-	$Tiles.connect("tree_entered", self, 'on_tiles_tree_entered')
-
+	for tile in $Tiles.get_children():
+		tile.connect('cell_clicked', self, 'on_cell_clicked', [tile])
+		map[tile.get_hash()] = tile
+	$Character.connect('position_reached', self, 'check_neighbors')
+	
+	check_neighbors($Character.coordinates)
 
 
 func set_map_height(_map_height):
@@ -30,5 +34,23 @@ func set_tile_size_relation(_tile_size_relation):
 	tile_size_relation = _tile_size_relation
 
 
-func on_tiles_tree_entered():
-	print(' on tile entered')
+func on_cell_clicked(tile):
+	if tile.allow_movement():
+		move_character_to(tile)
+	elif tile.Item:
+		print('show info about item?')
+
+func move_character_to(tile):
+	var prev_tile = map[hash($Character.coordinates)]
+	for neighbor in prev_tile.neighbors:
+		if map.has(neighbor):
+			map[neighbor].in_range = false
+	$Character.coordinates = tile.coordinates
+	$Character.move_to(tile.position)
+
+
+func check_neighbors(coordinates):
+	var tile = map[hash(coordinates)]
+	for neighbor in tile.neighbors:
+		if map.has(neighbor):
+			map[neighbor].in_range = true

@@ -4,7 +4,7 @@ extends Node2D
 signal mouse_entered
 signal mouse_exited
 
-var coordinates = Vector3(0.0, 0.0, 0.0) setget set_coordinates
+export (Vector3) var coordinates = Vector3(0.0, 0.0, 0.0) setget set_coordinates
 
 var inversal_coords = Vector3(0.0, 0.0, 0.0)
 
@@ -20,6 +20,8 @@ var height_distance = 82 + 2
 
 func _ready():
 	$Area2D.connect('input_event', self, 'on_input')
+	$Area2D.connect("mouse_entered", self, "on_hover")
+	$Area2D.connect("mouse_exited", self, "on_exit")
 
 func set_coordinates(value):
 	coordinates = value
@@ -37,6 +39,7 @@ func get_coordinates_by_position():
 	coord_y = position.y/height_distance
 	coord_z = -coord_x-coord_y
 	inversal_coords = Vector3(coord_x, coord_z, coord_y)
+	coordinates = inversal_coords
 	set_neighbor_coordinates()
 	$DebugInversal.text = '%s %s %s ' % [inversal_coords.x, inversal_coords.y, inversal_coords.z]
 
@@ -56,13 +59,14 @@ func get_hash():
 
 
 func on_hover():
-	z_index = 25
+	#z_index = 25
 	yield(get_tree().create_timer(0.01), 'timeout')
 	emit_signal("mouse_entered")
+	
 
 
 func on_exit():
-	z_index = 0
+	#z_index = 0
 	emit_signal("mouse_exited")
 
 	

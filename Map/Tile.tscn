@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Map/Tile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/dark grass.png" type="Texture" id=2]
 [ext_resource path="res://Map/HexaCell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map/Assets/Target.png" type="Texture" id=4]
 
 [node name="Tile" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -11,5 +12,13 @@ script = ExtResource( 1 )
 position = Vector2( 0, 12 )
 texture = ExtResource( 2 )
 
+[node name="DebugCoord" parent="." index="2"]
+text = "0 -0 0 "
+
 [node name="DebugInversal" parent="." index="3"]
 text = "0 -0 0 "
+
+[node name="Target" type="Sprite" parent="." index="4"]
+visible = false
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )

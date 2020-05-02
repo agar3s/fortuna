@@ -2,6 +2,8 @@
 
 [ext_resource path="res://SpellBook/TriangularTile.gd" type="Script" id=1]
 
+
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 30, -26, -14, 26, -14 )
 

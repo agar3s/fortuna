@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Map/Map.gd" type="Script" id=1]
 [ext_resource path="res://Assets/grass.png" type="Texture" id=2]
 [ext_resource path="res://Map/Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/dirt.png" type="Texture" id=4]
+[ext_resource path="res://Arena/Assets/Placeholder.png" type="Texture" id=5]
+[ext_resource path="res://Map/Character.gd" type="Script" id=6]
+[ext_resource path="res://Map/Item.tscn" type="PackedScene" id=7]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,97 +17,148 @@ tile_size_relation = 1.06
 
 [node name="Tile2" parent="Tiles" instance=ExtResource( 3 )]
 base_sprite = ExtResource( 4 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile2" instance=ExtResource( 7 )]
 
 [node name="Tile3" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 132, 0 )
+coordinates = Vector3( 1, -1, 0 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile4" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 66, 84 )
+coordinates = Vector3( 0, -1, 1 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile11" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 264, 0 )
+coordinates = Vector3( 2, -2, 0 )
+empty = false
 
 [node name="Tile" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 0, 168 )
+coordinates = Vector3( -1, -1, 2 )
 
 [node name="Tile5" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 198, 84 )
+coordinates = Vector3( 1, -2, 1 )
 
 [node name="Tile6" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 132, 168 )
+coordinates = Vector3( 0, -2, 2 )
 
 [node name="Tile8" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 330, 84 )
+coordinates = Vector3( 2, -3, 1 )
 base_sprite = ExtResource( 2 )
 
 [node name="Tile10" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 396, 168 )
+coordinates = Vector3( 2, -4, 2 )
 base_sprite = ExtResource( 2 )
 
 [node name="Tile7" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 330, 252 )
+coordinates = Vector3( 1, -4, 3 )
 
 [node name="Tile9" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 198, 252 )
+coordinates = Vector3( 0, -3, 3 )
 
 [node name="Tile18" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 528, 168 )
+coordinates = Vector3( 3, -5, 2 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile12" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 462, 252 )
+coordinates = Vector3( 2, -5, 3 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile13" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 66, 252 )
+coordinates = Vector3( -1, -2, 3 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile14" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 132, 336 )
+coordinates = Vector3( -1, -3, 4 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile15" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 264, 336 )
+coordinates = Vector3( 0, -4, 4 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile16" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 396, 336 )
+coordinates = Vector3( 1, -5, 4 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile17" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 528, 336 )
+coordinates = Vector3( 2, -6, 4 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile19" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 660, 336 )
+coordinates = Vector3( 3, -7, 4 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile20" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 66, 420 )
+coordinates = Vector3( -2, -3, 5 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile21" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 198, 420 )
+coordinates = Vector3( -1, -4, 5 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile22" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 462, 420 )
+coordinates = Vector3( 1, -6, 5 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile23" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 594, 420 )
+coordinates = Vector3( 2, -7, 5 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile24" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 264, 504 )
+coordinates = Vector3( -1, -5, 6 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile25" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 528, 504 )
+coordinates = Vector3( 1, -7, 6 )
 base_sprite = ExtResource( 4 )
 
 [node name="Tile26" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 660, 504 )
+coordinates = Vector3( 2, -8, 6 )
 base_sprite = ExtResource( 4 )
+
+[node name="Character" type="Node2D" parent="."]
+position = Vector2( 132, 168 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+coordinates = Vector3( 0, -2, 2 )
+
+[node name="Sprite" type="Sprite" parent="Character"]
+position = Vector2( 5, -37 )
+scale = Vector2( 0.14, 0.14 )
+texture = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2( 1, 0 )
+current = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
