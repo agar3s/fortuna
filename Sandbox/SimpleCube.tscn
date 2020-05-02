@@ -9,32 +9,32 @@ script = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 147.0
-margin_top = 69.0
+margin_top = 71.0
 margin_right = 226.0
-margin_bottom = 89.0
+margin_bottom = 91.0
 text = "Roll 1 dice"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cube" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 37 )
+position = Vector2( 91, 53 )
 scale = Vector2( 2, 2 )
 id = "004"
 
 [node name="DebugCube1" type="RichTextLabel" parent="."]
 margin_left = 139.0
-margin_top = 13.0
+margin_top = 15.0
 margin_right = 247.0
-margin_bottom = 69.0
+margin_bottom = 71.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = 3.0
+margin_left = -2.0
 margin_top = -19.0
-margin_right = 51.0
+margin_right = 46.0
 margin_bottom = 85.0
 allow_rmb_select = true
 __meta__ = {

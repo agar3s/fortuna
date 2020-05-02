@@ -43,6 +43,6 @@ func load_dice(index):
 	for child in $Cube/Faces.get_children():
 		var copy = child.duplicate()
 		copy.show()
-		copy.position.x += i*32
+		copy.position.x += i*42
 		$faces.add_child(copy)
 		i+=1

@@ -5,7 +5,6 @@
 [ext_resource path="res://Arena/DemonPool.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=7]
 
-
 [node name="Arena" type="Node2D"]
 position = Vector2( 16, 48 )
 script = ExtResource( 4 )
