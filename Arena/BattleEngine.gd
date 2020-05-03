@@ -53,6 +53,7 @@ func solve_instants(faces, player):
 			for instant in spell.instants:
 				instant_effects.append([face[1], instant])
 				apply_spell(instant, player, oponent, face[1])
+				yield(Events, "spell_casted")
 	
 	emit_signal('instants_triggered', instant_effects, player)
 
@@ -67,7 +68,9 @@ func solve_cast(values, player):
 	for value in combos:
 		for spell in $SpellChecker.values[value].effects:
 			apply_spell(spell, player, oponent)
+			yield(Events, "spell_casted")
 
+	
 	emit_signal("turn_ended", player.order)
 
 
@@ -77,6 +80,8 @@ func solve_states(effects, player):
 	
 	for effect in effects:
 		apply_spell(effect, player, oponent)
+		yield(Events, "spell_casted")
+		print('spell casted')
 	
 
 func apply_spell(spell, from, to, cube_index=-1):

@@ -43,6 +43,7 @@ position = Vector2( 27, -16 )
 position = Vector2( 171, 115 )
 
 [node name="Cube" parent="container" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
 scale = Vector2( 2, 2 )
 id = "004"
 face_indexes = [ "01", "04", "09", "10", "12", "13" ]

@@ -4,6 +4,8 @@ extends Node2D
 signal cast_solved
 signal states_triggered
 signal defeated
+signal damage_applied
+signal healed
 
 const State = preload("res://Arena/State.tscn")
 
@@ -110,17 +112,25 @@ func get_damage(damage, type):
 		
 	
 	hit_points -= damage
+	if damage > 0:
+		$HitPointsFeedback.text = '-%s HP' % str(damage)
+		$AnimationPlayer.play("on_hit")
+		yield($AnimationPlayer, "animation_finished")
+		emit_signal("damage_applied")
 	if hit_points <= 0:
 		emit_signal('defeated')
 
 
 func recover_damage(value):
-	print(order, ') recover %s hit points' % [value])
+	$HitPointsFeedback.text = '+%s HP' % str(value)
 	hit_points += value
 	if hit_points > max_hit_points:
 		hit_points = max_hit_points
-
-	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
+	
+	$AnimationPlayer.play("on_heal")
+	yield($AnimationPlayer, "animation_finished")
+	emit_signal("healed")
+	
 
 
 func set_demon_tokens(value):

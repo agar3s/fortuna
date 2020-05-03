@@ -1,14 +1,18 @@
 extends Node
 
-
 func apply_damage(damage, type, from, to):
 	if from != to:
 		from.cast(type)
 	to.get_damage(damage, type)
+	yield(to, 'damage_applied')
+	Events.emit_signal('spell_casted')
+	
 
 
 func recover_damage(hit_points, to):
 	to.recover_damage(hit_points)
+	yield(to, 'healed')
+	Events.emit_signal('spell_casted')
 	
 
 func transfer_demon_counter(quantity, from, to):
@@ -30,18 +34,30 @@ func transfer_demon_counter(quantity, from, to):
 	
 	from.demon_tokens -= quantity
 	to.demon_tokens += quantity
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func prevent_damage(damage, to):
 	to.armor += damage
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 func prevent_demon_counter(quantity, to):
 	to.demon_armor += quantity
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 func remove_state(quantity, type, to):
 	if quantity is String and quantity == 'all':
 		quantity = 100
 	to.remove_states(quantity, type)
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 func lock_dice(target, from, cube_index):
 	var lock_candidates = []
@@ -51,6 +67,9 @@ func lock_dice(target, from, cube_index):
 		lock_candidates = [0, 1, 2]
 
 	from.lock_cubes(lock_candidates)
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func unlock_dice(target, from, cube_index):
@@ -61,10 +80,17 @@ func unlock_dice(target, from, cube_index):
 		unlock_candidates = [0, 1, 2]
 
 	from.force_unlock_cubes(unlock_candidates)
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 func roll(target, from):
 	if target == 'player':
 		Events.emit_signal('roll_scheduled', from)
+	
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")	
+	Events.emit_signal('spell_casted')
 
 
 func apply_damage_state(damage, type, turns, from, to):
@@ -78,6 +104,9 @@ func apply_damage_state(damage, type, turns, from, to):
 		'from': 'player',
 		'to': 'player'
 	}], turns, 'curse')
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func recover_damage_state(hit_points, turns, from, _to):
@@ -86,6 +115,9 @@ func recover_damage_state(hit_points, turns, from, _to):
 		'hit_points': hit_points,
 		'to': 'player'
 	}], turns, 'defense')
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func drain_damage_state(damage, type, turns, from, to):
@@ -104,6 +136,9 @@ func drain_damage_state(damage, type, turns, from, to):
 		'from': 'enemy',
 		'to': 'enemy'
 	}], turns, 'curse')
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func set_roll_limit_state(value, turns, to):
@@ -114,10 +149,17 @@ func set_roll_limit_state(value, turns, to):
 		'from': 'player',
 		'to': 'player'
 	}], turns, state_type)
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
 
 
 func set_roll_limit(value, to):
 	to.add_roll_limit(value)
+	#TODO implement this
+	yield(get_tree().create_timer(0.2),"timeout")
+	Events.emit_signal('spell_casted')
+
 
 func parse_spell(spell, player, enemy, cube_index, demon_pool):
 	var from = player
