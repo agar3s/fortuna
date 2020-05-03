@@ -18,6 +18,7 @@ var index = 0
 
 func _ready():
 	set_id(self.id)
+	position.y = 0
 	$Hitbox.connect('input_event', self, 'on_input_event')
 
 
@@ -36,6 +37,7 @@ func roll():
 	yield (get_tree().create_timer(0.1), 'timeout')
 	self.set_face(randi()%6)
 	keepable = true
+	set_keep(true)
 	emit_signal('cube_rolled', $Faces.get_child(face_up).id, index)
 
 func _process(_delta):
@@ -59,10 +61,16 @@ func set_id(value):
 
 func set_keep(value):
 	if value and (!keepable or locked): return
+	if keeped and not value:
+		#play animation to discard cube
+		$AnimationPlayer.play("discard")
+	elif not keeped and value:
+		# play animation to keep the cube
+		$AnimationPlayer.play("keep")
+	
 	keeped = value
 	emit_signal('on_keep', keeped)
 	# temp visual feedback
-	self.rotation_degrees = 180 if keeped else 0
 
 
 func set_lock(value):
@@ -81,10 +89,11 @@ func get_face_value():
 
 	
 func reset():
+	position.y = 0
 	$AnimationPlayer.play("cube_enters")
 	locked = false
 	keepable = false
-	set_keep(false)
+	keeped = false
 
 func force_unlock():
 	locked = false

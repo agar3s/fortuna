@@ -77,7 +77,7 @@ __meta__ = {
 }
 
 [node name="CubesetPosition" type="Position2D" parent="CubeSection"]
-position = Vector2( 0, -43 )
+position = Vector2( 0, -68 )
 
 [node name="BattleEngine" parent="." instance=ExtResource( 7 )]
 

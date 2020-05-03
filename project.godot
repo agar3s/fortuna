@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="fortuna"
-run/main_scene="res://Sandbox/SandboxArena.tscn"
+run/main_scene="res://Arena/Arena.tscn"
 config/icon="res://icon.jpg"
 
 [autoload]
