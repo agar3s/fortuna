@@ -60,7 +60,8 @@ func set_id(value):
 
 
 func set_keep(value):
-	if value and (!keepable or locked): return
+	if value and (!keepable or locked):return
+	
 	if keeped and not value:
 		#play animation to discard cube
 		$AnimationPlayer.play("discard")
@@ -80,8 +81,11 @@ func set_lock(value):
 
 
 func on_input_event(_node, _event, _id):
-	if !locked && _event is InputEventMouseButton && _event.pressed:
-		set_keep(!keeped)
+	if _event is InputEventMouseButton && _event.pressed:
+		if !locked:
+			set_keep(!keeped)
+		else:
+			$AnimationPlayer.play("Locked")
 
 
 func get_face_value():

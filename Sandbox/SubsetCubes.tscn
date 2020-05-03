@@ -6,59 +6,58 @@
 [ext_resource path="res://Cubes/CubeSet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Arena/BattleEngine.tscn" type="PackedScene" id=5]
 
-
 [node name="SubsetCubes" type="Node2D"]
 position = Vector2( 24, 16 )
 script = ExtResource( 2 )
 
 [node name="CubeSet" parent="." instance=ExtResource( 4 )]
-position = Vector2( 50.4174, 34.896 )
+position = Vector2( 115.433, 51.4815 )
 cube_indexes = [ "001", "002", "003" ]
 
 [node name="Roll" type="Button" parent="."]
-margin_left = -16.0
-margin_top = 147.0
-margin_right = 70.0
-margin_bottom = 167.0
+margin_left = 2.57576
+margin_top = 233.245
+margin_right = 88.5758
+margin_bottom = 253.245
 text = "Roll 3 dices"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Reset" type="Button" parent="."]
-margin_left = -16.0
-margin_top = 195.0
-margin_right = 110.0
-margin_bottom = 215.0
+margin_left = 47.0249
+margin_top = 268.64
+margin_right = 173.025
+margin_bottom = 288.64
 text = "Reset roll counter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Execute" type="Button" parent="."]
-margin_left = -16.0
-margin_top = 171.0
-margin_right = 46.0
-margin_bottom = 191.0
+margin_left = 106.733
+margin_top = 232.698
+margin_right = 168.733
+margin_bottom = 252.698
 text = "Execute"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DebugSet1" type="RichTextLabel" parent="."]
-margin_left = 149.825
-margin_top = 19.0
-margin_right = 357.825
-margin_bottom = 347.0
+margin_left = 317.67
+margin_top = 59.4687
+margin_right = 525.67
+margin_bottom = 387.469
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DebugSet2" type="RichTextLabel" parent="."]
-margin_left = -16.0
-margin_top = 235.0
-margin_right = 163.0
-margin_bottom = 379.0
+margin_left = 2.57578
+margin_top = 294.044
+margin_right = 181.576
+margin_bottom = 438.044
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,28 +65,28 @@ __meta__ = {
 [node name="BattleEngine" parent="." instance=ExtResource( 5 )]
 
 [node name="Cube01" type="ItemList" parent="."]
-margin_left = -13.0
-margin_top = 59.0
-margin_right = 27.0
-margin_bottom = 131.0
+margin_left = 2.03896
+margin_top = 127.883
+margin_right = 63.039
+margin_bottom = 210.883
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cube02" type="ItemList" parent="."]
-margin_left = 29.0
-margin_top = 59.0
-margin_right = 72.0
-margin_bottom = 131.0
+margin_left = 79.0779
+margin_top = 137.508
+margin_right = 141.078
+margin_bottom = 224.508
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cube03" type="ItemList" parent="."]
-margin_left = 74.0
-margin_top = 59.0
-margin_right = 116.0
-margin_bottom = 131.0
+margin_left = 162.366
+margin_top = 127.576
+margin_right = 224.366
+margin_bottom = 218.576
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -102,4 +101,4 @@ position = Vector2( 534.717, 6.6342 )
 armor = 3
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]
-position = Vector2( -13.2684, -10.545 )
+position = Vector2( 425.916, 33.9042 )

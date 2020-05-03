@@ -49,6 +49,7 @@ hit_points = 10
 max_hit_points = 10
 body_texture = ExtResource( 4 )
 body_offset = Vector2( -10, 23 )
+cube_indexes = [ "005", "005", "005" ]
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 39 )

@@ -4,42 +4,45 @@
 [ext_resource path="res://Sandbox/SimpleCube.gd" type="Script" id=2]
 
 [node name="SimpleCube" type="Node2D"]
-position = Vector2( 5, 27 )
+position = Vector2( 5, 60 )
 script = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 147.0
-margin_top = 71.0
-margin_right = 226.0
-margin_bottom = 91.0
+margin_left = 283.0
+margin_top = 101.0
+margin_right = 362.0
+margin_bottom = 121.0
 text = "Roll 1 dice"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cube" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 53 )
-scale = Vector2( 2, 2 )
-id = "004"
-
 [node name="DebugCube1" type="RichTextLabel" parent="."]
-margin_left = 139.0
-margin_top = 15.0
-margin_right = 247.0
-margin_bottom = 71.0
+margin_left = 275.0
+margin_top = 37.0
+margin_right = 383.0
+margin_bottom = 93.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = -2.0
-margin_top = -19.0
-margin_right = 46.0
-margin_bottom = 85.0
+margin_left = 3.0
+margin_top = 52.0
+margin_right = 75.0
+margin_bottom = 333.0
 allow_rmb_select = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="faces" type="Node2D" parent="."]
-position = Vector2( 67, -11 )
+position = Vector2( 27, -16 )
+
+[node name="container" type="Node2D" parent="."]
+position = Vector2( 171, 115 )
+
+[node name="Cube" parent="container" instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+id = "004"
+face_indexes = [ "01", "04", "09", "10", "12", "13" ]

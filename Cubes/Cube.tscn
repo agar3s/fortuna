@@ -1,10 +1,45 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Cubes/Cube.gd" type="Script" id=1]
 [ext_resource path="res://Cubes/Face.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 36 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Locked"
+length = 0.15
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Faces:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.217124, -0.220065, 0, -0.25, 0, 0.255745, 1.95232 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Faces:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Faces:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, -5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15 )
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "cube_enters"
@@ -55,7 +90,6 @@ script = ExtResource( 1 )
 face_indexes = [ "01", "02", "06", "07", "12", "13" ]
 
 [node name="Faces" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Face1" parent="Faces" instance=ExtResource( 2 )]
 id = "01"
@@ -116,6 +150,7 @@ karma = 1
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Locked = SubResource( 5 )
 anims/cube_enters = SubResource( 2 )
 anims/discard = SubResource( 4 )
 anims/keep = SubResource( 3 )
