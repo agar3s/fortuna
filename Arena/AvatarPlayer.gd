@@ -18,11 +18,16 @@ func set_character(_character: Character):
 		character.disconnect("damage_applied", self, 'update_hitpoints')
 		character.disconnect("healed", self, 'update_hitpoints')
 		character.disconnect("demon_tokens_moved", self, 'update_demon_tokens')
+		character.disconnect("demon_armor_updated", self, 'update_demon_armor')
+		character.disconnect("armor_updated", self, 'update_armor')
+		character.disconnect("active_changed", self, 'update_active_status')
 
 	character = _character
 	character.connect("damage_applied", self, 'update_hitpoints')
 	character.connect("healed", self, 'update_hitpoints')
 	character.connect("demon_tokens_moved", self, 'update_demon_tokens')
+	character.connect("demon_armor_updated", self, 'update_demon_armor')
+	character.connect("active_changed", self, 'update_active_status')
 	update_hitpoints()
 
 
@@ -44,12 +49,19 @@ func update_demon_tokens(value):
 		for _index in range(value, demon_tokens):
 			remove_demon_token()
 
+func update_demon_armor(value):
+	$demon_armor.visible = value>0
+	$demon_armor/Label.text = str(value)
+
+func update_armor(value):
+	$hp_armor.visible = value>0
+	$hp_armor/Label.text = str(value)
 
 func add_demon_token():
 	var token = Sprite.new()
-	token.scale = Vector2(0.1, 0.1)
+	token.scale = Vector2(0.2, 0.2)
 	token.texture = demon_token_texture
-	token.position.x = $DemonTokens.get_child_count() * 20 * side
+	token.position.x = $DemonTokens.get_child_count() * 35 * side
 	$DemonTokens.add_child(token)
 	demon_tokens += 1
 
@@ -61,4 +73,12 @@ func remove_demon_token():
 func set_avatar(_avatar):
 	avatar = _avatar
 	$Avatar.texture = avatar
+
+func update_active_status(active):
+	if active:
+		$AnimationPlayer.play("on_turn")
+	else:
+		$AnimationPlayer.stop()
+		$Avatar.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
 

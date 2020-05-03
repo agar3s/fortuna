@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://Arena/AvatarPlayer.gd" type="Script" id=12]
 [ext_resource path="res://Arena/Assets/Alberich_face.png" type="Texture" id=13]
 [ext_resource path="res://Resources/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Cubes/Assets/09_harden.jpg" type="Texture" id=15]
+[ext_resource path="res://Cubes/Assets/01_c_demoniaco.jpg" type="Texture" id=16]
+[ext_resource path="res://Resources/Fonts/IconCounterFont.tres" type="DynamicFont" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -49,6 +52,114 @@ font_data = ExtResource( 11 )
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 14 )
 
+[sub_resource type="Animation" id=6]
+resource_name = "on_turn"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Avatar:light_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Avatar:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Avatar:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Avatar:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Avatar:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "on_turn"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Avatar:light_mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Avatar:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Avatar:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Avatar:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Avatar:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
 [node name="Arena" type="Node2D"]
 script = ExtResource( 8 )
 __meta__ = {
@@ -79,18 +190,16 @@ offset = Vector2( 200, 184 )
 position = Vector2( 314, 400 )
 character_name = "Engel"
 active = true
-hit_points = 10
-max_hit_points = 10
+cube_indexes = [ "X08", "X08", "X08" ]
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 710, 400 )
 character_name = "Alberich"
 order = 2
-hit_points = 15
-max_hit_points = 15
 body_texture = ExtResource( 4 )
 body_offset = Vector2( -10, 23 )
-cube_indexes = [ "005", "005", "005" ]
+cube_indexes = [ "X09", "X09", "X09" ]
+side = -1
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 39 )
@@ -128,6 +237,7 @@ position = Vector2( 0, -68 )
 [node name="Message" type="Control" parent="HUD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 928, 134 )
 mouse_filter = 2
 script = ExtResource( 6 )
 __meta__ = {
@@ -164,17 +274,18 @@ __meta__ = {
 script = ExtResource( 12 )
 
 [node name="Avatar" type="Sprite" parent="AvatarPlayer1"]
-position = Vector2( 50, 47 )
+modulate = Color( 1.0001, 1.0001, 1.0001, 0.999952 )
+position = Vector2( 46, 53 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="Text" type="Label" parent="AvatarPlayer1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 88.0
-margin_right = 85.0
-margin_bottom = 118.0
+margin_left = 13.0
+margin_top = 118.0
+margin_right = 82.0
+margin_bottom = 148.0
 custom_fonts/font = SubResource( 1 )
 text = "Engel"
 __meta__ = {
@@ -221,10 +332,48 @@ __meta__ = {
 }
 
 [node name="StatsAnchor" type="Position2D" parent="AvatarPlayer1"]
-position = Vector2( 106, 74 )
+position = Vector2( 108, 89 )
 
 [node name="DemonTokens" type="Node2D" parent="AvatarPlayer1"]
-position = Vector2( 107, 53 )
+position = Vector2( 108, 55 )
+
+[node name="demon_armor" type="Node2D" parent="AvatarPlayer1"]
+visible = false
+position = Vector2( 58, 108 )
+
+[node name="icon" type="Sprite" parent="AvatarPlayer1/demon_armor"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="AvatarPlayer1/demon_armor"]
+margin_right = 11.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 17 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp_armor" type="Node2D" parent="AvatarPlayer1"]
+visible = false
+position = Vector2( 30, 108 )
+
+[node name="icon" type="Sprite" parent="AvatarPlayer1/hp_armor"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="AvatarPlayer1/hp_armor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 17 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AvatarPlayer1"]
+anims/on_turn = SubResource( 6 )
 
 [node name="AvatarPlayer2" type="Node2D" parent="."]
 position = Vector2( 712, 0 )
@@ -235,15 +384,15 @@ side = -1
 [node name="Avatar" type="Sprite" parent="AvatarPlayer2"]
 position = Vector2( 260, 47 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 13 )
+texture = ExtResource( 10 )
 
 [node name="Text" type="Label" parent="AvatarPlayer2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 190.0
-margin_top = 91.0
+margin_top = 112.0
 margin_right = 295.0
-margin_bottom = 121.0
+margin_bottom = 142.0
 custom_fonts/font = SubResource( 1 )
 text = "Alberich"
 align = 2
@@ -289,14 +438,51 @@ custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
 text = "5/10"
-align = 1
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="StatsAnchor" type="Position2D" parent="AvatarPlayer2"]
-position = Vector2( 207, 68 )
+position = Vector2( 203, 84 )
 
 [node name="DemonTokens" type="Node2D" parent="AvatarPlayer2"]
-position = Vector2( 208, 48 )
+position = Vector2( 202, 55 )
+
+[node name="hp_armor" type="Node2D" parent="AvatarPlayer2"]
+visible = false
+position = Vector2( 279, 101 )
+
+[node name="icon" type="Sprite" parent="AvatarPlayer2/hp_armor"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="AvatarPlayer2/hp_armor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 17 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="demon_armor" type="Node2D" parent="AvatarPlayer2"]
+visible = false
+position = Vector2( 251, 101 )
+
+[node name="icon" type="Sprite" parent="AvatarPlayer2/demon_armor"]
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="AvatarPlayer2/demon_armor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 17 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AvatarPlayer2"]
+anims/on_turn = SubResource( 7 )

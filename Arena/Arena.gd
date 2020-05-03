@@ -10,7 +10,9 @@ func _ready():
 	$Player1/CubeSet.connect("max_roll_reached", $CubeSection/Roll, 'set_disabled', [true])
 	
 	$AvatarPlayer1.character = $Player1
+	$Player1/States.global_position = $AvatarPlayer1/StatsAnchor.global_position
 	$AvatarPlayer2.character = $Player2
+	$Player2/States.global_position = $AvatarPlayer2/StatsAnchor.global_position
 	
 
 	$BattleEngine.player_b = $Player2

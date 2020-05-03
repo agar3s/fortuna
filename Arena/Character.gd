@@ -6,7 +6,10 @@ signal states_triggered
 signal defeated
 signal damage_applied
 signal healed
+signal active_changed
 signal demon_tokens_moved(demon_tokens)
+signal demon_armor_updated(demon_armor)
+signal armor_updated(armor)
 
 const State = preload("res://Arena/State.tscn")
 
@@ -31,6 +34,7 @@ export (Vector2) var body_scale = Vector2(1.0, 1.0) setget set_body_scale
 export (Array, String) var cube_indexes = ['001', '001', '001']
 
 var states = []
+export (int) var side = 1
 
 
 func _ready():
@@ -48,7 +52,6 @@ func _ready():
 
 func set_hit_points(value):
 	hit_points = value
-	$Stats/LabelHP.text = 'Hit points: ' + str(hit_points)
 
 
 func roll():
@@ -86,12 +89,14 @@ func resolve_instants(combo):
 
 func set_active(value):
 	active = value
-	print ('set active cubes: ', value)
+	
 	if active:
 		$CubeSet.reset()
 		resolve_states()
 	else:
 		$CubeSet.locked = true
+	
+	emit_signal('active_changed', active)
 
 
 func cast(type):
@@ -110,6 +115,7 @@ func get_damage(damage, type):
 			# blocked armor damage
 			damage = res
 			armor = 0
+		emit_signal('armor_updated', armor)
 		
 	
 	hit_points -= damage
@@ -149,22 +155,21 @@ func set_armor(value):
 	armor = value
 	if armor > max_armor:
 		armor = max_armor
-	$Stats/LabelArmor.text = 'Armor: ' + str(armor)
-
+	emit_signal('armor_updated', armor)
 
 func set_demon_armor(value):
 	demon_armor = value
 	if demon_armor > max_demon_armor:
 		demon_armor = max_demon_armor
-	$Stats/LabelDemonArmor.text = 'Demon Armor: ' + str(demon_armor)
+	emit_signal('demon_armor_updated', demon_armor)
 
-
-func add_state(effects, turns, state_type):
+func add_state(effects, turns, state_type, icon_type):
 	var new_state = State.instance()
 	new_state.turns = turns
 	new_state.effects = effects
 	new_state.type = state_type
-	new_state.position.y += $States.get_child_count()*15
+	new_state.icon = icon_type
+	new_state.position.x += $States.get_child_count()*35*side
 	$States.add_child(new_state)
 
 
@@ -173,8 +178,16 @@ func resolve_states():
 	for state in $States.get_children():
 		effects += state.effects
 		state.turns -= 1
+		yield(get_tree().create_timer(0.1), "timeout")
 
+	update_states_position()
 	emit_signal('states_triggered', effects)
+
+func update_states_position():
+	var index = 0
+	for state in $States.get_children():
+		state.position.x = index*35*side
+		index += 1
 
 # how many removes
 func remove_states(quantity, type):
@@ -184,7 +197,10 @@ func remove_states(quantity, type):
 			state.queue_free()
 			quantity -= 1
 			if quantity <= 0:
-				return
+				break
+		yield(get_tree().create_timer(0.1), "timeout")
+
+	update_states_position()
 
 # value is added to the limit
 func add_roll_limit(value):

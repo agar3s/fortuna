@@ -31,6 +31,7 @@ func transfer_demon_counter(quantity, from, to):
 			# blocked to.demon_armor demon counters
 			quantity = res
 			to.demon_armor = 0
+		to.emit_signal('demon_armor_updated', to.demon_armor)
 	
 	from.demon_tokens -= quantity
 	to.demon_tokens += quantity
@@ -103,7 +104,7 @@ func apply_damage_state(damage, type, turns, from, to):
 		'damage_type': type,
 		'from': 'player',
 		'to': 'player'
-	}], turns, 'curse')
+	}], turns, 'curse', type)
 	#TODO implement this
 	yield(get_tree().create_timer(0.2),"timeout")
 	Events.emit_signal('spell_casted')
@@ -114,7 +115,7 @@ func recover_damage_state(hit_points, turns, from, _to):
 		'type': 'recover_damage',
 		'hit_points': hit_points,
 		'to': 'player'
-	}], turns, 'defense')
+	}], turns, 'defense', 'heal')
 	#TODO implement this
 	yield(get_tree().create_timer(0.2),"timeout")
 	Events.emit_signal('spell_casted')
@@ -135,7 +136,7 @@ func drain_damage_state(damage, type, turns, from, to):
 		'hit_points': damage,
 		'from': 'enemy',
 		'to': 'enemy'
-	}], turns, 'curse')
+	}], turns, 'curse', 'vampire')
 	#TODO implement this
 	yield(get_tree().create_timer(0.2),"timeout")
 	Events.emit_signal('spell_casted')
@@ -143,12 +144,13 @@ func drain_damage_state(damage, type, turns, from, to):
 
 func set_roll_limit_state(value, turns, to):
 	var state_type = 'curse' if value < 0 else 'defense'
+	var icon_type = 'decrease_speed' if value < 0 else 'increase_speed'
 	to.add_state([{
 		'type': 'set_roll_limit',
 		'value': value,
 		'from': 'player',
 		'to': 'player'
-	}], turns, state_type)
+	}], turns, state_type, icon_type)
 	#TODO implement this
 	yield(get_tree().create_timer(0.2),"timeout")
 	Events.emit_signal('spell_casted')

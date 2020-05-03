@@ -26,7 +26,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -36,7 +36,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}, {
@@ -52,7 +52,7 @@ const values = {
 		'instants': [{
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -62,7 +62,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}],
@@ -77,7 +77,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -87,7 +87,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -641,7 +641,7 @@ const values = {
 		}, {
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -657,7 +657,7 @@ const values = {
 		{
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -699,7 +699,7 @@ const values = {
 		}, {
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -715,7 +715,7 @@ const values = {
 		{
 			'type': 'apply_damage',
 			'damage': 4,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -763,7 +763,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		},{
@@ -777,7 +777,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 4,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		},{
@@ -791,7 +791,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 5,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		},{
@@ -805,7 +805,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		},{
@@ -819,13 +819,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'enemy'
 		},{
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -835,13 +835,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'enemy'
 		},{
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -851,13 +851,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 5,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'enemy'
 		},{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -867,13 +867,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 7,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'enemy'
 		},{
 			'type': 'apply_damage',
 			'damage': 4,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -883,13 +883,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 4,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'enemy'
 		},{
 			'type': 'apply_damage',
 			'damage': 4,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}]
@@ -919,13 +919,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		}, {
 			'type': 'apply_continuous_drain_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'turns': 2,
 			'from': 'player',
 			'to': 'enemy'
@@ -936,13 +936,13 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 3,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'from': 'player',
 			'to': 'enemy'
 		}, {
 			'type': 'apply_continuous_drain_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'vampire',
 			'turns': 3,
 			'from': 'player',
 			'to': 'enemy'
@@ -953,7 +953,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 2,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}, {
@@ -975,7 +975,7 @@ const values = {
 		'effects': [{
 			'type': 'apply_damage',
 			'damage': 1,
-			'damage_type': 'neutral',
+			'damage_type': 'shadow',
 			'from': 'player',
 			'to': 'player'
 		}, {
