@@ -6,6 +6,7 @@ signal states_triggered
 signal defeated
 signal damage_applied
 signal healed
+signal demon_tokens_moved(demon_tokens)
 
 const State = preload("res://Arena/State.tscn")
 
@@ -135,14 +136,13 @@ func recover_damage(value):
 
 func set_demon_tokens(value):
 	demon_tokens = value
-	$Stats/LabelDemon.text = 'Demon tokens: ' + str(demon_tokens)
-	
+	emit_signal('demon_tokens_moved', demon_tokens)
 
 
 func resolve_demon_tokens():
 	get_damage(demon_tokens, 'demons')
 	demon_tokens = 0
-	$Stats/LabelDemon.text = 'Demon tokens: ' + str(demon_tokens)
+	emit_signal('demon_tokens_moved', demon_tokens)
 
 
 func set_armor(value):
