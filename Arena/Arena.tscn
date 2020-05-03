@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Cubes/Assets/09_harden.jpg" type="Texture" id=15]
 [ext_resource path="res://Cubes/Assets/01_c_demoniaco.jpg" type="Texture" id=16]
 [ext_resource path="res://Resources/Fonts/IconCounterFont.tres" type="DynamicFont" id=17]
+[ext_resource path="res://HUD/FaceInfo.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -190,7 +191,7 @@ offset = Vector2( 200, 184 )
 position = Vector2( 314, 400 )
 character_name = "Engel"
 active = true
-cube_indexes = [ "X08", "X08", "X08" ]
+cube_indexes = [ "001", "002", "021" ]
 
 [node name="Player2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 710, 400 )
@@ -198,7 +199,7 @@ character_name = "Alberich"
 order = 2
 body_texture = ExtResource( 4 )
 body_offset = Vector2( -10, 23 )
-cube_indexes = [ "X09", "X09", "X09" ]
+cube_indexes = [ "X08", "X07", "X02" ]
 side = -1
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]
@@ -486,3 +487,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AvatarPlayer2"]
 anims/on_turn = SubResource( 7 )
+
+[node name="FaceInfo" parent="." instance=ExtResource( 18 )]
+visible = false
+margin_left = 329.0
+margin_top = 251.0
+margin_right = 694.0
+margin_bottom = 367.0

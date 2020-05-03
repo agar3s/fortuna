@@ -9,3 +9,9 @@ signal roll_scheduled
 
 # warning-ignore:unused_signal
 signal spell_casted
+
+# warning-ignore:unused_signal
+signal cube_mouse_enter
+
+# warning-ignore:unused_signal
+signal cube_mouse_exit

@@ -27,6 +27,7 @@ func set_character(_character: Character):
 	character.connect("healed", self, 'update_hitpoints')
 	character.connect("demon_tokens_moved", self, 'update_demon_tokens')
 	character.connect("demon_armor_updated", self, 'update_demon_armor')
+	character.connect("armor_updated", self, "update_armor")
 	character.connect("active_changed", self, 'update_active_status')
 	update_hitpoints()
 
@@ -50,11 +51,11 @@ func update_demon_tokens(value):
 			remove_demon_token()
 
 func update_demon_armor(value):
-	$demon_armor.visible = value>0
+	$demon_armor.visible = value > 0
 	$demon_armor/Label.text = str(value)
 
 func update_armor(value):
-	$hp_armor.visible = value>0
+	$hp_armor.visible = value > 0
 	$hp_armor/Label.text = str(value)
 
 func add_demon_token():

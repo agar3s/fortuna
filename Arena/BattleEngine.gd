@@ -70,7 +70,7 @@ func solve_cast(values, player):
 			apply_spell(spell, player, oponent)
 			yield(Events, "spell_casted")
 
-	
+	print("======== emit signal turn over ======== ")
 	emit_signal("turn_ended", player.order)
 
 

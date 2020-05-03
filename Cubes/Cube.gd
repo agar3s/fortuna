@@ -20,6 +20,8 @@ func _ready():
 	set_id(self.id)
 	position.y = 0
 	$Hitbox.connect('input_event', self, 'on_input_event')
+	$Hitbox.connect('mouse_entered', self, 'on_hover')
+	$Hitbox.connect('mouse_exited', self, 'on_out')
 
 
 func can_roll():
@@ -107,4 +109,12 @@ func force_unlock():
 
 func hide_cube():
 	$AnimationPlayer.play_backwards("cube_enters")
+
+
+func on_hover():
+	Events.emit_signal('cube_mouse_enter', get_face_value(), keeped)
+
+
+func on_out():
+	Events.emit_signal('cube_mouse_exit')
 

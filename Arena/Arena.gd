@@ -47,11 +47,13 @@ func on_player_turn_ends(player):
 
 
 func send_cast():
+	$FaceInfo.hide()
 	$CubeSection/Cast.set_disabled(true)
 	$CubeSection/Roll.set_disabled(true)
 	active_player.send_cast()
 
 func roll():
+	$FaceInfo.hide()
 	active_player.roll()
 	
 func on_battle_ends(winner):

@@ -8,7 +8,7 @@ const values = {
 		'icon': 4,
 		'sprite': 'res://Cubes/Assets/01_c_demoniaco.jpg',
 		'title': 'Demon invocation',
-		'description': 'Add 1 demon counter to yourself.',
+		'description': '[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself.',
 		'karma': -2,
 	},
 	'02': {
@@ -16,7 +16,7 @@ const values = {
 		'icon': 58,
 		'sprite': 'res://Cubes/Assets/02_b_mental.jpg',
 		'title': 'Mind Lock',
-		'description': 'Lock the dice.\nX3: apply 3 damage to yourself.',
+		'description': '[b]Instant:[/b] Lock this cube\n [img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img] apply 3 damage to yourself.',
 		'karma': -2
 	},
 	'03': {
@@ -24,7 +24,7 @@ const values = {
 		'icon': 9,
 		'sprite': 'res://Cubes/Assets/03_h_fallido.jpg',
 		'title': 'Burnout',
-		'description': 'Apply 1 damage to yourself.',
+		'description': '[b]Instant:[/b] Apply 1 damage to yourself.',
 		'karma': -1
 	},
 	'04': {
@@ -32,7 +32,7 @@ const values = {
 		'icon': 51,
 		'sprite': 'res://Cubes/Assets/04_panic.jpg',
 		'title': 'Panic',
-		'description': 'Instant: Lock the dice.\nEffect: apply 1 damage to yourself.',
+		'description': '[b]Instant:[/b] Lock this cube\n.[b]Cast:[/b] apply 1 damage to yourself.',
 		'karma': -3
 	},
 	'05': {
@@ -40,7 +40,7 @@ const values = {
 		'icon': 0,
 		'sprite': 'res://Cubes/Assets/05_doubt.jpg',
 		'title': 'Doubt',
-		'description': 'Instant: unlock all dices, automatic roll.',
+		'description': '[b]Instant:[/b] unlock all cubes. Then all cubes roll automatically.',
 		'karma': -2
 	},
 	'06': {
@@ -48,7 +48,7 @@ const values = {
 		'icon': 66,
 		'sprite': 'res://Cubes/Assets/06_fire_spell.jpg',
 		'title': 'Fire Ball',
-		'description': 'Apply 1 fire damage to enemy.',
+		'description': '[b]Cast:[/b] Apply 1 fire damage to oponent',
 		'karma': 1
 	},
 	'07': {
@@ -56,7 +56,7 @@ const values = {
 		'icon': 56,
 		'sprite': 'res://Cubes/Assets/07_ice_blast.jpg',
 		'title': 'Ice Blast',
-		'description': 'Apply 1 ice damage to enemy.',
+		'description': '[b]Cast:[/b] Apply 1 ice damage to oponent',
 		'karma': 1
 	},
 	'08': {
@@ -64,15 +64,15 @@ const values = {
 		'icon': 8,
 		'sprite': 'res://Cubes/Assets/08_thunder_bolt.jpg',
 		'title': 'Thunder Bolt',
-		'description': 'Apply 1 electric damage to enemy.',
+		'description': '[b]Cast:[/b] Apply 1 electric damage to oponent',
 		'karma': 1
 	},
 	'09': {
 		'id': '09',
 		'icon': 55,
 		'sprite': 'res://Cubes/Assets/09_harden.jpg',
-		'title': 'Harden',
-		'description': 'Prevent 1 future damage.',
+		'title': 'Armor',
+		'description': '[b]Cast:[/b] Prevent 1 future damage.',
 		'karma': 1
 	},
 	'10': {
@@ -80,7 +80,7 @@ const values = {
 		'icon': 1,
 		'sprite': 'res://Cubes/Assets/10_poison.jpg',
 		'title': 'Poison',
-		'description': 'Apply 1 poison damage to enemy.\nApply 1 poison damage to enemy in the next 1 turns.',
+		'description': '[b]Cast:[/b] Apply 1 poison damage to enemy.\nApply 1 poison damage to enemy in the next 1 turns',
 		'karma': 2
 	},
 	'11': {
@@ -88,7 +88,7 @@ const values = {
 		'icon': 62,
 		'sprite': 'res://Cubes/Assets/11_shadow_pact.jpg',
 		'title': 'Shadow pact',
-		'description': 'Apply 1 shadow damage to enemy in the next 2 turns.',
+		'description': '[b]Cast:[/b] Apply 1 shadow damage to enemy in the next 2 turns.',
 		'karma': 2
 	},
 	'12': {
@@ -96,7 +96,7 @@ const values = {
 		'icon': 53,
 		'sprite': 'res://Cubes/Assets/12_Heal.jpg',
 		'title': 'Heal',
-		'description': 'Recover 1 hit points.',
+		'description': '[b]Cast:[/b] Recover 1 hit points.',
 		'karma': 1
 	},
 	'13': {
@@ -104,7 +104,7 @@ const values = {
 		'icon': 59,
 		'sprite': 'res://Cubes/Assets/13_control.jpg',
 		'title': 'Control',
-		'description': 'X3 destroy all demon counters',
+		'description': '[img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img]\n[b]Cast:[/b] Remove all your demon tokens [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img].',
 		'karma': 1
 	},
 	'14': {
@@ -112,7 +112,7 @@ const values = {
 		'icon': 71,
 		'sprite': 'res://Cubes/Assets/14_focus.jpg',
 		'title': 'Focus',
-		'description': 'Remove 1 harmful state',
+		'description': '[b]Cast:[/b] Remove 1 [img=<20>x<20>]res://Cubes/Assets/10_poison.jpg[/img]/[img=<20>x<20>]res://Cubes/Assets/06_fire_spell.jpg[/img]/[img=<20>x<20>]res://Cubes/Assets/07_ice_blast.jpg[/img][img=<20>x<20>]res://Cubes/Assets/05_doubt.jpg[/img][img=<20>x<20>]res://Cubes/Assets/17_blood_drain.jpg[/img] Harmful state.',
 		'karma': 1
 	},
 	'15': {
@@ -120,7 +120,7 @@ const values = {
 		'icon': 219,
 		'sprite': 'res://Cubes/Assets/15_pact.jpg',
 		'title': 'Pact',
-		'description': 'Remove 1 demon counter. Apply 1 damage to yourself.',
+		'description': '[b]Cast:[/b] Remove 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]. Then Apply 1 damage to yourself.',
 		'karma': 1
 	},
 	'16': {
@@ -128,7 +128,7 @@ const values = {
 		'icon': 65,
 		'sprite': 'res://Cubes/Assets/16_incriminate.jpg',
 		'title': 'Incriminate',
-		'description': 'Transfer 1 demon counter from you to your enemy\n Apply 2 damage to yourself.',
+		'description': '[b]Cast:[/b] Transfer 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] from you to your oponent. Then Apply 2 damage to yourself.',
 		'karma': 1
 	},
 	'17': {
@@ -136,7 +136,7 @@ const values = {
 		'icon': 48,
 		'sprite': 'res://Cubes/Assets/17_blood_drain.jpg',
 		'title': 'Blood Drain',
-		'description': 'Apply 1 neutral damage to enemy.\nRecover 1 hit points.',
+		'description': '[b]Cast:[/b] Apply 1 damage your enemy. Then recover 1 hit points.',
 		'karma': 2
 	},
 	'18': {
@@ -144,7 +144,7 @@ const values = {
 		'icon': 178,
 		'sprite': 'res://Cubes/Assets/18_pain.jpg',
 		'title': 'Pain',
-		'description': 'Apply 1 neutral damage to enemy.\nApply 1 neutral damage to yourself.',
+		'description': '[b]Cast:[/b] Apply 1 damage your enemy. Then Apply 1 damage to yourself.',
 		'karma': 1
 	}
 }
