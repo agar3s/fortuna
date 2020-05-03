@@ -50,6 +50,9 @@ func cubes_rolled():
 	# autocast off
 	if roll_count >= roll_limit:
 		emit_signal('max_roll_reached')
+		# lock dices
+		for cube in $Cubes.get_children():
+			cube.locked = true
 	#	cast()
 
 
