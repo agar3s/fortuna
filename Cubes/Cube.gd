@@ -81,6 +81,7 @@ func get_face_value():
 
 	
 func reset():
+	$AnimationPlayer.play("cube_enters")
 	locked = false
 	keepable = false
 	set_keep(false)
@@ -90,4 +91,7 @@ func force_unlock():
 	keeped = false
 	keepable = false
 	print('set keepable ', keepable)
+
+func hide_cube():
+	$AnimationPlayer.play_backwards("cube_enters")
 

@@ -33,6 +33,7 @@ var states = []
 func _ready():
 	
 	$Body.texture = body_texture
+	$Body.position.y = -$Body.get_rect().size[1]/2
 	$Body.offset = body_offset
 	$Body.scale = body_scale
 	
@@ -183,6 +184,7 @@ func add_roll_limit(value):
 func set_body_texture(_texture):
 	body_texture = _texture
 	$Body.texture = body_texture
+	$Body.position.y = -$Body.get_rect().size[1]/2
 
 func set_body_offset(_body_offset):
 	body_offset = _body_offset

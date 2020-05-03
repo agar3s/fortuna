@@ -11,7 +11,7 @@ export (Array, String) var cube_indexes = ['001', '001', '001'] setget set_cube_
 var roll_count = 0
 var roll_limit = 3 setget set_roll_limit
 const roll_default_value = 3
-var locked = false
+var locked = false setget set_locked
 
 var cubes_done = 0
 var cubes_thrown = 0
@@ -104,3 +104,10 @@ func set_roll_limit(value):
 	roll_limit = value
 	if roll_limit < 1:
 		roll_limit = 1
+
+func set_locked(_locked):
+	locked = _locked
+	if locked:
+		for cube in $Cubes.get_children():
+			cube.hide_cube();
+

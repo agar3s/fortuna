@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Cubes/Cube.gd" type="Script" id=1]
 [ext_resource path="res://Cubes/Face.tscn" type="PackedScene" id=2]
@@ -6,47 +6,84 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 36 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "cube_enters"
+length = 0.35
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Faces:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.35 )
+}
+
 [node name="Cube" type="Node2D"]
 script = ExtResource( 1 )
+face_indexes = [ "01", "02", "06", "07", "12", "13" ]
 
 [node name="Faces" type="Node2D" parent="."]
 
 [node name="Face1" parent="Faces" instance=ExtResource( 2 )]
+id = "01"
+icon = 4
 title = "Demon invocation"
 description = "Add 1 demon counter to yourself."
 karma = -2
 
 [node name="Face2" parent="Faces" instance=ExtResource( 2 )]
 visible = false
-title = "Demon invocation"
-description = "Add 1 demon counter to yourself."
+id = "02"
+icon = 58
+texture_resource = "res://Cubes/Assets/02_b_mental.jpg"
+title = "Mind Lock"
+description = "Lock the dice.
+X3: apply 3 damage to yourself."
 karma = -2
 
 [node name="Face3" parent="Faces" instance=ExtResource( 2 )]
 visible = false
-title = "Demon invocation"
-description = "Add 1 demon counter to yourself."
-karma = -2
+id = "06"
+icon = 66
+texture_resource = "res://Cubes/Assets/06_fire_spell.jpg"
+title = "Fire Ball"
+description = "Apply 1 fire damage to enemy."
+karma = 1
 
 [node name="Face4" parent="Faces" instance=ExtResource( 2 )]
 visible = false
-title = "Demon invocation"
-description = "Add 1 demon counter to yourself."
-karma = -2
+id = "07"
+icon = 56
+texture_resource = "res://Cubes/Assets/07_ice_blast.jpg"
+title = "Ice Blast"
+description = "Apply 1 ice damage to enemy."
+karma = 1
 
 [node name="Face5" parent="Faces" instance=ExtResource( 2 )]
 visible = false
-title = "Demon invocation"
-description = "Add 1 demon counter to yourself."
-karma = -2
+id = "12"
+icon = 53
+texture_resource = "res://Cubes/Assets/12_Heal.jpg"
+title = "Heal"
+description = "Recover 1 hit points."
+karma = 1
 
 [node name="Face6" parent="Faces" instance=ExtResource( 2 )]
 visible = false
-title = "Demon invocation"
-description = "Add 1 demon counter to yourself."
-karma = -2
+id = "13"
+icon = 59
+texture_resource = "res://Cubes/Assets/13_control.jpg"
+title = "Control"
+description = "X3 destroy all demon counters"
+karma = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/cube_enters = SubResource( 2 )

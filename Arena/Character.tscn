@@ -18,15 +18,14 @@ __meta__ = {
 }
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 22, 64 )
+position = Vector2( 0, -110.5 )
 texture = ExtResource( 3 )
-centered = false
 
 [node name="CubeSet" parent="." instance=ExtResource( 1 )]
-position = Vector2( 255, 489 )
+position = Vector2( 0, 49 )
 
 [node name="States" type="Node2D" parent="."]
-position = Vector2( 178, 63 )
+position = Vector2( 0, 100 )
 
 [node name="State" parent="States" instance=ExtResource( 4 )]
 
