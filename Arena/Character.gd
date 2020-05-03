@@ -38,6 +38,7 @@ func _ready():
 	
 	$CubeSet.cube_indexes = cube_indexes
 	$CubeSet.connect('on_cast', self, 'resolve_cast')
+	$CubeSet.connect('cubes_rolled', self, 'on_cubes_rolled')
 	Events.connect('demon_pool_empty', self, 'resolve_demon_tokens')
 
 
@@ -192,3 +193,5 @@ func set_body_scale(_body_scale):
 	body_scale = _body_scale
 	$Body.scale = _body_scale
 
+func on_cubes_rolled(_faces):
+	pass

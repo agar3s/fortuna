@@ -4,6 +4,7 @@ extends Node2D
 signal on_cast
 signal cast_unlocked
 signal cubes_rolled
+signal max_roll_reached
 
 export (Array, String) var cube_indexes = ['001', '001', '001'] setget set_cube_indexes
 
@@ -46,8 +47,10 @@ func cubes_rolled():
 	roll_count += 1
 	if roll_count == 1:
 		emit_signal('cast_unlocked')
+	# autocast off
 	if roll_count >= roll_limit:
-		cast()
+		emit_signal('max_roll_reached')
+	#	cast()
 
 
 func roll_cubes():

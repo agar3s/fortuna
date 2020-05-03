@@ -10,8 +10,11 @@ script = ExtResource( 2 )
 
 [node name="Cube1" parent="Cubes" instance=ExtResource( 1 )]
 position = Vector2( -84, 0 )
+face_indexes = [ "01", "02", "06", "07", "12", "13" ]
 
 [node name="Cube2" parent="Cubes" instance=ExtResource( 1 )]
+face_indexes = [ "01", "02", "06", "07", "12", "13" ]
 
 [node name="Cube3" parent="Cubes" instance=ExtResource( 1 )]
 position = Vector2( 84, 0 )
+face_indexes = [ "01", "02", "06", "07", "12", "13" ]
