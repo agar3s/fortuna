@@ -27,7 +27,8 @@ func set_character(_character: Character):
 
 
 func update_hitpoints():
-	$Control/ProgressBar.value = character.hit_points*100/character.max_hit_points
+	$HitPoints/ProgressBar.value = character.hit_points*100/character.max_hit_points
+	$HitPoints/Label.text = '%s/%s' % [character.hit_points, character.max_hit_points]
 
 func set_name(character_name):
 	$Text.text = character_name
@@ -37,10 +38,10 @@ func update_demon_tokens(value):
 	
 	if value > demon_tokens:
 		# add tokens
-		for index in range(demon_tokens, value):
+		for _index in range(demon_tokens, value):
 			add_demon_token()
 	else:
-		for index in range(value, demon_tokens):
+		for _index in range(value, demon_tokens):
 			remove_demon_token()
 
 

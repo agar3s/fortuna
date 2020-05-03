@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Resources/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Arena/AvatarPlayer.gd" type="Script" id=12]
 [ext_resource path="res://Arena/Assets/Alberich_face.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -43,6 +44,10 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 8 )
@@ -82,7 +87,7 @@ position = Vector2( 710, 400 )
 character_name = "Alberich"
 order = 2
 hit_points = 15
-max_hit_points = 10
+max_hit_points = 15
 body_texture = ExtResource( 4 )
 body_offset = Vector2( -10, 23 )
 cube_indexes = [ "005", "005", "005" ]
@@ -176,7 +181,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="AvatarPlayer1"]
+[node name="HitPoints" type="Control" parent="AvatarPlayer1"]
 margin_left = 93.0
 margin_top = 15.0
 margin_right = 293.0
@@ -185,7 +190,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="AvatarPlayer1/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="AvatarPlayer1/HitPoints"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/fg = SubResource( 2 )
@@ -194,6 +199,23 @@ custom_fonts/font = SubResource( 4 )
 step = 1.0
 value = 50.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AvatarPlayer1/HitPoints"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "5/10"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -229,21 +251,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="AvatarPlayer2"]
-margin_left = 93.0
+[node name="HitPoints" type="Control" parent="AvatarPlayer2"]
+margin_left = 16.0
 margin_top = 15.0
-margin_right = 293.0
+margin_right = 216.0
 margin_bottom = 35.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="AvatarPlayer2/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="AvatarPlayer2/HitPoints"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 124.0
+margin_left = 199.0
 margin_top = 1.0
-margin_right = 124.0
+margin_right = 199.0
 margin_bottom = 1.0
 rect_scale = Vector2( -1, 1 )
 custom_styles/fg = SubResource( 2 )
@@ -252,6 +274,23 @@ custom_fonts/font = SubResource( 4 )
 step = 1.0
 value = 50.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AvatarPlayer2/HitPoints"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "5/10"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
