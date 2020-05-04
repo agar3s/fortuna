@@ -16,12 +16,22 @@ var keepable = true
 var rolling = false
 var index = 0
 
+var next_face_result = ''
+var face_ids = {}
+
 func _ready():
 	set_id(self.id)
 	position.y = 0
 	$Hitbox.connect('input_event', self, 'on_input_event')
 	$Hitbox.connect('mouse_entered', self, 'on_hover')
 	$Hitbox.connect('mouse_exited', self, 'on_out')
+	find_face_ids()
+
+func find_face_ids():
+	var _index = 0
+	for face in $Faces.get_children():
+		face_ids[face.id] = _index
+		_index += 1
 
 
 func can_roll():
@@ -38,6 +48,11 @@ func roll():
 	self.set_face(randi()%6)
 	yield (get_tree().create_timer(0.1), 'timeout')
 	self.set_face(randi()%6)
+
+	if not next_face_result.empty():
+		self.set_face(face_ids[next_face_result])
+		next_face_result = ''
+
 	keepable = true
 	set_keep(true)
 	emit_signal('cube_rolled', $Faces.get_child(face_up).id, index)
@@ -59,7 +74,8 @@ func set_id(value):
 	for child in $Faces.get_children():
 		child.id = face_indexes[i]
 		i += 1
-
+	
+	find_face_ids()
 
 func set_keep(value):
 	if value and (!keepable or locked):return
@@ -118,3 +134,6 @@ func on_hover():
 func on_out():
 	Events.emit_signal('cube_mouse_exit')
 
+
+func force_next_result(_next_face_result):
+	next_face_result = _next_face_result

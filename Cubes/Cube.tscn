@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 36 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 resource_name = "Locked"
 length = 0.15
 step = 0.025
@@ -41,7 +41,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15 )
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 length = 0.35
 step = 0.05
 tracks/0/type = "bezier"
@@ -149,7 +149,7 @@ karma = 1
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Locked = SubResource( 2 )
-anims/cube_enters = SubResource( 3 )
+anims/Locked = SubResource( 6 )
+anims/cube_enters = SubResource( 7 )
 anims/discard = SubResource( 4 )
 anims/keep = SubResource( 5 )

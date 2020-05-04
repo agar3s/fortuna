@@ -114,3 +114,15 @@ func set_locked(_locked):
 		for cube in $Cubes.get_children():
 			cube.hide_cube();
 
+
+func force_result(faces):
+	print('force results ', faces)
+	var _index = 0
+	for cube in $Cubes.get_children():
+		cube.force_next_result(faces[_index])
+		_index += 1
+	
+		
+		
+		
+		

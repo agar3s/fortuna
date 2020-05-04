@@ -1,10 +1,11 @@
 extends Node2D
 
 var active_player
-var triggers = []
+var turn_triggers = []
 export (bool) var display_dialogue = true
-export (String) var dialogue_script = 'level01'
+export (String) var level_name = 'level01'
 var status = 'waiting'
+var turn = 0
 
 func _ready():
 	randomize()
@@ -35,8 +36,11 @@ func _ready():
 	
 	display_ui(false)
 	if display_dialogue:
-		NarrativeScript.run_script(dialogue_script, 'begin')
+		NarrativeScript.run_script(level_name, 'begin')
 		yield(Events, "dialogue_script_ended")
+	
+	turn_triggers = TurnTriggers.triggers[level_name]
+	
 	start_battle()
 
 
@@ -52,6 +56,7 @@ func display_ui(display: bool):
 	
 
 func start_battle():
+	turn = 1
 	display_ui(true)
 	$Player1.reset()
 	$Player2.reset()
@@ -59,11 +64,15 @@ func start_battle():
 	$AvatarPlayer2.reset()
 	$DemonPool.demon_tokens = 7
 	status = 'battle'
+	
 	on_player_turn_ends(2)
 
 
 func on_player_turn_ends(player):
 	if status != 'battle': return
+	check_turn_triggers()
+	turn += 0.5
+	
 	var prev_player = $Player1 if player == 1 else $Player2
 	active_player = $Player1 if player != 1 else $Player2
 	
@@ -81,7 +90,20 @@ func on_player_turn_ends(player):
 	
 	$CubeSection/Cast.set_disabled(true)
 	$CubeSection/Roll.set_disabled(false)
+
+
+func check_turn_triggers():
+	var index = 0
+	for trigger in turn_triggers:
+		print(trigger.turn, ' vs ', turn, '  ', trigger.turn == turn)
+		if trigger.turn != turn: break
+		if trigger.event == 'force_faces':
+			get_node(trigger.player).get_node('CubeSet').force_result(trigger.faces)
+			#turn_triggers.remove(index)
+		index += 1
 	
+	for _i in range(0, index):
+		turn_triggers.remove(0)
 
 
 func send_cast():
@@ -102,13 +124,13 @@ func on_battle_ends(winner):
 	yield($HUD/Message, 'message_ended')
 	if winner == $Player2:
 		if display_dialogue:
-			NarrativeScript.run_script(dialogue_script, 'defeated')
+			NarrativeScript.run_script(level_name, 'defeated')
 			yield(Events, "dialogue_script_ended")
 			$AnimationPlayer.play("restart")
 			yield($AnimationPlayer, "animation_finished")
 			start_battle()
 	else:
 		if display_dialogue:
-			NarrativeScript.run_script(dialogue_script, 'winner')
+			NarrativeScript.run_script(level_name, 'winner')
 			yield(Events, "dialogue_script_ended")
 

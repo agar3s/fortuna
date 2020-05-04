@@ -30,6 +30,7 @@ FaceDescription="*res://face_description.gd"
 CubeConfigurations="*res://cube_configurations.gd"
 Events="*res://Events.gd"
 NarrativeScript="*res://NarrativeScript.tscn"
+TurnTriggers="*res://TurnTriggers.tscn"
 
 [debug]
 
