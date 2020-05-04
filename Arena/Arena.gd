@@ -69,6 +69,10 @@ func on_player_turn_ends(player):
 	
 	prev_player.active = false
 	prev_player.get_node('CubeSet').hide()
+	if active_player.has_node('Bot'):
+		$CubeSection.hide()
+	else:
+		$CubeSection.show()
 
 	$HUD/Message.show_message("%s's turn" % active_player.character_name)
 	yield($HUD/Message, 'message_ended')
@@ -77,6 +81,7 @@ func on_player_turn_ends(player):
 	
 	$CubeSection/Cast.set_disabled(true)
 	$CubeSection/Roll.set_disabled(false)
+	
 
 
 func send_cast():

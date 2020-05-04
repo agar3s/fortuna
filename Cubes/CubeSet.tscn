@@ -12,7 +12,6 @@ script = ExtResource( 2 )
 position = Vector2( -84, 0 )
 
 [node name="Cube2" parent="Cubes" instance=ExtResource( 1 )]
-position = Vector2( 0, 0 )
 
 [node name="Cube3" parent="Cubes" instance=ExtResource( 1 )]
 position = Vector2( 84, 0 )
