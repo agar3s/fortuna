@@ -57,6 +57,9 @@ func display_ui(display: bool):
 
 func start_battle():
 	turn = 1
+	$HUD/Message.show_message("LET THE DUEL BEGINS!", 1.5)
+	yield($HUD/Message, 'message_ended')
+	yield(get_tree().create_timer(0.5), "timeout")
 	display_ui(true)
 	$Player1.reset()
 	$Player2.reset()
@@ -120,8 +123,13 @@ func roll():
 func on_battle_ends(winner):
 	status = 'ended'
 	display_ui(false)
-	$HUD/Message.show_message("%s wins" % winner.character_name, 2.0)
+	$HUD/Message.show_message("ENOUGH!")
 	yield($HUD/Message, 'message_ended')
+	yield(get_tree().create_timer(0.5), "timeout")
+	$HUD/Message.show_message("%s wins" % winner.character_name, 1.0)
+	yield($HUD/Message, 'message_ended')
+	yield(get_tree().create_timer(0.5), "timeout")
+	
 	if winner == $Player2:
 		if display_dialogue:
 			NarrativeScript.run_script(level_name, 'defeated')
