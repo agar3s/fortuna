@@ -24,7 +24,12 @@ func _ready():
 	pass # Replace with function body.
 
 func run_script(key, section):
-	var sequence = level_scripts[key][section]
+	if not level_scripts.has(key.to_lower()):
+		yield(get_tree().create_timer(0.2),"timeout")
+		Events.emit_signal('dialogue_script_ended')
+		return
+
+	var sequence = level_scripts[key.to_lower()][section]
 	
 	for script in sequence:
 		Events.emit_signal("dialog_triggered", script.right, script.character, script.dialogue)

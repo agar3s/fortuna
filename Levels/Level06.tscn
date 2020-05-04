@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Arena/Assets/paimon_dimension.jpg" type="Texture" id=2]
+[ext_resource path="res://Arena/Assets/Gunter.png" type="Texture" id=3]
+
+[node name="Arena" instance=ExtResource( 1 )]
+level_name = "Level06"
+next_scene = "Conclusion"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Player_placeholder_b" parent="." index="2"]
+character_name = "Gunther"
+hit_points = 20
+max_hit_points = 20
+body_texture = ExtResource( 3 )
+cube_indexes = [ "017", "017", "017" ]

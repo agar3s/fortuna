@@ -6,9 +6,19 @@ export (bool) var display_dialogue = true
 export (String) var level_name = 'level01'
 var status = 'waiting'
 var turn = 0
+export (String) var next_scene = 'Level02'
 
 func _ready():
 	randomize()
+	if not has_node('Player1'):
+		$Player_placeholder_a.name = 'Player1'
+	else:
+		$Player_placeholder_a.queue_free()
+	if not has_node('Player2'):
+		$Player_placeholder_b.name = 'Player2'
+	else:
+		$Player_placeholder_b.queue_free()
+	
 	$BattleEngine.player_a = $Player1
 	$Player1/CubeSet.global_position = $CubeSection/CubesetPosition.global_position
 	$Player1/CubeSet.connect("cast_unlocked", $CubeSection/Cast, 'set_disabled', [false])
@@ -33,13 +43,15 @@ func _ready():
 	
 	$BattleEngine.connect('turn_ended', self, 'on_player_turn_ends')
 	$BattleEngine.connect('battle_over', self, 'on_battle_ends')
-	
+	$AnimationPlayer.play("start_scene")
+	yield($AnimationPlayer, "animation_finished")
 	display_ui(false)
 	if display_dialogue:
 		NarrativeScript.run_script(level_name, 'begin')
 		yield(Events, "dialogue_script_ended")
 	
-	turn_triggers = TurnTriggers.triggers[level_name]
+	if TurnTriggers.triggers.has(level_name.to_lower()):
+		turn_triggers = TurnTriggers.triggers[level_name.to_lower()]
 	
 	start_battle()
 
@@ -141,4 +153,8 @@ func on_battle_ends(winner):
 		if display_dialogue:
 			NarrativeScript.run_script(level_name, 'winner')
 			yield(Events, "dialogue_script_ended")
+			print('should emmit the battle won screen')
+			$AnimationPlayer.play("ends_scene")
+			yield($AnimationPlayer, "animation_finished")
+			Events.emit_signal('battle_won', next_scene)
 

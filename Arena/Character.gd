@@ -28,6 +28,7 @@ export (int) var demon_armor = 0 setget set_demon_armor
 export (int) var max_demon_armor = 3
 
 export (Texture) var body_texture = preload('res://Arena/Assets/Engel.png') setget set_body_texture
+export (Texture) var avatar_texture = preload('res://Arena/Assets/Engel_face.png')
 export (Vector2) var body_offset = Vector2(0, 0) setget set_body_offset
 export (Vector2) var body_scale = Vector2(1.0, 1.0) setget set_body_scale
 

@@ -27,3 +27,6 @@ signal dialog_closed
 
 # warning-ignore:unused_signal
 signal dialogue_script_ended
+
+# warning-ignore:unused_signal
+signal battle_won(next_level)

@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="fortuna"
 run/main_scene="res://Arena/Arena.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.jpg"
 
 [autoload]
@@ -46,4 +47,5 @@ window/stretch/aspect="keep"
 
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 environment/default_environment="res://default_env.tres"
