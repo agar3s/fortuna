@@ -9,12 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RichTextEffect",
+"class": "RichTextGhost",
+"language": "GDScript",
+"path": "res://Resources/ghost_rich_text_effect.gd"
+}, {
+"base": "RichTextEffect",
+"class": "RichTextMatrix",
+"language": "GDScript",
+"path": "res://Resources/matrix_rich_text_effect.gd"
+}, {
+"base": "RichTextEffect",
+"class": "RichTextPulse",
+"language": "GDScript",
+"path": "res://Resources/pulse_rich_text_effect.gd"
+}, {
 "base": "Node",
 "class": "Trigger",
 "language": "GDScript",
 "path": "res://Trigger.gd"
 } ]
 _global_script_class_icons={
+"RichTextGhost": "",
+"RichTextMatrix": "",
+"RichTextPulse": "",
 "Trigger": ""
 }
 
@@ -32,6 +50,8 @@ CubeConfigurations="*res://cube_configurations.gd"
 Events="*res://Events.gd"
 NarrativeScript="*res://NarrativeScript.tscn"
 TurnTriggers="*res://TurnTriggers.tscn"
+SpellSeals="*res://SpellSeals.tscn"
+Inventory="*res://Inventory.tscn"
 
 [debug]
 

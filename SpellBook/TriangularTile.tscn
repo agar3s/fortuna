@@ -2,8 +2,6 @@
 
 [ext_resource path="res://SpellBook/TriangularTile.gd" type="Script" id=1]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 30, -26, -14, 26, -14 )
 
@@ -15,7 +13,7 @@ __meta__ = {
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2( -4.76837e-07, 0 )
-color = Color( 0.0745098, 0.00392157, 0.00392157, 0.1 )
+color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 0, 43, -37, -21, 37, -21 )
 
 [node name="Collider" type="Area2D" parent="."]
@@ -23,3 +21,16 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -20.0
+margin_top = -6.0
+margin_right = 20.0
+margin_bottom = 8.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[0, 0]"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

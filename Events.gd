@@ -30,3 +30,8 @@ signal dialogue_script_ended
 
 # warning-ignore:unused_signal
 signal battle_won(next_level)
+
+# warning-ignore:unused_signal
+signal seal_activated(seal)
+
+signal seal_destroyed(id)

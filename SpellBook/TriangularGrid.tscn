@@ -1,16 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SpellBook/TriangularTile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpellBook/TriangularGrid.gd" type="Script" id=2]
+[ext_resource path="res://Resources/SandboxSpellBook.shader" type="Shader" id=3]
 
-
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
 
 [node name="TriangularGrid" type="Node2D"]
-position = Vector2( 281, 43 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 418.0, 482.0 ]
+}
+DEBUG = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( -201, -222 )
+color = Color( 1, 1, 1, 0.905882 )
+polygon = PoolVector2Array( 205, 0, 391, 108, 391, 335, 205, 445, 0, 335, 0, 108 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="triangles" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0.533333 )
+position = Vector2( -201, -222 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -50,12 +65,10 @@ rotation = -0.523599
 [node name="T08" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 222, 185 )
 rotation = 0.523599
-active = true
 
 [node name="T019" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 179, 185 )
 rotation = -0.523599
-active = true
 
 [node name="T07" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 286, 222 )
@@ -64,12 +77,10 @@ rotation = 0.523599
 [node name="T018" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 243, 222 )
 rotation = -0.523599
-active = true
 
 [node name="T06" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 158, 222 )
 rotation = 0.523599
-active = true
 
 [node name="T017" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 115, 222 )
@@ -78,12 +89,10 @@ rotation = -0.523599
 [node name="T05" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 222, 259 )
 rotation = 0.523599
-active = true
 
 [node name="T016" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 179, 259 )
 rotation = -0.523599
-active = true
 
 [node name="T042" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 286, 296 )
@@ -92,12 +101,10 @@ rotation = 0.523599
 [node name="T041" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 243, 296 )
 rotation = -0.523599
-active = true
 
 [node name="T040" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 158, 296 )
 rotation = 0.523599
-active = true
 
 [node name="T039" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 115, 296 )
@@ -106,12 +113,10 @@ rotation = -0.523599
 [node name="T038" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 222, 333 )
 rotation = 0.523599
-active = true
 
 [node name="T037" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 179, 333 )
 rotation = -0.523599
-active = true
 
 [node name="T054" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 286, 370 )
@@ -148,7 +153,6 @@ rotation = -0.523599
 [node name="T011" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 158, 148 )
 rotation = 0.523599
-active = true
 
 [node name="T022" parent="triangles" instance=ExtResource( 1 )]
 position = Vector2( 115, 148 )
@@ -243,6 +247,7 @@ position = Vector2( 307, 333 )
 rotation = -0.523599
 
 [node name="AnchorPoints" type="Node2D" parent="."]
+position = Vector2( -201, -222 )
 __meta__ = {
 "_edit_lock_": true
 }

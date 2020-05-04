@@ -1,17 +1,17 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://SpellBook/TriangularGrid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sandbox/SandboxSpellBook.gd" type="Script" id=2]
-[ext_resource path="res://SpellBook/Runes/RuneA.tscn" type="PackedScene" id=3]
-[ext_resource path="res://SpellBook/Runes/RuneB.tscn" type="PackedScene" id=4]
-[ext_resource path="res://SpellBook/Runes/RuneC.tscn" type="PackedScene" id=5]
-[ext_resource path="res://SpellBook/Runes/RuneE.tscn" type="PackedScene" id=6]
-[ext_resource path="res://SpellBook/Runes/RuneF.tscn" type="PackedScene" id=7]
-[ext_resource path="res://SpellBook/Runes/RuneD.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Arena/Assets/dessert_bg.jpg" type="Texture" id=11]
+[ext_resource path="res://Sandbox/SandboxSpellBook.gd" type="Script" id=1]
+[ext_resource path="res://SpellBook/Runes/RuneF.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SpellBook/Runes/RuneD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpellBook/Runes/RuneA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SpellBook/Runes/RuneB.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SpellBook/Runes/RuneC.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SpellBook/TriangularGrid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpellBook/Runes/RuneE.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Arena/Assets/dessert_bg.jpg" type="Texture" id=9]
 
-[node name="SpellSeal" type="Node2D"]
-script = ExtResource( 2 )
+[node name="SpellSealUI" type="Node2D"]
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -24,13 +24,13 @@ margin_top = 72.0
 margin_right = 706.0
 margin_bottom = 526.0
 mouse_filter = 2
-texture = ExtResource( 11 )
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TriangularGrid" parent="." instance=ExtResource( 1 )]
+[node name="TriangularGrid" parent="." instance=ExtResource( 7 )]
 position = Vector2( 508, 301 )
 
 [node name="pieces" type="Node2D" parent="."]
@@ -38,22 +38,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="A" parent="pieces" instance=ExtResource( 3 )]
+[node name="A" parent="pieces" instance=ExtResource( 4 )]
 position = Vector2( 835, 386 )
 
-[node name="B" parent="pieces" instance=ExtResource( 4 )]
+[node name="B" parent="pieces" instance=ExtResource( 5 )]
 position = Vector2( 742, 320 )
 
-[node name="C" parent="pieces" instance=ExtResource( 5 )]
+[node name="C" parent="pieces" instance=ExtResource( 6 )]
 position = Vector2( 897, 181 )
 
-[node name="D" parent="pieces" instance=ExtResource( 8 )]
+[node name="D" parent="pieces" instance=ExtResource( 3 )]
 position = Vector2( 173, 133 )
 
-[node name="E" parent="pieces" instance=ExtResource( 6 )]
+[node name="E" parent="pieces" instance=ExtResource( 8 )]
 position = Vector2( 177, 293 )
 
-[node name="F" parent="pieces" instance=ExtResource( 7 )]
+[node name="F" parent="pieces" instance=ExtResource( 2 )]
 position = Vector2( 97, 289 )
 
 [node name="Anchors" type="Node2D" parent="."]
@@ -102,7 +102,7 @@ margin_left = 529.0
 margin_top = 23.0
 margin_right = 613.0
 margin_bottom = 42.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
