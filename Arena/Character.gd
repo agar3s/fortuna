@@ -50,6 +50,16 @@ func _ready():
 	Events.connect('demon_pool_empty', self, 'resolve_demon_tokens')
 
 
+func reset():
+	set_active(false)
+	for state in $States.get_children():
+		state.queue_free()
+	set_hit_points(max_hit_points)
+	set_demon_tokens(0)
+	set_demon_armor(0)
+	set_armor(0)
+	
+
 func set_hit_points(value):
 	hit_points = value
 
@@ -123,9 +133,12 @@ func get_damage(damage, type):
 		$HitPointsFeedback.text = '-%s HP' % str(damage)
 		$AnimationPlayer.play("on_hit")
 		yield($AnimationPlayer, "animation_finished")
-		emit_signal("damage_applied")
 	if hit_points <= 0:
 		emit_signal('defeated')
+	
+	print('emit the signal')
+	yield(get_tree().create_timer(0.1), "timeout")
+	emit_signal("damage_applied")
 
 
 func recover_damage(value):

@@ -29,8 +29,13 @@ func set_character(_character: Character):
 	character.connect("demon_armor_updated", self, 'update_demon_armor')
 	character.connect("armor_updated", self, "update_armor")
 	character.connect("active_changed", self, 'update_active_status')
-	update_hitpoints()
+	reset()
 
+func reset():
+	update_hitpoints()
+	update_demon_tokens(character.demon_tokens)
+	update_demon_armor(character.demon_armor)
+	update_armor(character.armor)
 
 func update_hitpoints():
 	$HitPoints/ProgressBar.value = character.hit_points*100/character.max_hit_points

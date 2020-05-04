@@ -4,7 +4,9 @@ func apply_damage(damage, type, from, to):
 	if from != to:
 		from.cast(type)
 	to.get_damage(damage, type)
+	print('to apply damage')
 	yield(to, 'damage_applied')
+	print('after damage applied')
 	Events.emit_signal('spell_casted')
 	
 

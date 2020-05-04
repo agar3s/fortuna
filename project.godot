@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Trigger",
+"language": "GDScript",
+"path": "res://Trigger.gd"
+} ]
 _global_script_class_icons={
-
+"Trigger": ""
 }
 
 [application]
@@ -24,6 +29,7 @@ config/icon="res://icon.jpg"
 FaceDescription="*res://face_description.gd"
 CubeConfigurations="*res://cube_configurations.gd"
 Events="*res://Events.gd"
+NarrativeScript="*res://NarrativeScript.tscn"
 
 [debug]
 

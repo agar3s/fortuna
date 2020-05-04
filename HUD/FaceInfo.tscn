@@ -78,7 +78,7 @@ custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."
-text = "[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."
+text = "Instant: Add 1 demon token  to yourself."
 __meta__ = {
 "_edit_use_anchors_": false
 }
