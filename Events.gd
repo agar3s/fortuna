@@ -45,3 +45,9 @@ signal object_adquired(_object)
 
 # warning-ignore:unused_signal
 signal item_unlocked(_object)
+
+# warning-ignore:unused_signal
+signal show_tutorial(step)
+
+# warning-ignore:unused_signal
+signal tutorial_closed()

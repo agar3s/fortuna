@@ -8,7 +8,7 @@ const values = {
 		'icon': 4,
 		'sprite': 'res://Cubes/Assets/01_c_demoniaco.jpg',
 		'title': 'Demon invocation',
-		'description': '[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself.',
+		'description': '[b]Instant:[/b] Add 1 demon stalker [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself.',
 		'karma': -2,
 	},
 	'02': {
@@ -16,7 +16,7 @@ const values = {
 		'icon': 58,
 		'sprite': 'res://Cubes/Assets/02_b_mental.jpg',
 		'title': 'Mind Lock',
-		'description': '[b]Instant:[/b] Lock this cube\n [img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img] apply 3 damage to yourself.',
+		'description': '[b]Instant:[/b] Lock this Thought\n [img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img] apply 3 damage to yourself.',
 		'karma': -2
 	},
 	'03': {
@@ -32,7 +32,7 @@ const values = {
 		'icon': 51,
 		'sprite': 'res://Cubes/Assets/04_panic.jpg',
 		'title': 'Panic',
-		'description': '[b]Instant:[/b] Lock this cube\n.[b]Cast:[/b] apply 1 damage to yourself.',
+		'description': '[b]Instant:[/b] Lock this thought\n.[b]Cast:[/b] apply 1 damage to yourself.',
 		'karma': -3
 	},
 	'05': {
@@ -40,7 +40,7 @@ const values = {
 		'icon': 0,
 		'sprite': 'res://Cubes/Assets/05_doubt.jpg',
 		'title': 'Doubt',
-		'description': '[b]Instant:[/b] unlock all cubes. Then all cubes roll automatically.',
+		'description': '[b]Instant:[/b] unlock all thoughts. Then concentrate automatically.',
 		'karma': -2
 	},
 	'06': {
@@ -104,7 +104,7 @@ const values = {
 		'icon': 59,
 		'sprite': 'res://Cubes/Assets/13_control.jpg',
 		'title': 'Control',
-		'description': '[img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img]\n[b]Cast:[/b] Remove all your demon tokens [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img].',
+		'description': '[img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img]\n[b]Cast:[/b] Remove all your demon stalkers [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img].',
 		'karma': 1
 	},
 	'14': {
@@ -120,7 +120,7 @@ const values = {
 		'icon': 219,
 		'sprite': 'res://Cubes/Assets/15_pact.jpg',
 		'title': 'Pact',
-		'description': '[b]Cast:[/b] Remove 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]. Then Apply 1 damage to yourself.',
+		'description': '[b]Cast:[/b] Remove 1 demon stalker [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]. Then Apply 1 damage to yourself.',
 		'karma': 1
 	},
 	'16': {
@@ -128,7 +128,7 @@ const values = {
 		'icon': 65,
 		'sprite': 'res://Cubes/Assets/16_incriminate.jpg',
 		'title': 'Incriminate',
-		'description': '[b]Cast:[/b] Transfer 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] from you to your oponent. Then Apply 2 damage to yourself.',
+		'description': '[b]Cast:[/b] Transfer 1 demon stalker [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] from you to your oponent. Then Apply 2 damage to yourself.',
 		'karma': 1
 	},
 	'17': {

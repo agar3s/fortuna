@@ -39,9 +39,9 @@ _global_script_class_icons={
 [application]
 
 config/name="fortuna"
-run/main_scene="res://Arena/Arena.tscn"
+run/main_scene="res://Levels/Game.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.jpg"
+config/icon="res://Arena/Assets/Engel.png"
 
 [autoload]
 

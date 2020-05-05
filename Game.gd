@@ -5,7 +5,7 @@ var current_scene
 func _ready():
 	Events.connect("battle_won", self, 'next_scene')
 	Events.connect("change_scene", self, 'next_scene')
-	next_scene('Map01')
+	next_scene('Level01')
 
 
 func next_scene(scene):

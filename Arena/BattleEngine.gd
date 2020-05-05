@@ -55,6 +55,7 @@ func solve_instants(faces, player):
 				apply_spell(instant, player, oponent, face[1])
 				yield(Events, "spell_casted")
 	
+	yield(get_tree().create_timer(0.3),"timeout")
 	emit_signal('instants_triggered', instant_effects, player)
 
 

@@ -1,6 +1,7 @@
+tool
 extends Node2D
 
-export (Texture) var item_texture = preload('res://Cubes/Assets/01_c_demoniaco.jpg')
+export (Texture) var item_texture = preload('res://Cubes/Assets/01_c_demoniaco.jpg') setget set_item_texture
 
 export (bool) var spell = false
 
@@ -12,6 +13,12 @@ var dialog_index = 0
 
 func _ready():
 	$Sprite.texture = item_texture
+
+
+func set_item_texture(_item_texture):
+	item_texture = _item_texture
+	$Sprite.texture = item_texture
+	
 
 func on_click():
 	if not $ItemDescriptors.keys.has(key): return

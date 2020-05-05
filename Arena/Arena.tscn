@@ -219,7 +219,7 @@ margin_top = 13.0
 margin_right = -22.0
 margin_bottom = 48.0
 disabled = true
-text = "Roll"
+text = "Concentrate"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -286,7 +286,6 @@ margin_left = -475.0
 margin_top = -148.0
 margin_right = -10.0
 margin_bottom = -15.0
-right = true
 
 [node name="Dialog" parent="HUD" instance=ExtResource( 13 )]
 visible = false

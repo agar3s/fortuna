@@ -6,7 +6,7 @@ export (bool) var display_dialogue = true
 export (String) var level_name = 'level01'
 var status = 'waiting'
 var turn = 0
-export (String) var next_scene = 'Level02'
+export (String) var next_scene = 'level02'
 
 func _ready():
 	randomize()
@@ -115,6 +115,9 @@ func check_turn_triggers():
 		if trigger.event == 'force_faces':
 			get_node(trigger.player).get_node('CubeSet').force_result(trigger.faces)
 			#turn_triggers.remove(index)
+		if trigger.event == 'show_tutorial':
+			Events.emit_signal('show_tutorial', trigger.step)
+			yield(Events, "tutorial_closed")
 		index += 1
 	
 	for _i in range(0, index):
