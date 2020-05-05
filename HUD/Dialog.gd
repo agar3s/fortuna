@@ -6,7 +6,11 @@ export (bool) var right = true
 var avatar_textures = {
 	'Engel': preload('res://Arena/Assets/Engel_face.png'),
 	'Alberich': preload('res://Arena/Assets/Alberich_face.png'),
-	'Reyner': preload('res://Arena/Assets/reyner_face.png')
+	'Lena': preload('res://Arena/Assets/Krystin_face.png'),
+	'Reyner': preload('res://Arena/Assets/reyner_face.png'),
+	'Krystine': preload('res://Arena/Assets/Krystin_face.png'),
+	'Gena': preload('res://Arena/Assets/lamaestra_face.png'),
+	'Gunther': preload('res://Arena/Assets/Gunter_face.png')
 }
 
 func _ready():

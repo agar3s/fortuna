@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 signal rune_added
 
@@ -14,7 +14,19 @@ export (bool) var cube_bag = false setget set_cube_bag
 
 
 func _ready():
-	pass # Replace with function body.
+	Events.connect('object_adquired', self, 'add_item')
+
+
+func add_item(_object):
+	match _object:
+		'rune_a': set_rune_a(true)
+		'rune_b': set_rune_b(true)
+		'rune_c': set_rune_c(true)
+		'rune_d': set_rune_d(true)
+		'rune_e': set_rune_e(true)
+		'rune_f': set_rune_f(true)
+		'spell_book': set_spell_book(true)
+		'cube_bag': set_cube_bag(true)
 
 
 func set_rune_a(_rune_a):

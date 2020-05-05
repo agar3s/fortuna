@@ -32,6 +32,16 @@ signal dialogue_script_ended
 signal battle_won(next_level)
 
 # warning-ignore:unused_signal
+signal change_scene(next_scene)
+
+# warning-ignore:unused_signal
 signal seal_activated(seal)
 
+# warning-ignore:unused_signal
 signal seal_destroyed(id)
+
+# warning-ignore:unused_signal
+signal object_adquired(_object)
+
+# warning-ignore:unused_signal
+signal item_unlocked(_object)

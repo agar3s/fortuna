@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sandbox/SandboxSpellBook.gd" type="Script" id=1]
+[ext_resource path="res://Sandbox/SpellSealUI.gd" type="Script" id=1]
 [ext_resource path="res://SpellBook/Runes/RuneF.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SpellBook/Runes/RuneD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SpellBook/Runes/RuneA.tscn" type="PackedScene" id=4]
@@ -8,35 +8,35 @@
 [ext_resource path="res://SpellBook/Runes/RuneC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SpellBook/TriangularGrid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SpellBook/Runes/RuneE.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Arena/Assets/dessert_bg.jpg" type="Texture" id=9]
 
-[node name="SpellSealUI" type="Node2D"]
+[node name="SpellSealUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 53.0
+margin_right = -50.0
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [  ]
+"_edit_use_anchors_": false
 }
+seal_id = "basement_seal"
 
-[node name="Background" type="TextureRect" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.423529 )
-margin_left = 308.0
-margin_top = 72.0
-margin_right = 706.0
-margin_bottom = 526.0
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 0.854902, 0.831373, 0.960784, 1 )
+margin_top = 35.0
+margin_right = 936.0
+margin_bottom = 557.0
 mouse_filter = 2
-texture = ExtResource( 9 )
-expand = true
+color = Color( 0.235294, 0.223529, 0.254902, 0.945098 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TriangularGrid" parent="." instance=ExtResource( 7 )]
-position = Vector2( 508, 301 )
+position = Vector2( 454, 301 )
 
 [node name="pieces" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -54, 0 )
 
 [node name="A" parent="pieces" instance=ExtResource( 4 )]
 position = Vector2( 835, 386 )
@@ -57,45 +57,25 @@ position = Vector2( 177, 293 )
 position = Vector2( 97, 289 )
 
 [node name="Anchors" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -54, 0 )
 
 [node name="A" type="Position2D" parent="Anchors"]
 position = Vector2( 835, 386 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="B" type="Position2D" parent="Anchors"]
 position = Vector2( 742, 320 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="C" type="Position2D" parent="Anchors"]
 position = Vector2( 897, 181 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="D" type="Position2D" parent="Anchors"]
 position = Vector2( 173, 133 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="E" type="Position2D" parent="Anchors"]
 position = Vector2( 177, 293 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="F" type="Position2D" parent="Anchors"]
 position = Vector2( 97, 289 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Debug" type="Label" parent="."]
 margin_left = 529.0
@@ -103,6 +83,18 @@ margin_top = 23.0
 margin_right = 613.0
 margin_bottom = 42.0
 custom_colors/font_color = Color( 1, 0.984314, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 7.0
+margin_top = 475.0
+margin_right = 265.0
+margin_bottom = 546.0
+text = "Drag  the blue  piece  to the center of the screen to match the silloute.
+
+Turn the figure with right click."
 __meta__ = {
 "_edit_use_anchors_": false
 }

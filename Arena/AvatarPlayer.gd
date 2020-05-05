@@ -34,6 +34,7 @@ func set_character(_character: Character):
 func reset():
 	update_hitpoints()
 	set_avatar(character.avatar_texture)
+	set_name(character.character_name)
 	update_demon_tokens(character.demon_tokens)
 	update_demon_armor(character.demon_armor)
 	update_armor(character.armor)

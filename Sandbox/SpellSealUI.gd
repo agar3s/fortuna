@@ -1,6 +1,6 @@
-extends Node2D
+extends Control
 
-export (String) var seal_id = '01' setget set_seal_id
+export (String) var seal_id = '01'
 
 func _ready():
 	$Debug.text = 'Destroy this spell'
@@ -8,11 +8,11 @@ func _ready():
 		piece.connect('on_dropped', $TriangularGrid, '_on_rune_dropped', [piece])
 		piece.connect('on_turned', $TriangularGrid, '_on_rune_turned', [piece])
 	
+	Inventory.connect('rune_added', self, 'set_pieces')
+	Events.connect("seal_activated", self, 'set_seal_id')
 	#set_seal_id(seal_id)
 	$TriangularGrid.connect('triangles_checked', self, 'on_triangles_checked')
 	set_pieces()
-	Inventory.connect('rune_added', self, 'set_pieces')
-	Events.connect("seal_activated", self, 'set_seal_id')
 
 
 func on_triangles_checked(correct):

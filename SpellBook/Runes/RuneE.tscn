@@ -3,8 +3,6 @@
 [ext_resource path="res://SpellBook/TriangularTile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpellBook/Runes/Runes.gd" type="Script" id=2]
 
-
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4, 68, 60, 100, 60, -36, 4, -64 )
 
@@ -12,10 +10,10 @@ points = PoolVector2Array( 4, 68, 60, 100, 60, -36, 4, -64 )
 points = PoolVector2Array( -58, 38, 4, 4, 4, 68 )
 
 [node name="RuneE" type="Node2D"]
+modulate = Color( 1, 0.141176, 0.564706, 1 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Pieces" type="Node2D" parent="."]

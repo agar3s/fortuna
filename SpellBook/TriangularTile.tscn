@@ -13,7 +13,6 @@ __meta__ = {
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2( -4.76837e-07, 0 )
-color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 0, 43, -37, -21, 37, -21 )
 
 [node name="Collider" type="Area2D" parent="."]

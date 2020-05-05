@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -14,7 +14,9 @@
 [ext_resource path="res://HUD/DialogRight.tscn" type="PackedScene" id=12]
 [ext_resource path="res://HUD/DialogLeft.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Arena/Assets/Alberich_face.png" type="Texture" id=14]
-[ext_resource path="res://SpellBook/SpellSealUI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Arena/Assets/Engel_face.png" type="Texture" id=15]
+[ext_resource path="res://Arena/Assets/Engel.png" type="Texture" id=16]
+[ext_resource path="res://HUD/InventoryHUD.tscn" type="PackedScene" id=17]
 [ext_resource path="res://HUD/FaceInfo.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
@@ -159,20 +161,36 @@ centered = false
 [node name="Player_placeholder_a" parent="." instance=ExtResource( 2 )]
 position = Vector2( 314, 400 )
 character_name = "Engel"
+active = false
+order = 1
 hit_points = 10
 max_hit_points = 10
+armor = 0
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
+body_texture = ExtResource( 16 )
+avatar_texture = ExtResource( 15 )
+body_offset = Vector2( 0, 0 )
+body_scale = Vector2( 1, 1 )
 cube_indexes = [ "001", "002", "021" ]
+side = 1
 
 [node name="Player_placeholder_b" parent="." instance=ExtResource( 2 )]
 position = Vector2( 710, 400 )
 character_name = "Alberich"
+active = false
 order = 2
 hit_points = 10
 max_hit_points = 10
 armor = 3
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
 body_texture = ExtResource( 4 )
 avatar_texture = ExtResource( 14 )
 body_offset = Vector2( -10, 23 )
+body_scale = Vector2( 1, 1 )
 cube_indexes = [ "003", "006", "011" ]
 side = -1
 
@@ -189,6 +207,7 @@ margin_left = 22.0
 margin_top = 11.0
 margin_right = 142.0
 margin_bottom = 46.0
+disabled = true
 text = "Cast"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -199,6 +218,7 @@ margin_left = -142.0
 margin_top = 13.0
 margin_right = -22.0
 margin_bottom = 48.0
+disabled = true
 text = "Roll"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -254,6 +274,9 @@ margin_left = 329.0
 margin_top = 251.0
 margin_right = 694.0
 margin_bottom = 367.0
+id = "01"
+
+[node name="InventoryHUD" parent="HUD" instance=ExtResource( 17 )]
 
 [node name="DialogRight" parent="HUD" instance=ExtResource( 12 )]
 visible = false
@@ -263,6 +286,7 @@ margin_left = -475.0
 margin_top = -148.0
 margin_right = -10.0
 margin_bottom = -15.0
+right = true
 
 [node name="Dialog" parent="HUD" instance=ExtResource( 13 )]
 visible = false
@@ -281,5 +305,3 @@ margin_bottom = -16.0
 anims/ends_scene = SubResource( 1 )
 anims/restart = SubResource( 2 )
 anims/start_scene = SubResource( 3 )
-
-[node name="SpellSealUI" parent="." instance=ExtResource( 15 )]

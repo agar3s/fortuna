@@ -1,17 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Arena/Assets/woods.jpg" type="Texture" id=2]
+[ext_resource path="res://Arena/Assets/lamaestra.png" type="Texture" id=3]
+[ext_resource path="res://Arena/Assets/lamaestra_face.png" type="Texture" id=4]
 
 [node name="Arena" instance=ExtResource( 1 )]
 level_name = "level04"
-next_scene = "Level06"
+next_scene = "Level05"
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource( 2 )
 
 [node name="Player_placeholder_b" parent="." index="2"]
 character_name = "Master Gena"
-hit_points = 20
-max_hit_points = 20
+hit_points = 7
+max_hit_points = 7
+body_texture = ExtResource( 3 )
+avatar_texture = ExtResource( 4 )
 cube_indexes = [ "007", "007", "007" ]
+
+[node name="DemonPool" parent="." index="3"]
+visible = false
+
+[node name="CubeSection" parent="." index="4"]
+visible = false
+
+[node name="AvatarPlayer1" parent="." index="7"]
+visible = false
+
+[node name="AvatarPlayer2" parent="." index="8"]
+visible = false

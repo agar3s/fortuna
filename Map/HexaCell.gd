@@ -4,7 +4,7 @@ extends Node2D
 signal mouse_entered
 signal mouse_exited
 
-export (Vector3) var coordinates = Vector3(0.0, 0.0, 0.0) setget set_coordinates
+export (Vector3) var coordinates = Vector3(0.0, 0.0, 0.0)
 
 var inversal_coords = Vector3(0.0, 0.0, 0.0)
 
@@ -23,13 +23,6 @@ func _ready():
 	$Area2D.connect("mouse_entered", self, "on_hover")
 	$Area2D.connect("mouse_exited", self, "on_exit")
 
-func set_coordinates(value):
-	coordinates = value
-	self.position.x = (width*coordinates.x + coordinates.z*width/2)
-	self.position.y = height_distance * coordinates.z
-	set_neighbor_coordinates()
-	$DebugCoord.text = '%s %s %s ' % [coordinates.x, coordinates.y, coordinates.z]
-	
 
 func get_coordinates_by_position():
 	var coord_x = -1.0

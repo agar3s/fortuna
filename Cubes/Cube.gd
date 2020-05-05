@@ -49,7 +49,7 @@ func roll():
 	yield (get_tree().create_timer(0.1), 'timeout')
 	self.set_face(randi()%6)
 
-	if not next_face_result.empty():
+	if not next_face_result.empty() and next_face_result!='*':
 		self.set_face(face_ids[next_face_result])
 		next_face_result = ''
 

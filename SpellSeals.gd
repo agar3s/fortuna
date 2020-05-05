@@ -2,7 +2,7 @@ extends Node
 
 
 var seals = {
-	'01': {
+	'basement_seal': {
 		'name': 'basement',
 		'description': 'basement seal',
 		'configuration': [[2,5],[2,6],[3,5],[3,6]],

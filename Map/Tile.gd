@@ -20,11 +20,29 @@ func _ready():
 	if has_node('Item'):
 		empty = false
 		Item = get_node('Item')
+	
+func add_item(_item):
+	empty = false
+	Item = _item
+	add_child(Item)
 
+func remove_item():
+	Item.queue_free()
+	empty = true
+
+func set_position(_position):
+	.set_position(_position)
+	get_coordinates_by_position()
+	print('set position')
+
+func set_global_position(_global_position):
+	.set_global_position(_global_position)
+	print('set global position')
 
 
 func set_base_sprite(_base_sprite):
 	base_sprite = _base_sprite
+	if not has_node('Sprite'): return
 	$Sprite.texture = base_sprite
 
 func set_offset_sprite_y(_offset_sprite_y):

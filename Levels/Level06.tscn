@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Arena/Assets/paimon_dimension.jpg" type="Texture" id=2]
 [ext_resource path="res://Arena/Assets/Gunter.png" type="Texture" id=3]
+[ext_resource path="res://Arena/Assets/Gunter_face.png" type="Texture" id=4]
 
 [node name="Arena" instance=ExtResource( 1 )]
 level_name = "Level06"
@@ -16,4 +17,17 @@ character_name = "Gunther"
 hit_points = 20
 max_hit_points = 20
 body_texture = ExtResource( 3 )
+avatar_texture = ExtResource( 4 )
 cube_indexes = [ "017", "017", "017" ]
+
+[node name="DemonPool" parent="." index="3"]
+visible = false
+
+[node name="CubeSection" parent="." index="4"]
+visible = false
+
+[node name="AvatarPlayer1" parent="." index="7"]
+visible = false
+
+[node name="AvatarPlayer2" parent="." index="8"]
+visible = false

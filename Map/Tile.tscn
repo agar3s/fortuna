@@ -1,12 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Map/Tile.gd" type="Script" id=1]
-[ext_resource path="res://Assets/dark grass.png" type="Texture" id=2]
+[ext_resource path="res://Map/Assets/piso_casa.png" type="Texture" id=2]
 [ext_resource path="res://Map/HexaCell.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Map/Assets/Target.png" type="Texture" id=4]
 
 [node name="Tile" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
+base_sprite = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 0, 12 )
@@ -16,6 +17,7 @@ texture = ExtResource( 2 )
 text = "0 -0 0 "
 
 [node name="DebugInversal" parent="." index="3"]
+visible = false
 text = "0 -0 0 "
 
 [node name="Target" type="Sprite" parent="." index="4"]

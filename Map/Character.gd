@@ -40,6 +40,6 @@ func _process(_delta):
 	if state == 'moving':
 		mov_ratio += _delta
 		position = lerp(original_position, target_position, mov_ratio/target_mov_ratio)
-		if mov_ratio > target_mov_ratio:
+		if mov_ratio >= target_mov_ratio:
 			reach_target()
 		
