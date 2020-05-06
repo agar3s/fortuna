@@ -45,7 +45,9 @@ func _ready():
 	$BattleEngine.connect('battle_over', self, 'on_battle_ends')
 	$AnimationPlayer.play("start_scene")
 	yield($AnimationPlayer, "animation_finished")
+	
 	display_ui(false)
+	
 	if display_dialogue:
 		NarrativeScript.run_script(level_name, 'begin')
 		yield(Events, "dialogue_script_ended")
@@ -58,9 +60,7 @@ func _ready():
 
 func display_ui(display: bool):
 	$CubeSection.visible = display
-	$Player1/CubeSet.visible = display
 	$Player1/States.visible = display
-	$Player2/CubeSet.visible = display
 	$Player2/States.visible = display
 	$AvatarPlayer1.visible = display
 	$AvatarPlayer2.visible = display
@@ -72,6 +72,7 @@ func start_battle():
 	$HUD/Message.show_message("LET THE DUEL BEGINS!", 1.5)
 	yield($HUD/Message, 'message_ended')
 	yield(get_tree().create_timer(0.5), "timeout")
+	
 	display_ui(true)
 	$Player1.reset()
 	$Player2.reset()
@@ -114,7 +115,6 @@ func check_turn_triggers():
 		if trigger.turn != turn: break
 		if trigger.event == 'force_faces':
 			get_node(trigger.player).get_node('CubeSet').force_result(trigger.faces)
-			#turn_triggers.remove(index)
 		if trigger.event == 'show_tutorial':
 			Events.emit_signal('show_tutorial', trigger.step)
 			yield(Events, "tutorial_closed")
@@ -138,9 +138,13 @@ func roll():
 func on_battle_ends(winner):
 	status = 'ended'
 	display_ui(false)
+	$Player1/CubeSet.hide()
+	$Player2/CubeSet.hide()
+	
 	$HUD/Message.show_message("ENOUGH!")
 	yield($HUD/Message, 'message_ended')
 	yield(get_tree().create_timer(0.5), "timeout")
+	
 	$HUD/Message.show_message("%s wins" % winner.character_name, 1.0)
 	yield($HUD/Message, 'message_ended')
 	yield(get_tree().create_timer(0.5), "timeout")
@@ -149,14 +153,17 @@ func on_battle_ends(winner):
 		if display_dialogue:
 			NarrativeScript.run_script(level_name, 'defeated')
 			yield(Events, "dialogue_script_ended")
+			
 			$AnimationPlayer.play("restart")
 			yield($AnimationPlayer, "animation_finished")
+			
 			start_battle()
+
 	else:
 		if display_dialogue:
 			NarrativeScript.run_script(level_name, 'winner')
 			yield(Events, "dialogue_script_ended")
-			print('should emmit the battle won screen')
+			
 			$AnimationPlayer.play("ends_scene")
 			yield($AnimationPlayer, "animation_finished")
 			Events.emit_signal('battle_won', next_scene)

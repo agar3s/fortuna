@@ -13,37 +13,27 @@ func display_tutorial(_step):
 	match _step:
 		'01':
 			$Step01.show()
-			$Next.rect_global_position = $Step01/Position2D.global_position
 		'01b':
 			$Step01b.show()
-			$Next.rect_global_position = $Step01b/Position2D.global_position
 		'01c':
 			$Step01c.show()
-			$Next.rect_global_position = $Step01b/Position2D.global_position
 		'02':
 			$Step02.show()
-			$Next.rect_global_position = $Step02/Position2D.global_position
 		'02b':
 			$Step02b.show()
-			$Next.rect_global_position = $Step02b/Position2D.global_position
 		'03':
 			$Step03.show()
-			$Next.rect_global_position = $Step03/Position2D.global_position
 		'03b':
 			$Step03b.show()
-			$Next.rect_global_position = $Step03b/Position2D.global_position
 		'04':
 			$Step04.show()
-			$Next.rect_global_position = $Step04/Position2D.global_position
 		'05':
 			$Step05.show()
-			$Next.rect_global_position = $Step05/Position2D.global_position
 		'05b':
 			$Step05b.show()
-			$Next.rect_global_position = $Step05b/Position2D.global_position
 		'05c':
 			$Step05c.show()
-			$Next.rect_global_position = $Step05b/Position2D.global_position
+			
 
 func on_next():
 	match current:

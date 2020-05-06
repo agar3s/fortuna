@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -14,8 +14,7 @@
 [ext_resource path="res://HUD/DialogRight.tscn" type="PackedScene" id=12]
 [ext_resource path="res://HUD/DialogLeft.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Arena/Assets/Alberich_face.png" type="Texture" id=14]
-[ext_resource path="res://Arena/Assets/Engel_face.png" type="Texture" id=15]
-[ext_resource path="res://Arena/Assets/Engel.png" type="Texture" id=16]
+[ext_resource path="res://Resources/baseTheme.tres" type="Theme" id=15]
 [ext_resource path="res://HUD/InventoryHUD.tscn" type="PackedScene" id=17]
 [ext_resource path="res://HUD/FaceInfo.tscn" type="PackedScene" id=18]
 
@@ -161,36 +160,20 @@ centered = false
 [node name="Player_placeholder_a" parent="." instance=ExtResource( 2 )]
 position = Vector2( 314, 400 )
 character_name = "Engel"
-active = false
-order = 1
 hit_points = 10
 max_hit_points = 10
-armor = 0
-max_armor = 3
-demon_armor = 0
-max_demon_armor = 3
-body_texture = ExtResource( 16 )
-avatar_texture = ExtResource( 15 )
-body_offset = Vector2( 0, 0 )
-body_scale = Vector2( 1, 1 )
 cube_indexes = [ "001", "002", "021" ]
-side = 1
 
 [node name="Player_placeholder_b" parent="." instance=ExtResource( 2 )]
 position = Vector2( 710, 400 )
 character_name = "Alberich"
-active = false
 order = 2
 hit_points = 10
 max_hit_points = 10
 armor = 3
-max_armor = 3
-demon_armor = 0
-max_demon_armor = 3
 body_texture = ExtResource( 4 )
 avatar_texture = ExtResource( 14 )
 body_offset = Vector2( -10, 23 )
-body_scale = Vector2( 1, 1 )
 cube_indexes = [ "003", "006", "011" ]
 side = -1
 
@@ -207,6 +190,8 @@ margin_left = 22.0
 margin_top = 11.0
 margin_right = 142.0
 margin_bottom = 46.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 15 )
 disabled = true
 text = "Cast"
 __meta__ = {
@@ -218,6 +203,8 @@ margin_left = -142.0
 margin_top = 13.0
 margin_right = -22.0
 margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 15 )
 disabled = true
 text = "Concentrate"
 __meta__ = {
