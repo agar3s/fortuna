@@ -9,7 +9,7 @@
 [node name="Dialog" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -559.0
+margin_right = -544.0
 margin_bottom = -467.0
 script = ExtResource( 3 )
 __meta__ = {
@@ -58,10 +58,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -342.0
-margin_top = -113.0
-margin_right = -9.0
-margin_bottom = -23.0
+margin_left = -361.0
+margin_top = -114.0
+margin_right = -10.0
+margin_bottom = -24.0
 custom_fonts/bold_font = ExtResource( 1 )
 custom_fonts/normal_font = ExtResource( 4 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )

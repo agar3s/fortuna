@@ -11,12 +11,15 @@ export (String) var key = 'lena_map01'
 
 var dialog_index = 0
 
+export (bool) var flip_h_over = false setget set_flip_h_over
+
 func _ready():
 	$Sprite.texture = item_texture
 
 
 func set_item_texture(_item_texture):
 	item_texture = _item_texture
+	if not has_node("Sprite"): return
 	$Sprite.texture = item_texture
 	
 
@@ -63,3 +66,7 @@ func on_seal_destroyed(seal):
 	get_parent().remove_item()
 	
 	
+func set_flip_h_over(_flip_h_over):
+	flip_h_over = _flip_h_over
+	$Sprite.flip_h = flip_h_over
+

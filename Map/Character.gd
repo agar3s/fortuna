@@ -28,6 +28,7 @@ func move_to(_position):
 	target_position = _position
 	original_position = position
 	mov_ratio = 0
+	$Sprite.flip_h = original_position.x > target_position.x
 
 
 func reach_target():

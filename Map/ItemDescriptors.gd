@@ -21,5 +21,26 @@ var keys = {
 			'_signal': 'change_scene',
 			'_params': 'Map01b'
 		}]
-	}
+	},
+	'magic_seal_01b_a': {
+		'seal': 'rune_b',
+		"on_sealed_destroyed": [{
+			'_signal': 'change_scene',
+			'_params': 'Map01b'
+		}]
+	},
+	'magic_seal_01b_b': {
+		'seal': 'rune_a',
+		"on_sealed_destroyed": [{
+			'_signal': 'change_scene',
+			'_params': 'Map01b'
+		}]
+	},
+	'magic_seal_01b_c': {
+		'seal': 'gunthers_book',
+		"on_sealed_destroyed": [{
+			'_signal': 'change_scene',
+			'_params': 'Map01b'
+		}]
+	},
 }

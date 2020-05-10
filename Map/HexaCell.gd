@@ -13,7 +13,7 @@ var neighbor_hover = false setget set_neighbor_hover
 var neighbors = []
 
 # sprite width
-var width = 132
+var width = 134
 
 # y value on the vector pointing from 0,0,0 to 0,-1,1
 var height_distance = 82 + 2

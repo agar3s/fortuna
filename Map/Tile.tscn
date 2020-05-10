@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Map/Tile.gd" type="Script" id=1]
-[ext_resource path="res://Map/Assets/piso_casa.png" type="Texture" id=2]
+[ext_resource path="res://Map/Assets/piso_madera.png" type="Texture" id=2]
 [ext_resource path="res://Map/HexaCell.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Map/Assets/Target.png" type="Texture" id=4]
 

@@ -56,6 +56,7 @@ Inventory="*res://Inventory.tscn"
 [debug]
 
 gdscript/warnings/return_value_discarded=false
+shapes/collision/contact_color=Color( 1, 0.2, 0.101961, 0.164706 )
 
 [display]
 

@@ -269,9 +269,9 @@ id = "01"
 visible = false
 anchor_left = 1.0
 anchor_top = 1.0
-margin_left = -475.0
+margin_left = -492.0
 margin_top = -148.0
-margin_right = -10.0
+margin_right = -12.0
 margin_bottom = -15.0
 
 [node name="Dialog" parent="HUD" instance=ExtResource( 13 )]
@@ -280,7 +280,7 @@ anchor_top = 1.0
 anchor_right = 0.0
 margin_left = 15.0
 margin_top = -149.0
-margin_right = 480.0
+margin_right = 495.0
 margin_bottom = -16.0
 
 [node name="AvatarPlayer1" parent="." instance=ExtResource( 10 )]

@@ -7,9 +7,8 @@
 [ext_resource path="res://Resources/Fonts/BaseNormal24.tres" type="DynamicFont" id=5]
 
 [node name="Level01" instance=ExtResource( 1 )]
-display_dialogue = false
 level_name = "Level01"
-next_scene = "Level02"
+next_scene = "Map01"
 
 [node name="Player_placeholder_b" parent="." index="2"]
 hit_points = 12

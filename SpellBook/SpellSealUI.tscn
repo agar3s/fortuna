@@ -34,6 +34,8 @@ __meta__ = {
 
 [node name="TriangularGrid" parent="." instance=ExtResource( 7 )]
 position = Vector2( 454, 301 )
+configuration = [  ]
+DEBUG = true
 
 [node name="pieces" type="Node2D" parent="."]
 position = Vector2( -54, 0 )
