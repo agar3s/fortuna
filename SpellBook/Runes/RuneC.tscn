@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SpellBook/TriangularTile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpellBook/Runes/Runes.gd" type="Script" id=2]
+[ext_resource path="res://SpellBook/Assets/f2.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( -60, -30, -60, 34, 0, 68, 60, 36 )
@@ -10,40 +11,43 @@ points = PoolVector2Array( -60, -30, -60, 34, 0, 68, 60, 36 )
 points = PoolVector2Array( 4, -68, 4, 0, 60, 36, 60, -36 )
 
 [node name="RuneC" type="Node2D"]
-modulate = Color( 0.411765, 0.643137, 0.0196078, 1 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_horizontal_guides_": [ -73.0, 74.0, -38.0, 36.0 ],
+"_edit_lock_": true,
 "_edit_vertical_guides_": [ 64.0, -63.0 ]
 }
 
+[node name="f2" type="Sprite" parent="."]
+rotation = 0.523599
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 3 )
+
 [node name="Pieces" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="001" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, -37 )
 rotation = 0.523599
-active = true
 
 [node name="002" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, 37 )
 rotation = 0.523599
-active = true
 
 [node name="003" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 43, 0 )
 rotation = -0.523599
-active = true
 
 [node name="004" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( -21, 37 )
 rotation = -0.523599
-active = true
 
 [node name="005" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( -42, 0 )
 rotation = 0.523599
-active = true
 
 [node name="Collider" type="Area2D" parent="."]
 collision_layer = 2

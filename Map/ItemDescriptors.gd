@@ -11,7 +11,7 @@ var keys = {
 				"_params": "rune_d"
 			}, {
 				"_signal": "item_unlocked",
-				"_params": {'key': 'magic_seal_01', 'coordinates': Vector3(-1.0, -6.0, 7.0), 'type': 'seal'}
+				"_params": {'key': 'magic_seal_01', 'coordinates': Vector3(8.0, -14.0, 6.0), 'type': 'seal'}
 			}]
 		}
 	},

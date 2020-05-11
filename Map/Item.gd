@@ -15,6 +15,8 @@ export (bool) var flip_h_over = false setget set_flip_h_over
 
 func _ready():
 	$Sprite.texture = item_texture
+	if spell:
+		$AnimationPlayer.play("seal")
 
 
 func set_item_texture(_item_texture):
