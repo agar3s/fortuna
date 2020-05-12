@@ -17,7 +17,7 @@ texture = ExtResource( 2 )
 text = "0 -0 0 "
 
 [node name="DebugInversal" parent="." index="3"]
-visible = false
+visible = true
 text = "0 -0 0 "
 
 [node name="Target" type="Sprite" parent="." index="4"]

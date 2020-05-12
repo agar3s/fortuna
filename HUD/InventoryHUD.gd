@@ -3,6 +3,7 @@ extends Control
 
 func _ready():
 	Events.connect('object_adquired', self, 'add_item')
+	$Items/SpellBook.connect("button_down", self, "_on_spell_book_pressed")
 
 
 func add_item(_object):
@@ -15,3 +16,6 @@ func add_item(_object):
 		'rune_f': $Items/RuneF.show()
 		'spell_book': $Items/SpellBook.show()
 		'cube_bag': $Items/CubeBag.show()
+
+func _on_spell_book_pressed():
+	Events.emit_signal("spell_book_pressed")

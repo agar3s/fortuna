@@ -26,206 +26,167 @@ next_scene = "Map01b"
 
 [node name="BaseWall50" parent="Tiles" index="0" instance=ExtResource( 1 )]
 position = Vector2( 670, -168 )
-coordinates = Vector3( 5, -4, -1 )
+coordinates = Vector3( 6, -4, -2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall70" parent="Tiles" index="1" instance=ExtResource( 1 )]
 position = Vector2( 335, -84 )
-coordinates = Vector3( 6, -4, -2 )
+coordinates = Vector3( 3, -2, -1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall71" parent="Tiles" index="2" instance=ExtResource( 1 )]
 position = Vector2( 536, -168 )
-coordinates = Vector3( 3, -2, -1 )
+coordinates = Vector3( 5, -3, -2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall51" parent="Tiles" index="3" instance=ExtResource( 1 )]
 position = Vector2( 804, -168 )
-coordinates = Vector3( 6, -4, -2 )
+coordinates = Vector3( 7, -5, -2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall52" parent="Tiles" index="4" instance=ExtResource( 1 )]
 position = Vector2( 871, -84 )
-coordinates = Vector3( 7, -5, -2 )
+coordinates = Vector3( 7, -6, -1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall53" parent="Tiles" index="5" instance=ExtResource( 1 )]
 position = Vector2( 1005, -84 )
-coordinates = Vector3( 7, -6, -1 )
+coordinates = Vector3( 8, -7, -1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall54" parent="Tiles" index="6" instance=ExtResource( 1 )]
 position = Vector2( 1072, 0 )
-coordinates = Vector3( 8, -7, -1 )
+coordinates = Vector3( 8, -8, 0 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall55" parent="Tiles" index="7" instance=ExtResource( 1 )]
 position = Vector2( 1206, 0 )
-coordinates = Vector3( 8, -8, 0 )
+coordinates = Vector3( 9, -9, 0 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall56" parent="Tiles" index="8" instance=ExtResource( 1 )]
 position = Vector2( 1139, 84 )
-coordinates = Vector3( 9, -9, 0 )
+coordinates = Vector3( 8, -9, 1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall57" parent="Tiles" index="9" instance=ExtResource( 1 )]
 position = Vector2( 1273, 84 )
-coordinates = Vector3( 8, -9, 1 )
+coordinates = Vector3( 9, -10, 1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall58" parent="Tiles" index="10" instance=ExtResource( 1 )]
 position = Vector2( 1340, 168 )
-coordinates = Vector3( 9, -10, 1 )
+coordinates = Vector3( 9, -11, 2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall59" parent="Tiles" index="11" instance=ExtResource( 1 )]
 position = Vector2( 1474, 168 )
-coordinates = Vector3( 9, -11, 2 )
+coordinates = Vector3( 10, -12, 2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall60" parent="Tiles" index="12" instance=ExtResource( 1 )]
 position = Vector2( 1541, 252 )
-coordinates = Vector3( 10, -12, 2 )
+coordinates = Vector3( 10, -13, 3 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall61" parent="Tiles" index="13" instance=ExtResource( 1 )]
 position = Vector2( 1675, 252 )
-coordinates = Vector3( 10, -13, 3 )
+coordinates = Vector3( 11, -14, 3 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall62" parent="Tiles" index="14" instance=ExtResource( 1 )]
 position = Vector2( 1608, 336 )
-coordinates = Vector3( 11, -14, 3 )
+coordinates = Vector3( 10, -14, 4 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall63" parent="Tiles" index="15" instance=ExtResource( 1 )]
 position = Vector2( 1742, 336 )
-coordinates = Vector3( 10, -14, 4 )
+coordinates = Vector3( 11, -15, 4 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall64" parent="Tiles" index="16" instance=ExtResource( 1 )]
 position = Vector2( 1876, 336 )
-coordinates = Vector3( 11, -15, 4 )
+coordinates = Vector3( 12, -16, 4 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall65" parent="Tiles" index="17" instance=ExtResource( 1 )]
 position = Vector2( 1809, 420 )
 coordinates = Vector3( 11, -16, 5 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall66" parent="Tiles" index="18" instance=ExtResource( 1 )]
 position = Vector2( 1943, 420 )
-coordinates = Vector3( 11, -16, 5 )
+coordinates = Vector3( 12, -17, 5 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall67" parent="Tiles" index="19" instance=ExtResource( 1 )]
 position = Vector2( 1876, 504 )
-coordinates = Vector3( 12, -17, 5 )
+coordinates = Vector3( 11, -17, 6 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall68" parent="Tiles" index="20" instance=ExtResource( 1 )]
 position = Vector2( 2010, 504 )
-coordinates = Vector3( 11, -17, 6 )
+coordinates = Vector3( 12, -18, 6 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall69" parent="Tiles" index="21" instance=ExtResource( 1 )]
 position = Vector2( 1943, 588 )
-coordinates = Vector3( 12, -18, 6 )
+coordinates = Vector3( 11, -18, 7 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall45" parent="Tiles" index="22" instance=ExtResource( 1 )]
 position = Vector2( 134, 0 )
-coordinates = Vector3( 2, -3, 1 )
+coordinates = Vector3( 1, -1, 0 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall48" parent="Tiles" index="23" instance=ExtResource( 1 )]
 position = Vector2( 469, -84 )
-coordinates = Vector3( 1, -1, 0 )
+coordinates = Vector3( 4, -3, -1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall49" parent="Tiles" index="24" instance=ExtResource( 1 )]
 position = Vector2( 603, -84 )
-coordinates = Vector3( 4, -3, -1 )
+coordinates = Vector3( 5, -4, -1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall46" parent="Tiles" index="25" instance=ExtResource( 1 )]
 position = Vector2( 402, 0 )
-coordinates = Vector3( 2, -2, 0 )
+coordinates = Vector3( 3, -3, 0 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall47" parent="Tiles" index="26" instance=ExtResource( 1 )]
 position = Vector2( 268, 0 )
-coordinates = Vector3( 3, -3, 0 )
+coordinates = Vector3( 2, -2, 0 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall44" parent="Tiles" index="27" instance=ExtResource( 1 )]
 position = Vector2( 67, 84 )
-coordinates = Vector3( -1, -1, 2 )
+coordinates = Vector3( 0, -1, 1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall43" parent="Tiles" index="28" instance=ExtResource( 1 )]
 position = Vector2( 0, 168 )
-coordinates = Vector3( 1, -2, 1 )
+coordinates = Vector3( -1, -1, 2 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="BaseWall39" parent="Tiles" index="29" instance=ExtResource( 1 )]
 position = Vector2( 67, 252 )
-coordinates = Vector3( -1, -3, 4 )
+coordinates = Vector3( -1, -2, 3 )
 base_sprite = ExtResource( 18 )
 empty = false
 
 [node name="BaseWall41" parent="Tiles" index="30" instance=ExtResource( 1 )]
 position = Vector2( 335, 84 )
-coordinates = Vector3( -1, -2, 3 )
+coordinates = Vector3( 2, -3, 1 )
 base_sprite = ExtResource( 18 )
 empty = false
 
 [node name="BaseWall42" parent="Tiles" index="31" instance=ExtResource( 1 )]
 position = Vector2( 201, 84 )
-coordinates = Vector3( 2, -3, 1 )
+coordinates = Vector3( 1, -2, 1 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall" parent="Tiles" index="32" instance=ExtResource( 1 )]
-position = Vector2( 1809, 0 )
-coordinates = Vector3( 13.5, -13.5, 0 )
-empty = false
-
-[node name="Wall" parent="Tiles/BaseWall" index="5" instance=ExtResource( 2 )]
-position = Vector2( 0, -18 )
-item_texture = ExtResource( 9 )
-
-[node name="BaseWall15" parent="Tiles" index="33" instance=ExtResource( 1 )]
+[node name="BaseWall15" parent="Tiles" index="32" instance=ExtResource( 1 )]
 position = Vector2( 1541, 420 )
 coordinates = Vector3( 9, -14, 5 )
 empty = false
@@ -234,7 +195,14 @@ empty = false
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 9 )
 
-[node name="BaseWall28" parent="Tiles" index="34" instance=ExtResource( 1 )]
+[node name="Item" parent="Tiles/BaseWall15" index="6" instance=ExtResource( 2 )]
+position = Vector2( -3, -12 )
+item_texture = ExtResource( 11 )
+type = "object"
+simple_description = "A compendium of basic sorcery, my father gather all of these by himself."
+flip_h_over = true
+
+[node name="BaseWall28" parent="Tiles" index="33" instance=ExtResource( 1 )]
 position = Vector2( 1742, 504 )
 coordinates = Vector3( 10, -16, 6 )
 empty = false
@@ -243,16 +211,7 @@ empty = false
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 9 )
 
-[node name="BaseWall2" parent="Tiles" index="35" instance=ExtResource( 1 )]
-position = Vector2( 2211, 672 )
-coordinates = Vector3( 12.5, -12.5, 0 )
-empty = false
-
-[node name="Wall" parent="Tiles/BaseWall2" index="5" instance=ExtResource( 2 )]
-position = Vector2( 0, -18 )
-item_texture = ExtResource( 17 )
-
-[node name="BaseWall11" parent="Tiles" index="36" instance=ExtResource( 1 )]
+[node name="BaseWall11" parent="Tiles" index="34" instance=ExtResource( 1 )]
 position = Vector2( 268, 168 )
 coordinates = Vector3( 1, -3, 2 )
 empty = false
@@ -261,7 +220,7 @@ empty = false
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 17 )
 
-[node name="Tile48" parent="Tiles" index="37" instance=ExtResource( 1 )]
+[node name="Tile48" parent="Tiles" index="35" instance=ExtResource( 1 )]
 position = Vector2( 1072, 168 )
 coordinates = Vector3( 7, -9, 2 )
 base_sprite = ExtResource( 16 )
@@ -275,43 +234,38 @@ position = Vector2( 0, -18 )
 z_index = 3
 item_texture = ExtResource( 8 )
 
-[node name="Grass" parent="Tiles" index="38" instance=ExtResource( 1 )]
+[node name="Grass" parent="Tiles" index="36" instance=ExtResource( 1 )]
 position = Vector2( 1206, 168 )
 coordinates = Vector3( 8, -10, 2 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Grass2" parent="Tiles" index="39" instance=ExtResource( 1 )]
+[node name="Grass2" parent="Tiles" index="37" instance=ExtResource( 1 )]
 position = Vector2( 1139, 252 )
 coordinates = Vector3( 7, -10, 3 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Grass3" parent="Tiles" index="40" instance=ExtResource( 1 )]
+[node name="Grass3" parent="Tiles" index="38" instance=ExtResource( 1 )]
 position = Vector2( 1340, 336 )
 coordinates = Vector3( 8, -12, 4 )
 base_sprite = ExtResource( 16 )
 empty = false
 
-[node name="Grass5" parent="Tiles" index="41" instance=ExtResource( 1 )]
+[node name="Grass5" parent="Tiles" index="39" instance=ExtResource( 1 )]
 position = Vector2( 1273, 252 )
 coordinates = Vector3( 8, -11, 3 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Grass6" parent="Tiles" index="42" instance=ExtResource( 1 )]
+[node name="Grass6" parent="Tiles" index="40" instance=ExtResource( 1 )]
 position = Vector2( 1407, 252 )
 coordinates = Vector3( 9, -12, 3 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Grass4" parent="Tiles" index="43" instance=ExtResource( 1 )]
+[node name="Grass4" parent="Tiles" index="41" instance=ExtResource( 1 )]
 position = Vector2( 1206, 336 )
 coordinates = Vector3( 7, -11, 4 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="BaseWall6" parent="Tiles" index="44" instance=ExtResource( 1 )]
+[node name="BaseWall6" parent="Tiles" index="42" instance=ExtResource( 1 )]
 position = Vector2( 469, 84 )
 coordinates = Vector3( 3, -4, 1 )
 empty = false
@@ -320,7 +274,7 @@ empty = false
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 17 )
 
-[node name="BaseWall23" parent="Tiles" index="45" instance=ExtResource( 1 )]
+[node name="BaseWall23" parent="Tiles" index="43" instance=ExtResource( 1 )]
 position = Vector2( 1273, 420 )
 coordinates = Vector3( 7, -12, 5 )
 empty = false
@@ -329,47 +283,26 @@ empty = false
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 17 )
 
-[node name="BaseWall3" parent="Tiles" index="46" instance=ExtResource( 1 )]
-position = Vector2( 2010, 168 )
-coordinates = Vector3( 11.5, -12.5, 1 )
-empty = false
+[node name="Item" parent="Tiles/BaseWall23" index="6" instance=ExtResource( 2 )]
+position = Vector2( -1, -27 )
+item_texture = ExtResource( 12 )
+type = "object"
+simple_description = "An old painting.\\nMy mother likes to collect this kind of stuff."
+flip_h_over = true
 
-[node name="Wall" parent="Tiles/BaseWall3" index="5" instance=ExtResource( 2 )]
-position = Vector2( -33.5, -61 )
-item_texture = ExtResource( 13 )
-
-[node name="BaseWall4" parent="Tiles" index="47" instance=ExtResource( 1 )]
-position = Vector2( 2211, 420 )
-coordinates = Vector3( 12.5, -17.5, 5 )
-empty = false
-
-[node name="Wall" parent="Tiles/BaseWall4" index="5" instance=ExtResource( 2 )]
-position = Vector2( 33.5, -60.5 )
-item_texture = ExtResource( 6 )
-
-[node name="Tile26" parent="Tiles" index="48" instance=ExtResource( 1 )]
+[node name="Tile26" parent="Tiles" index="44" instance=ExtResource( 1 )]
 position = Vector2( 402, 168 )
 coordinates = Vector3( 2, -4, 2 )
 
-[node name="BaseWall10" parent="Tiles" index="49" instance=ExtResource( 1 )]
-position = Vector2( 2211, 84 )
-coordinates = Vector3( 11.5, -12.5, 1 )
-empty = false
-
-[node name="Wall" parent="Tiles/BaseWall10" index="5" instance=ExtResource( 2 )]
+[node name="Wall2" parent="Tiles/Tile26" index="5" instance=ExtResource( 2 )]
 position = Vector2( -33.5, -61 )
 item_texture = ExtResource( 13 )
 
-[node name="BaseWall9" parent="Tiles" index="50" instance=ExtResource( 1 )]
-position = Vector2( 2144, 252 )
-coordinates = Vector3( 13.5, -15.5, 2 )
-empty = false
+[node name="Item2" parent="Tiles/Tile26" index="6" instance=ExtResource( 2 )]
+position = Vector2( -31, -67 )
+item_texture = ExtResource( 7 )
 
-[node name="Wall" parent="Tiles/BaseWall9" index="5" instance=ExtResource( 2 )]
-position = Vector2( 33.5, -60.5 )
-item_texture = ExtResource( 6 )
-
-[node name="BaseWall16" parent="Tiles" index="51" instance=ExtResource( 1 )]
+[node name="BaseWall16" parent="Tiles" index="45" instance=ExtResource( 1 )]
 position = Vector2( 1608, 504 )
 coordinates = Vector3( 9, -15, 6 )
 
@@ -377,7 +310,7 @@ coordinates = Vector3( 9, -15, 6 )
 position = Vector2( 33.5, -60.5 )
 item_texture = ExtResource( 6 )
 
-[node name="Tile40" parent="Tiles" index="52" instance=ExtResource( 1 )]
+[node name="Tile40" parent="Tiles" index="46" instance=ExtResource( 1 )]
 position = Vector2( 804, 0 )
 coordinates = Vector3( 6, -6, 0 )
 empty = false
@@ -394,7 +327,7 @@ item_texture = ExtResource( 12 )
 position = Vector2( 38, -7 )
 item_texture = ExtResource( 14 )
 
-[node name="Tile44" parent="Tiles" index="53" instance=ExtResource( 1 )]
+[node name="Tile44" parent="Tiles" index="47" instance=ExtResource( 1 )]
 position = Vector2( 670, 0 )
 coordinates = Vector3( 5, -5, 0 )
 empty = false
@@ -406,6 +339,8 @@ item_texture = ExtResource( 8 )
 [node name="Item" parent="Tiles/Tile44" index="6" instance=ExtResource( 2 )]
 position = Vector2( -8, -7 )
 item_texture = ExtResource( 11 )
+type = "object"
+simple_description = "A lot of books about the sorcerers's council origins"
 
 [node name="Florero" parent="Tiles/Tile44" index="7" instance=ExtResource( 2 )]
 position = Vector2( 65, -21 )
@@ -417,7 +352,7 @@ position = Vector2( 58, 46 )
 z_index = 1
 item_texture = ExtResource( 10 )
 
-[node name="Tile38" parent="Tiles" index="54" instance=ExtResource( 1 )]
+[node name="Tile38" parent="Tiles" index="48" instance=ExtResource( 1 )]
 position = Vector2( 603, 84 )
 coordinates = Vector3( 4, -5, 1 )
 empty = false
@@ -430,34 +365,36 @@ item_texture = ExtResource( 13 )
 position = Vector2( -31, -67 )
 item_texture = ExtResource( 7 )
 
-[node name="Tile35" parent="Tiles" index="55" instance=ExtResource( 1 )]
+[node name="Tile35" parent="Tiles" index="49" instance=ExtResource( 1 )]
 position = Vector2( 737, 84 )
 coordinates = Vector3( 5, -6, 1 )
 
-[node name="Tile18" parent="Tiles" index="56" instance=ExtResource( 1 )]
+[node name="Tile18" parent="Tiles" index="50" instance=ExtResource( 1 )]
 position = Vector2( 536, 168 )
 coordinates = Vector3( 3, -5, 2 )
 
-[node name="Tile10" parent="Tiles" index="57" instance=ExtResource( 1 )]
+[node name="Tile10" parent="Tiles" index="51" instance=ExtResource( 1 )]
 position = Vector2( 469, 252 )
 coordinates = Vector3( 2, -5, 3 )
 
-[node name="Tile11" parent="Tiles" index="58" instance=ExtResource( 1 )]
+[node name="Tile11" parent="Tiles" index="52" instance=ExtResource( 1 )]
 position = Vector2( 335, 252 )
 coordinates = Vector3( 1, -4, 3 )
 
-[node name="Tile12" parent="Tiles" index="59" instance=ExtResource( 1 )]
+[node name="Tile12" parent="Tiles" index="53" instance=ExtResource( 1 )]
 position = Vector2( 201, 252 )
-coordinates = Vector3( 1, -4, 3 )
+coordinates = Vector3( 0, -3, 3 )
+empty = false
 
-[node name="Item" parent="Tiles/Tile12" index="5" instance=ExtResource( 2 )]
+[node name="Wall" parent="Tiles/Tile12" index="5" instance=ExtResource( 2 )]
 position = Vector2( -67, -46 )
 item_texture = ExtResource( 17 )
 
-[node name="BaseWall36" parent="Tiles" index="60" instance=ExtResource( 1 )]
+[node name="BaseWall36" parent="Tiles" index="54" instance=ExtResource( 1 )]
 position = Vector2( 268, 336 )
 coordinates = Vector3( 0, -4, 4 )
 base_sprite = ExtResource( 18 )
+empty = false
 
 [node name="Wall2" parent="Tiles/BaseWall36" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
@@ -465,7 +402,13 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="Tile37" parent="Tiles" index="61" instance=ExtResource( 1 )]
+[node name="Item" parent="Tiles/BaseWall36" index="6" instance=ExtResource( 2 )]
+position = Vector2( 0, -25 )
+z_index = 5
+item_texture = ExtResource( 7 )
+flip_h_over = true
+
+[node name="Tile37" parent="Tiles" index="55" instance=ExtResource( 1 )]
 position = Vector2( 871, 84 )
 coordinates = Vector3( 6, -7, 1 )
 empty = false
@@ -479,7 +422,7 @@ position = Vector2( -10, -31 )
 item_texture = ExtResource( 4 )
 type = "character"
 
-[node name="Tile16" parent="Tiles" index="62" instance=ExtResource( 1 )]
+[node name="Tile16" parent="Tiles" index="56" instance=ExtResource( 1 )]
 position = Vector2( 1005, 84 )
 coordinates = Vector3( 7, -8, 1 )
 empty = false
@@ -497,11 +440,11 @@ flip_h_over = true
 position = Vector2( -39, -3 )
 item_texture = ExtResource( 5 )
 
-[node name="Tile6" parent="Tiles" index="63" instance=ExtResource( 1 )]
+[node name="Tile6" parent="Tiles" index="57" instance=ExtResource( 1 )]
 position = Vector2( 804, 168 )
 coordinates = Vector3( 5, -7, 2 )
 
-[node name="BaseWall17" parent="Tiles" index="64" instance=ExtResource( 1 )]
+[node name="BaseWall17" parent="Tiles" index="58" instance=ExtResource( 1 )]
 position = Vector2( 1407, 420 )
 coordinates = Vector3( 8, -13, 5 )
 
@@ -514,33 +457,32 @@ position = Vector2( -33.5, -60.5 )
 item_texture = ExtResource( 6 )
 flip_h_over = true
 
-[node name="Tile30" parent="Tiles" index="65" instance=ExtResource( 1 )]
+[node name="Tile30" parent="Tiles" index="59" instance=ExtResource( 1 )]
 position = Vector2( 938, 168 )
 coordinates = Vector3( 6, -8, 2 )
 
-[node name="BaseWall18" parent="Tiles" index="66" instance=ExtResource( 1 )]
+[node name="BaseWall18" parent="Tiles" index="60" instance=ExtResource( 1 )]
 position = Vector2( 1005, 252 )
 coordinates = Vector3( 6, -9, 3 )
 base_sprite = ExtResource( 16 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall18" index="5" instance=ExtResource( 2 )]
 position = Vector2( -33.5, -61 )
 item_texture = ExtResource( 13 )
 
-[node name="Tile17" parent="Tiles" index="67" instance=ExtResource( 1 )]
+[node name="Tile17" parent="Tiles" index="61" instance=ExtResource( 1 )]
 position = Vector2( 670, 168 )
 coordinates = Vector3( 4, -6, 2 )
 
-[node name="Tile13" parent="Tiles" index="68" instance=ExtResource( 1 )]
+[node name="Tile13" parent="Tiles" index="62" instance=ExtResource( 1 )]
 position = Vector2( 603, 252 )
 coordinates = Vector3( 3, -6, 3 )
 
-[node name="Tile21" parent="Tiles" index="69" instance=ExtResource( 1 )]
+[node name="Tile21" parent="Tiles" index="63" instance=ExtResource( 1 )]
 position = Vector2( 737, 252 )
 coordinates = Vector3( 4, -7, 3 )
 
-[node name="BaseWall13" parent="Tiles" index="70" instance=ExtResource( 1 )]
+[node name="BaseWall13" parent="Tiles" index="64" instance=ExtResource( 1 )]
 position = Vector2( 871, 252 )
 coordinates = Vector3( 5, -8, 3 )
 empty = false
@@ -553,27 +495,26 @@ item_texture = ExtResource( 17 )
 position = Vector2( -33.5, 24 )
 item_texture = ExtResource( 6 )
 
-[node name="Tile4" parent="Tiles" index="71" instance=ExtResource( 1 )]
+[node name="Tile4" parent="Tiles" index="65" instance=ExtResource( 1 )]
 position = Vector2( 670, 336 )
 coordinates = Vector3( 3, -7, 4 )
 
-[node name="Tile5" parent="Tiles" index="72" instance=ExtResource( 1 )]
+[node name="Tile5" parent="Tiles" index="66" instance=ExtResource( 1 )]
 position = Vector2( 536, 336 )
 coordinates = Vector3( 2, -6, 4 )
 
-[node name="Tile7" parent="Tiles" index="73" instance=ExtResource( 1 )]
+[node name="Tile7" parent="Tiles" index="67" instance=ExtResource( 1 )]
 position = Vector2( 402, 336 )
 coordinates = Vector3( 1, -5, 4 )
 
-[node name="Tile54" parent="Tiles" index="74" instance=ExtResource( 1 )]
+[node name="Tile54" parent="Tiles" index="68" instance=ExtResource( 1 )]
 position = Vector2( 804, 336 )
 coordinates = Vector3( 4, -8, 4 )
 
-[node name="BaseWall37" parent="Tiles" index="75" instance=ExtResource( 1 )]
+[node name="BaseWall37" parent="Tiles" index="69" instance=ExtResource( 1 )]
 position = Vector2( 335, 420 )
 coordinates = Vector3( 0, -5, 5 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall37" index="5" instance=ExtResource( 2 )]
 position = Vector2( 33.5, -60.5 )
@@ -581,11 +522,10 @@ z_index = 5
 item_texture = ExtResource( 19 )
 flip_h_over = true
 
-[node name="BaseWall38" parent="Tiles" index="76" instance=ExtResource( 1 )]
+[node name="BaseWall38" parent="Tiles" index="70" instance=ExtResource( 1 )]
 position = Vector2( 134, 336 )
-coordinates = Vector3( 0, -5, 5 )
+coordinates = Vector3( -1, -3, 4 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall38" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -74 )
@@ -593,15 +533,22 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="BaseWall19" parent="Tiles" index="77" instance=ExtResource( 1 )]
+[node name="BaseWall19" parent="Tiles" index="71" instance=ExtResource( 1 )]
 position = Vector2( 938, 336 )
 coordinates = Vector3( 5, -9, 4 )
+empty = false
 
 [node name="Wall" parent="Tiles/BaseWall19" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 9 )
 
-[node name="BaseWall40" parent="Tiles" index="78" instance=ExtResource( 1 )]
+[node name="Item" parent="Tiles/BaseWall19" index="6" instance=ExtResource( 2 )]
+position = Vector2( 0, -24 )
+item_texture = ExtResource( 14 )
+type = "object"
+simple_description = "I'm look very nice!"
+
+[node name="BaseWall40" parent="Tiles" index="72" instance=ExtResource( 1 )]
 position = Vector2( 469, 420 )
 coordinates = Vector3( 1, -6, 5 )
 base_sprite = ExtResource( 18 )
@@ -612,7 +559,7 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="BaseWall20" parent="Tiles" index="79" instance=ExtResource( 1 )]
+[node name="BaseWall20" parent="Tiles" index="73" instance=ExtResource( 1 )]
 position = Vector2( 1005, 420 )
 coordinates = Vector3( 5, -10, 5 )
 
@@ -620,7 +567,7 @@ coordinates = Vector3( 5, -10, 5 )
 position = Vector2( 33.5, -60.5 )
 item_texture = ExtResource( 6 )
 
-[node name="BaseWall21" parent="Tiles" index="80" instance=ExtResource( 1 )]
+[node name="BaseWall21" parent="Tiles" index="74" instance=ExtResource( 1 )]
 position = Vector2( 1139, 420 )
 coordinates = Vector3( 6, -11, 5 )
 
@@ -628,50 +575,44 @@ coordinates = Vector3( 6, -11, 5 )
 position = Vector2( 0, -18 )
 item_texture = ExtResource( 9 )
 
-[node name="Tile34" parent="Tiles" index="81" instance=ExtResource( 1 )]
+[node name="Tile34" parent="Tiles" index="75" instance=ExtResource( 1 )]
 position = Vector2( 603, 420 )
-coordinates = Vector3( 3, -8, 5 )
+coordinates = Vector3( 2, -7, 5 )
 
-[node name="BaseWall22" parent="Tiles" index="82" instance=ExtResource( 1 )]
+[node name="BaseWall22" parent="Tiles" index="76" instance=ExtResource( 1 )]
 position = Vector2( 536, 504 )
 coordinates = Vector3( 1, -7, 6 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="Wall" parent="Tiles/BaseWall22" index="5" instance=ExtResource( 2 )]
-position = Vector2( 33.5, -60.5 )
-z_index = 5
-item_texture = ExtResource( 19 )
-flip_h_over = true
-
-[node name="Tile15" parent="Tiles" index="83" instance=ExtResource( 1 )]
+[node name="Tile15" parent="Tiles" index="77" instance=ExtResource( 1 )]
 position = Vector2( 1072, 504 )
 coordinates = Vector3( 5, -11, 6 )
 
-[node name="Tile27" parent="Tiles" index="84" instance=ExtResource( 1 )]
+[node name="Tile27" parent="Tiles" index="78" instance=ExtResource( 1 )]
 position = Vector2( 871, 420 )
 coordinates = Vector3( 4, -9, 5 )
 
-[node name="Tile33" parent="Tiles" index="85" instance=ExtResource( 1 )]
+[node name="Tile33" parent="Tiles" index="79" instance=ExtResource( 1 )]
 position = Vector2( 938, 504 )
-coordinates = Vector3( 5, -11, 6 )
+coordinates = Vector3( 4, -10, 6 )
 
-[node name="Tile32" parent="Tiles" index="86" instance=ExtResource( 1 )]
+[node name="Tile32" parent="Tiles" index="80" instance=ExtResource( 1 )]
 position = Vector2( 737, 420 )
 coordinates = Vector3( 3, -8, 5 )
 
-[node name="Tile39" parent="Tiles" index="87" instance=ExtResource( 1 )]
+[node name="Tile39" parent="Tiles" index="81" instance=ExtResource( 1 )]
 position = Vector2( 804, 504 )
-coordinates = Vector3( 2, -8, 6 )
+coordinates = Vector3( 3, -9, 6 )
 
-[node name="Tile19" parent="Tiles" index="88" instance=ExtResource( 1 )]
+[node name="Tile19" parent="Tiles" index="82" instance=ExtResource( 1 )]
 position = Vector2( 1206, 504 )
 coordinates = Vector3( 6, -12, 6 )
 
-[node name="BaseWall25" parent="Tiles" index="89" instance=ExtResource( 1 )]
+[node name="BaseWall25" parent="Tiles" index="83" instance=ExtResource( 1 )]
 position = Vector2( 871, 588 )
 coordinates = Vector3( 3, -10, 7 )
 base_sprite = ExtResource( 18 )
+empty = false
 
 [node name="Wall" parent="Tiles/BaseWall25" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
@@ -679,10 +620,11 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="BaseWall31" parent="Tiles" index="90" instance=ExtResource( 1 )]
+[node name="BaseWall31" parent="Tiles" index="84" instance=ExtResource( 1 )]
 position = Vector2( 670, 504 )
-coordinates = Vector3( 3, -10, 7 )
+coordinates = Vector3( 2, -8, 6 )
 base_sprite = ExtResource( 18 )
+empty = false
 
 [node name="Wall" parent="Tiles/BaseWall31" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
@@ -690,51 +632,51 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="Tile20" parent="Tiles" index="91" instance=ExtResource( 1 )]
+[node name="Tile20" parent="Tiles" index="85" instance=ExtResource( 1 )]
 position = Vector2( 1340, 504 )
 coordinates = Vector3( 7, -13, 6 )
 
-[node name="Tile22" parent="Tiles" index="92" instance=ExtResource( 1 )]
+[node name="Tile22" parent="Tiles" index="86" instance=ExtResource( 1 )]
 position = Vector2( 1474, 504 )
 coordinates = Vector3( 8, -14, 6 )
 
-[node name="Tile23" parent="Tiles" index="93" instance=ExtResource( 1 )]
+[node name="Tile23" parent="Tiles" index="87" instance=ExtResource( 1 )]
 position = Vector2( 1273, 588 )
 coordinates = Vector3( 6, -13, 7 )
 
-[node name="Tile24" parent="Tiles" index="94" instance=ExtResource( 1 )]
+[node name="Tile24" parent="Tiles" index="88" instance=ExtResource( 1 )]
 position = Vector2( 1139, 588 )
-coordinates = Vector3( 6, -13, 7 )
+coordinates = Vector3( 5, -12, 7 )
 
-[node name="Tile41" parent="Tiles" index="95" instance=ExtResource( 1 )]
+[node name="Tile41" parent="Tiles" index="89" instance=ExtResource( 1 )]
 position = Vector2( 1005, 588 )
-coordinates = Vector3( 6, -13, 7 )
+coordinates = Vector3( 4, -11, 7 )
 
-[node name="Tile28" parent="Tiles" index="96" instance=ExtResource( 1 )]
+[node name="Tile28" parent="Tiles" index="90" instance=ExtResource( 1 )]
 position = Vector2( 1541, 588 )
 coordinates = Vector3( 8, -15, 7 )
 
-[node name="Tile25" parent="Tiles" index="97" instance=ExtResource( 1 )]
+[node name="Tile25" parent="Tiles" index="91" instance=ExtResource( 1 )]
 position = Vector2( 1407, 588 )
 coordinates = Vector3( 7, -14, 7 )
 
-[node name="Tile31" parent="Tiles" index="98" instance=ExtResource( 1 )]
+[node name="Tile31" parent="Tiles" index="92" instance=ExtResource( 1 )]
 position = Vector2( 1474, 672 )
 coordinates = Vector3( 7, -15, 8 )
 
-[node name="Tile42" parent="Tiles" index="99" instance=ExtResource( 1 )]
+[node name="Tile42" parent="Tiles" index="93" instance=ExtResource( 1 )]
 position = Vector2( 1340, 672 )
-coordinates = Vector3( 7, -15, 8 )
-
-[node name="Tile43" parent="Tiles" index="100" instance=ExtResource( 1 )]
-position = Vector2( 1206, 672 )
 coordinates = Vector3( 6, -14, 8 )
 
-[node name="Tile29" parent="Tiles" index="101" instance=ExtResource( 1 )]
+[node name="Tile43" parent="Tiles" index="94" instance=ExtResource( 1 )]
+position = Vector2( 1206, 672 )
+coordinates = Vector3( 5, -13, 8 )
+
+[node name="Tile29" parent="Tiles" index="95" instance=ExtResource( 1 )]
 position = Vector2( 1675, 588 )
 coordinates = Vector3( 9, -16, 7 )
 
-[node name="BaseWall27" parent="Tiles" index="102" instance=ExtResource( 1 )]
+[node name="BaseWall27" parent="Tiles" index="96" instance=ExtResource( 1 )]
 position = Vector2( 1072, 672 )
 coordinates = Vector3( 4, -12, 8 )
 base_sprite = ExtResource( 18 )
@@ -745,7 +687,7 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="BaseWall30" parent="Tiles" index="103" instance=ExtResource( 1 )]
+[node name="BaseWall30" parent="Tiles" index="97" instance=ExtResource( 1 )]
 position = Vector2( 1273, 756 )
 coordinates = Vector3( 5, -14, 9 )
 base_sprite = ExtResource( 18 )
@@ -756,11 +698,10 @@ z_index = 5
 item_texture = ExtResource( 8 )
 flip_h_over = true
 
-[node name="BaseWall26" parent="Tiles" index="104" instance=ExtResource( 1 )]
+[node name="BaseWall26" parent="Tiles" index="98" instance=ExtResource( 1 )]
 position = Vector2( 938, 672 )
 coordinates = Vector3( 3, -11, 8 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall26" index="5" instance=ExtResource( 2 )]
 position = Vector2( 33.5, -60.5 )
@@ -768,11 +709,10 @@ z_index = 5
 item_texture = ExtResource( 19 )
 flip_h_over = true
 
-[node name="BaseWall29" parent="Tiles" index="105" instance=ExtResource( 1 )]
+[node name="BaseWall29" parent="Tiles" index="99" instance=ExtResource( 1 )]
 position = Vector2( 1139, 756 )
 coordinates = Vector3( 4, -13, 9 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall29" index="5" instance=ExtResource( 2 )]
 position = Vector2( 33.5, -60.5 )
@@ -780,11 +720,10 @@ z_index = 5
 item_texture = ExtResource( 19 )
 flip_h_over = true
 
-[node name="BaseWall24" parent="Tiles" index="106" instance=ExtResource( 1 )]
+[node name="BaseWall24" parent="Tiles" index="100" instance=ExtResource( 1 )]
 position = Vector2( 737, 588 )
 coordinates = Vector3( 2, -9, 7 )
 base_sprite = ExtResource( 18 )
-empty = false
 
 [node name="Wall" parent="Tiles/BaseWall24" index="5" instance=ExtResource( 2 )]
 position = Vector2( 33.5, -60.5 )
@@ -792,125 +731,113 @@ z_index = 5
 item_texture = ExtResource( 19 )
 flip_h_over = true
 
-[node name="Tile50" parent="." index="1" instance=ExtResource( 1 )]
+[node name="Tile50" parent="Tiles" index="101" instance=ExtResource( 1 )]
 position = Vector2( 1608, 672 )
 coordinates = Vector3( 8, -16, 8 )
 base_sprite = ExtResource( 16 )
 
-[node name="WallEx" parent="Tile50" index="5" instance=ExtResource( 2 )]
+[node name="WallEx" parent="Tiles/Tile50" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
 z_index = 5
 item_texture = ExtResource( 8 )
 
-[node name="Tile51" parent="." index="2" instance=ExtResource( 1 )]
+[node name="Tile51" parent="Tiles" index="102" instance=ExtResource( 1 )]
 position = Vector2( 1407, 756 )
-coordinates = Vector3( 8, -16, 8 )
+coordinates = Vector3( 6, -15, 9 )
 base_sprite = ExtResource( 16 )
 
-[node name="WallEx" parent="Tile51" index="5" instance=ExtResource( 2 )]
+[node name="WallEx" parent="Tiles/Tile51" index="5" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
 z_index = 5
 item_texture = ExtResource( 8 )
 
-[node name="Tile49" parent="." index="3" instance=ExtResource( 1 )]
+[node name="Tile49" parent="Tiles" index="103" instance=ExtResource( 1 )]
 position = Vector2( 1809, 588 )
 coordinates = Vector3( 10, -17, 7 )
 base_sprite = ExtResource( 16 )
 
-[node name="Wall" parent="Tile49" index="5" instance=ExtResource( 2 )]
+[node name="Wall" parent="Tiles/Tile49" index="5" instance=ExtResource( 2 )]
 position = Vector2( 33.5, -60.5 )
 item_texture = ExtResource( 6 )
 
-[node name="WallEx" parent="Tile49" index="6" instance=ExtResource( 2 )]
+[node name="WallEx" parent="Tiles/Tile49" index="6" instance=ExtResource( 2 )]
 position = Vector2( 0, -18 )
 z_index = 5
 item_texture = ExtResource( 8 )
 
-[node name="BaseWall32" parent="." index="4" instance=ExtResource( 1 )]
+[node name="BaseWall32" parent="Tiles" index="104" instance=ExtResource( 1 )]
 position = Vector2( 1742, 672 )
 coordinates = Vector3( 9, -17, 8 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Wall" parent="BaseWall32" index="5" instance=ExtResource( 2 )]
+[node name="Wall" parent="Tiles/BaseWall32" index="5" instance=ExtResource( 2 )]
 position = Vector2( -33.5, -61 )
 z_index = 5
 item_texture = ExtResource( 19 )
 
-[node name="BaseWall33" parent="." index="5" instance=ExtResource( 1 )]
+[node name="BaseWall33" parent="Tiles" index="105" instance=ExtResource( 1 )]
 position = Vector2( 1541, 756 )
 coordinates = Vector3( 7, -16, 9 )
 base_sprite = ExtResource( 16 )
-empty = false
 
-[node name="Wall" parent="BaseWall33" index="5" instance=ExtResource( 2 )]
+[node name="Wall" parent="Tiles/BaseWall33" index="5" instance=ExtResource( 2 )]
 position = Vector2( -33.5, -60.5 )
 z_index = 5
 item_texture = ExtResource( 19 )
 
-[node name="BaseWall37" parent="." index="6" instance=ExtResource( 1 )]
+[node name="BaseWall72" parent="Tiles" index="106" instance=ExtResource( 1 )]
 position = Vector2( 201, 420 )
 coordinates = Vector3( -1, -4, 5 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall38" parent="." index="7" instance=ExtResource( 1 )]
+[node name="BaseWall73" parent="Tiles" index="107" instance=ExtResource( 1 )]
 position = Vector2( 402, 504 )
 coordinates = Vector3( 0, -6, 6 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall39" parent="." index="8" instance=ExtResource( 1 )]
+[node name="BaseWall74" parent="Tiles" index="108" instance=ExtResource( 1 )]
 position = Vector2( 603, 588 )
 coordinates = Vector3( 1, -8, 7 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall40" parent="." index="9" instance=ExtResource( 1 )]
+[node name="BaseWall75" parent="Tiles" index="109" instance=ExtResource( 1 )]
 position = Vector2( 804, 672 )
 coordinates = Vector3( 2, -10, 8 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall41" parent="." index="10" instance=ExtResource( 1 )]
+[node name="BaseWall76" parent="Tiles" index="110" instance=ExtResource( 1 )]
 position = Vector2( 1005, 756 )
 coordinates = Vector3( 3, -12, 9 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall42" parent="." index="11" instance=ExtResource( 1 )]
+[node name="BaseWall77" parent="Tiles" index="111" instance=ExtResource( 1 )]
 position = Vector2( 1206, 840 )
 coordinates = Vector3( 4, -14, 10 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall43" parent="." index="12" instance=ExtResource( 1 )]
+[node name="BaseWall78" parent="Tiles" index="112" instance=ExtResource( 1 )]
 position = Vector2( 1675, 756 )
 coordinates = Vector3( 8, -17, 9 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall45" parent="." index="13" instance=ExtResource( 1 )]
+[node name="BaseWall79" parent="Tiles" index="113" instance=ExtResource( 1 )]
 position = Vector2( 1474, 840 )
-coordinates = Vector3( 8, -17, 9 )
-base_sprite = ExtResource( 18 )
-empty = false
-
-[node name="BaseWall46" parent="." index="14" instance=ExtResource( 1 )]
-position = Vector2( 1340, 840 )
 coordinates = Vector3( 6, -16, 10 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="BaseWall44" parent="." index="15" instance=ExtResource( 1 )]
+[node name="BaseWall80" parent="Tiles" index="114" instance=ExtResource( 1 )]
+position = Vector2( 1340, 840 )
+coordinates = Vector3( 5, -15, 10 )
+base_sprite = ExtResource( 18 )
+
+[node name="BaseWall81" parent="Tiles" index="115" instance=ExtResource( 1 )]
 position = Vector2( 1876, 672 )
 coordinates = Vector3( 10, -18, 8 )
 base_sprite = ExtResource( 18 )
-empty = false
 
-[node name="Character" parent="." index="16"]
-position = Vector2( 402, 168 )
-coordinates = Vector3( 1, -4, 3 )
+[node name="Character" parent="." index="1"]
+position = Vector2( 603, 420 )
+coordinates = Vector3( 2, -7, 5 )
 
 [node name="Sprite" parent="Character" index="0"]
 z_index = 2

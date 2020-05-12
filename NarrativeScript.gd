@@ -62,6 +62,10 @@ var level_scripts = {
 			{"right": true, "character": "Lena", "dialogue": "is a powerful crystal, it allows you to see and destroy magic seals."},
 			{"right": true, "character": "Lena", "dialogue": "Use it to reveal the secrets you father hid here"},
 			{"right": true, "character": "Lena", "dialogue": "When you know enough to start your search, come back."}
+		],
+		"end": [
+			{"right": true, "character": "Lena", "dialogue": "What are you waiting for?"},
+			{"right": true, "character": "Lena", "dialogue": "When you know enough to start your search, come back."}
 		]
 	}
 }

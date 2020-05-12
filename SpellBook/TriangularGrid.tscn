@@ -1,7 +1,77 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SpellBook/TriangularTile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpellBook/TriangularGrid.gd" type="Script" id=2]
+[ext_resource path="res://Map/Assets/sello_grande.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "explosion"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "loop"
+length = 3.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5, 3 )
+}
 
 [node name="TriangularGrid" type="Node2D"]
 script = ExtResource( 2 )
@@ -10,289 +80,237 @@ __meta__ = {
 }
 DEBUG = false
 
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+texture = ExtResource( 3 )
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( -201, -222 )
-color = Color( 0.658824, 0.588235, 0.694118, 0.933333 )
+color = Color( 0.113725, 0.027451, 0.152941, 0.168627 )
 polygon = PoolVector2Array( 205, 0, 391, 108, 391, 335, 205, 445, 0, 335, 0, 108 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="triangles" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0.533333 )
 position = Vector2( -201, -222 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="T001" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 37 )
 rotation = 0.523599
 
 [node name="T002" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 37 )
 rotation = -0.523599
 
 [node name="T003" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 286, 74 )
 rotation = 0.523599
 
 [node name="T004" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 243, 74 )
 rotation = -0.523599
 
 [node name="T005" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 158, 74 )
 rotation = 0.523599
 
 [node name="T015" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 115, 74 )
 rotation = -0.523599
 
 [node name="T03" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 111 )
 rotation = 0.523599
-active = true
 
 [node name="T014" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 111 )
 rotation = -0.523599
 
 [node name="T08" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 185 )
 rotation = 0.523599
 
 [node name="T019" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 185 )
 rotation = -0.523599
 
 [node name="T07" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 286, 222 )
 rotation = 0.523599
 
 [node name="T018" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 243, 222 )
 rotation = -0.523599
 
 [node name="T06" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 158, 222 )
 rotation = 0.523599
 
 [node name="T017" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 115, 222 )
 rotation = -0.523599
 
 [node name="T05" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 259 )
 rotation = 0.523599
 
 [node name="T016" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 259 )
 rotation = -0.523599
 
 [node name="T042" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 286, 296 )
 rotation = 0.523599
 
 [node name="T041" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 243, 296 )
 rotation = -0.523599
 
 [node name="T040" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 158, 296 )
 rotation = 0.523599
 
 [node name="T039" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 115, 296 )
 rotation = -0.523599
 
 [node name="T038" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 333 )
 rotation = 0.523599
 
 [node name="T037" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 333 )
 rotation = -0.523599
 
 [node name="T054" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 286, 370 )
 rotation = 0.523599
 
 [node name="T053" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 243, 370 )
 rotation = -0.523599
 
 [node name="T052" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 158, 370 )
 rotation = 0.523599
 
 [node name="T051" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 115, 370 )
 rotation = -0.523599
 
 [node name="T050" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 222, 407 )
 rotation = 0.523599
 
 [node name="T049" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 179, 407 )
 rotation = -0.523599
 
 [node name="T024" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 94, 111 )
 rotation = 0.523599
 
 [node name="T023" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 51, 111 )
 rotation = -0.523599
 
 [node name="T011" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 158, 148 )
 rotation = 0.523599
 
 [node name="T022" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 115, 148 )
 rotation = -0.523599
 
 [node name="T010" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 30, 148 )
 rotation = 0.523599
 
 [node name="T09" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 94, 185 )
 rotation = 0.523599
 
 [node name="T020" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 51, 185 )
 rotation = -0.523599
 
 [node name="T036" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 30, 222 )
 rotation = 0.523599
 
 [node name="T035" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 94, 259 )
 rotation = 0.523599
 
 [node name="T021" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 51, 259 )
 rotation = -0.523599
 
 [node name="T048" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 30, 296 )
 rotation = 0.523599
 
 [node name="T047" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 94, 333 )
 rotation = 0.523599
 
 [node name="T046" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 51, 333 )
 rotation = -0.523599
 
 [node name="T032" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 350, 111 )
 rotation = 0.523599
 
 [node name="T031" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 307, 111 )
 rotation = -0.523599
 
 [node name="T029" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 371, 148 )
 rotation = -0.523599
 
 [node name="T034" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 371, 222 )
 rotation = -0.523599
 
 [node name="T045" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 371, 296 )
 rotation = -0.523599
 
 [node name="T028" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 286, 148 )
 rotation = 0.523599
 
 [node name="T027" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 243, 148 )
 rotation = -0.523599
 
 [node name="T026" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 350, 185 )
 rotation = 0.523599
 
 [node name="T025" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 307, 185 )
 rotation = -0.523599
 
 [node name="T033" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 350, 259 )
 rotation = 0.523599
 
 [node name="T030" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 307, 259 )
 rotation = -0.523599
 
 [node name="T044" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 350, 333 )
 rotation = 0.523599
 
 [node name="T043" parent="triangles" instance=ExtResource( 1 )]
-modulate = Color( 0.117647, 0.0980392, 0.133333, 1 )
 position = Vector2( 307, 333 )
 rotation = -0.523599
 
@@ -418,3 +436,8 @@ position = Vector2( 392, 333 )
 
 [node name="Anchor34" type="Position2D" parent="AnchorPoints"]
 position = Vector2( 264, 333 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "loop"
+anims/explosion = SubResource( 2 )
+anims/loop = SubResource( 1 )

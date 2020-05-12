@@ -13,11 +13,14 @@ var current_index = 0
 func _ready():
 	$Next.connect("button_down", self, 'next_page')
 	$Prev.connect("button_down", self, 'prev_page')
+	Events.connect("spell_book_pressed", self, "toggle_visibility")
 
+func toggle_visibility():
+	visible = !visible
 
 
 func change_page(page):
-	$CanvasLayer/SpellSealUI.hide()
+	#$CanvasLayer/SpellSealUI.hide()
 	$Pages.get_node(current).hide()
 	current = page
 	$Pages.get_node(page).show()

@@ -3,20 +3,29 @@ extends Node2D
 
 export (Texture) var item_texture = preload('res://Cubes/Assets/01_c_demoniaco.jpg') setget set_item_texture
 
-export (bool) var spell = false
+export (bool) var spell = false setget set_spell
 
-export (String, 'obstacle', 'character', 'seal', 'door') var type = 'obstacle'
+export (String, 'obstacle', 'character', 'seal', 'door', 'object') var type = 'obstacle'
 
 export (String) var key = 'lena_map01'
 
 var dialog_index = 0
+export (String) var simple_description = ''
 
 export (bool) var flip_h_over = false setget set_flip_h_over
 
 func _ready():
 	$Sprite.texture = item_texture
+	set_spell(spell)
+	if type == 'seal':
+		Events.connect("seal_destroyed", self, 'on_seal_destroyed')
+
+func set_spell(_spell):
+	spell = _spell
 	if spell:
 		$AnimationPlayer.play("seal")
+	else:
+		$AnimationPlayer.stop()
 
 
 func set_item_texture(_item_texture):
@@ -52,7 +61,9 @@ func on_click():
 				dialog_index = properties.dialogs.size() - 1
 		'seal':
 			Events.emit_signal("seal_activated", properties.seal)
-			Events.connect("seal_destroyed", self, 'on_seal_destroyed')
+		'object':
+			Events.emit_signal('dialog_triggered', false, 'Engel', simple_description)
+			
 
 
 func on_hover():

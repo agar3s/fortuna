@@ -16,7 +16,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( -23, -0.25, 0, 0.265127, -7.00829, -30.0083, -0.232547, -0.116463, 0.251195, -0.062376, -23, -0.244154, -6.9542, 0.24889, 6.56777, -16, -0.25111, -0.378138, 0.241934, -0.378138, -23, -0.285974, 6.94639, 0.25, 0 ),
+"points": PoolRealArray( -23, -0.25, 0, 0.248848, -7.11597, -30, -0.25, -0.116, 0.265149, 0.222082, -23, -0.25, -7, 0.25, 6.5, -16, -0.25, -0.375, 0.25, -0.375, -23, -0.251089, 6.66893, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5, 1, 1.5, 2 )
 }
 
@@ -25,7 +25,7 @@ script = ExtResource( 2 )
 item_texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -26.9202 )
+position = Vector2( 0, -26.3886 )
 texture = ExtResource( 1 )
 
 [node name="ItemDescriptors" parent="." instance=ExtResource( 3 )]

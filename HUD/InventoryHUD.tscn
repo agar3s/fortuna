@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HUD/InventoryHUD.gd" type="Script" id=1]
 [ext_resource path="res://Cubes/Assets/01_c_demoniaco.jpg" type="Texture" id=2]
+[ext_resource path="res://SpellBook/Assets/f3.png" type="Texture" id=3]
+[ext_resource path="res://SpellBook/Assets/f4.png" type="Texture" id=4]
+[ext_resource path="res://SpellBook/Assets/f2.png" type="Texture" id=5]
+[ext_resource path="res://SpellBook/Assets/f5.png" type="Texture" id=6]
+[ext_resource path="res://SpellBook/Assets/f1.png" type="Texture" id=7]
+[ext_resource path="res://SpellBook/Assets/f6.png" type="Texture" id=8]
+[ext_resource path="res://SpellBook/Assets/libro_icono.png" type="Texture" id=9]
 
 [node name="InventoryHUD" type="Control"]
 anchor_right = 1.0
@@ -28,7 +35,9 @@ margin_left = 5.0
 margin_top = 42.0
 margin_right = 55.0
 margin_bottom = 92.0
-texture_normal = ExtResource( 2 )
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture_normal = ExtResource( 3 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -41,7 +50,9 @@ margin_left = 5.0
 margin_top = 97.0
 margin_right = 55.0
 margin_bottom = 147.0
-texture_normal = ExtResource( 2 )
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture_normal = ExtResource( 7 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -54,7 +65,7 @@ margin_left = 5.0
 margin_top = 152.0
 margin_right = 55.0
 margin_bottom = 202.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -67,7 +78,9 @@ margin_left = 5.0
 margin_top = 207.0
 margin_right = 55.0
 margin_bottom = 257.0
-texture_normal = ExtResource( 2 )
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture_normal = ExtResource( 6 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -80,7 +93,8 @@ margin_left = 5.0
 margin_top = 262.0
 margin_right = 55.0
 margin_bottom = 312.0
-texture_normal = ExtResource( 2 )
+rect_pivot_offset = Vector2( 25, 25 )
+texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -93,7 +107,7 @@ margin_left = 5.0
 margin_top = 317.0
 margin_right = 55.0
 margin_bottom = 367.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -119,7 +133,7 @@ margin_left = 65.0
 margin_top = 385.0
 margin_right = 115.0
 margin_bottom = 435.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 9 )
 expand = true
 stretch_mode = 4
 __meta__ = {

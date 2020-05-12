@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Map/Map.gd" type="Script" id=1]
 [ext_resource path="res://Arena/Assets/engel_ficha.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://HUD/InventoryHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Map/Character.gd" type="Script" id=6]
 [ext_resource path="res://SpellBook/SpellSealUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpellBook/SpellBook.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Move"
@@ -57,20 +58,31 @@ offset = Vector2( 0, 0.54167 )
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2( 1, 0 )
 current = true
-drag_margin_left = 0.3
-drag_margin_top = 0.3
-drag_margin_right = 0.3
-drag_margin_bottom = 0.3
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Move = SubResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="SpellSealUI" parent="HUD" instance=ExtResource( 7 )]
-visible = false
-
 [node name="InventoryHUD" parent="HUD" instance=ExtResource( 5 )]
+margin_left = -1.0
+margin_right = -1.0
+
+[node name="SpellBook" parent="HUD" instance=ExtResource( 8 )]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -349.5
+margin_right = 349.5
 
 [node name="Dialog" parent="HUD" instance=ExtResource( 3 )]
 visible = false
@@ -78,7 +90,7 @@ anchor_top = 1.0
 anchor_right = 0.0
 margin_left = 10.0
 margin_top = -143.0
-margin_right = 475.0
+margin_right = 495.0
 margin_bottom = -10.0
 
 [node name="Dialog2" parent="HUD" instance=ExtResource( 4 )]
@@ -89,3 +101,6 @@ margin_left = -475.0
 margin_top = -143.0
 margin_right = -10.0
 margin_bottom = -10.0
+
+[node name="SpellSealUI" parent="HUD" instance=ExtResource( 7 )]
+visible = false

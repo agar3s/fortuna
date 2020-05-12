@@ -11,7 +11,7 @@ func _ready():
 	$Collider.connect("area_entered", self, "on_area_entered")
 	$Collider.connect("area_exited", self, "on_area_exited")
 	if active:
-		$Polygon2D2.color.a = 0.9
+		$Polygon2D2.color.a = 1.0
 	else:
 		$Polygon2D2.color.a = 0.1
 	
@@ -31,7 +31,7 @@ func on_area_exited(_area):
 func set_active(_active):
 	active = _active
 	if active:
-		$Polygon2D2.color.a = 0.9
+		$Polygon2D2.color.a = 1.0
 	else:
 		$Polygon2D2.color.a = 0.1
 

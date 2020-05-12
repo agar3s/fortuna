@@ -26,6 +26,7 @@ func _ready():
 	check_neighbors($Character.coordinates)
 	Events.connect('item_unlocked', self, 'add_item')
 	Events.connect("seal_activated", self, 'deactivate_spell_breaking', [true])
+	Events.connect("seal_closed", self, 'deactivate_spell_breaking', [false])
 	Events.connect("seal_destroyed", self, 'deactivate_spell_breaking', [false])
 
 

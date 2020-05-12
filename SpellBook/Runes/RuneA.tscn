@@ -20,7 +20,6 @@ scale = Vector2( 0.67, 0.67 )
 texture = ExtResource( 3 )
 
 [node name="Pieces" type="Node2D" parent="."]
-modulate = Color( 1, 0.945098, 0.121569, 1 )
 
 [node name="001" parent="Pieces" instance=ExtResource( 1 )]
 position = Vector2( 22, -37 )

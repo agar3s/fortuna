@@ -41,6 +41,9 @@ signal seal_activated(seal)
 signal seal_destroyed(id)
 
 # warning-ignore:unused_signal
+signal seal_closed(id)
+
+# warning-ignore:unused_signal
 signal object_adquired(_object)
 
 # warning-ignore:unused_signal
@@ -51,3 +54,6 @@ signal show_tutorial(step)
 
 # warning-ignore:unused_signal
 signal tutorial_closed()
+
+# warning-ignore:unused_signal
+signal spell_book_pressed()

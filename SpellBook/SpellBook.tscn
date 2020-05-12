@@ -1,12 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Arena/Assets/Krystinnnnn.png" type="Texture" id=1]
 [ext_resource path="res://Arena/Assets/Reynar.png" type="Texture" id=2]
-[ext_resource path="res://Cubes/Assets/10_poison.jpg" type="Texture" id=3]
-[ext_resource path="res://Cubes/Assets/17_blood_drain.jpg" type="Texture" id=4]
-[ext_resource path="res://Cubes/Assets/18_pain.jpg" type="Texture" id=5]
+[ext_resource path="res://SpellBook/Assets/libro.png" type="Texture" id=3]
+[ext_resource path="res://Arena/Assets/lamaestra.png" type="Texture" id=4]
 [ext_resource path="res://SpellBook/SpellBook.gd" type="Script" id=6]
-[ext_resource path="res://SpellBook/SpellSealUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/ghost_rich_text_effect.gd" type="Script" id=8]
 [ext_resource path="res://Resources/pulse_rich_text_effect.gd" type="Script" id=9]
 [ext_resource path="res://Resources/matrix_rich_text_effect.gd" type="Script" id=10]
@@ -33,36 +31,38 @@ resource_name = "RichTextMatrix"
 script = ExtResource( 10 )
 
 [node name="SpellBook" type="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
+anchor_bottom = 0.5
+margin_left = -699.0
+margin_top = -238.5
+margin_bottom = 238.5
 mouse_filter = 2
 script = ExtResource( 6 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_horizontal_guides_": [ 90.0, 229.0 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 512.0, 531.0 ]
 }
 
-[node name="Pages" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -383.0
-margin_top = -234.0
-margin_right = 382.0
-margin_bottom = 242.0
+[node name="Pages" type="TextureRect" parent="."]
+margin_right = 689.0
+margin_bottom = 471.0
 mouse_filter = 2
-color = Color( 0.941176, 0.941176, 0.941176, 1 )
+texture = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="Index" type="Control" parent="Pages"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 70.0
+margin_top = 30.0
+margin_right = -72.0
+margin_bottom = -121.0
 mouse_filter = 2
 script = ExtResource( 11 )
 __meta__ = {
@@ -70,10 +70,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/Index"]
-margin_left = 406.0
-margin_top = 8.0
-margin_right = 743.0
-margin_bottom = 85.0
+margin_left = 329.0
+margin_top = 29.0
+margin_right = 525.0
+margin_bottom = 49.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
@@ -81,29 +81,30 @@ bbcode_text = "la sombra de los malditos
 "
 text = "la sombra de los malditos
 "
+scroll_active = false
 custom_effects = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
 
 [node name="LinkButton" type="LinkButton" parent="Pages/Index"]
-margin_left = 409.0
-margin_top = 127.0
-margin_right = 533.0
-margin_bottom = 141.0
+margin_left = 339.0
+margin_top = 77.0
+margin_right = 463.0
+margin_bottom = 91.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The new cofrady"
 
 [node name="LinkButton2" type="LinkButton" parent="Pages/Index"]
-margin_left = 425.0
-margin_top = 148.0
-margin_right = 549.0
-margin_bottom = 162.0
+margin_left = 355.0
+margin_top = 98.0
+margin_right = 479.0
+margin_bottom = 112.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "The dark Scorpion"
 
 [node name="LinkButton3" type="LinkButton" parent="Pages/Index"]
-margin_left = 425.0
-margin_top = 167.0
-margin_right = 549.0
-margin_bottom = 181.0
+margin_left = 355.0
+margin_top = 117.0
+margin_right = 479.0
+margin_bottom = 131.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Krystine"
 
@@ -113,10 +114,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -758.0
-margin_top = -229.0
-margin_right = -9.0
-margin_bottom = 228.0
+margin_left = -612.0
+margin_top = -200.5
+margin_right = -81.0
+margin_bottom = 119.5
 mouse_filter = 2
 script = ExtResource( 11 )
 __meta__ = {
@@ -127,10 +128,10 @@ page = 1
 [node name="Title" type="RichTextLabel" parent="Pages/KrystinePage"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -350.5
-margin_top = 14.0
-margin_right = -23.5
-margin_bottom = 34.0
+margin_left = -224.5
+margin_top = 12.0
+margin_right = -38.5
+margin_bottom = 32.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
@@ -143,10 +144,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/KrystinePage"]
-margin_left = 23.0
-margin_top = 293.0
-margin_right = 348.0
-margin_bottom = 417.0
+margin_left = 301.0
+margin_top = 86.0
+margin_right = 529.0
+margin_bottom = 210.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
@@ -161,23 +162,24 @@ She has a permanent residence in the outside  woods of Adelia"
 custom_effects = [ SubResource( 4 ) ]
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Pages/KrystinePage"]
-margin_left = 396.0
-margin_top = 44.0
-margin_right = 718.0
-margin_bottom = 91.0
+margin_left = 299.0
+margin_top = 21.0
+margin_right = 547.0
+margin_bottom = 76.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 text = "Her strategy on battle consist on transfer all demon tokens to the oponent.
 "
+scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="Pages/KrystinePage"]
 modulate = Color( 0, 0, 0, 0.196078 )
-margin_left = 102.0
-margin_top = 62.0
-margin_right = 252.0
-margin_bottom = 251.0
+margin_left = 59.0
+margin_top = 47.0
+margin_right = 209.0
+margin_bottom = 236.0
 mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
@@ -188,10 +190,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -751.0
-margin_top = -229.0
-margin_right = -9.0
-margin_bottom = 228.0
+margin_left = -611.0
+margin_top = -204.5
+margin_right = -76.0
+margin_bottom = 107.5
 mouse_filter = 2
 script = ExtResource( 11 )
 __meta__ = {
@@ -203,9 +205,9 @@ seal = "reyner_page_seal"
 [node name="Title" type="RichTextLabel" parent="Pages/ReynerPage"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -361.0
+margin_left = -237.5
 margin_top = 8.0
-margin_right = -34.0
+margin_right = -33.5
 margin_bottom = 28.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
@@ -220,10 +222,10 @@ __meta__ = {
 }
 
 [node name="Description" type="RichTextLabel" parent="Pages/ReynerPage"]
-margin_left = 8.0
-margin_top = 267.0
-margin_right = 351.0
-margin_bottom = 391.0
+margin_left = 44.0
+margin_top = 254.0
+margin_right = 239.0
+margin_bottom = 298.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
@@ -265,10 +267,10 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="Pages/ReynerPage"]
 modulate = Color( 0, 0, 0, 0.196078 )
-margin_left = 99.0
-margin_top = 57.0
-margin_right = 249.0
-margin_bottom = 246.0
+margin_left = 45.0
+margin_top = 42.0
+margin_right = 195.0
+margin_bottom = 231.0
 mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
@@ -276,106 +278,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PowersContainer" type="Control" parent="Pages/ReynerPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 380.0
-margin_top = 50.0
-margin_right = 500.0
-margin_bottom = 84.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Pages/ReynerPage/PowersContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/ReynerPage/PowersContainer"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/ReynerPage/PowersContainer"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="PowersContainer2" type="Control" parent="Pages/ReynerPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 382.0
-margin_top = 87.0
-margin_right = 502.0
-margin_bottom = 121.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Pages/ReynerPage/PowersContainer2"]
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/ReynerPage/PowersContainer2"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 4 )
-expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/ReynerPage/PowersContainer2"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 5 )
-expand = true
-
-[node name="PowersContainer3" type="Control" parent="Pages/ReynerPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 383.0
-margin_top = 125.0
-margin_right = 503.0
-margin_bottom = 159.0
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Pages/ReynerPage/PowersContainer3"]
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/ReynerPage/PowersContainer3"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/ReynerPage/PowersContainer3"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-texture = ExtResource( 3 )
-expand = true
-
 [node name="GenaPage" type="Control" parent="Pages"]
 visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -751.0
-margin_top = -229.0
-margin_right = -9.0
-margin_bottom = 228.0
+margin_left = -610.0
+margin_top = -202.5
+margin_right = -72.0
+margin_bottom = 108.5
 mouse_filter = 2
 script = ExtResource( 11 )
 __meta__ = {
@@ -402,10 +314,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pages/GenaPage"]
-margin_left = 8.0
-margin_top = 267.0
-margin_right = 351.0
-margin_bottom = 391.0
+margin_left = 285.0
+margin_top = 11.0
+margin_right = 524.0
+margin_bottom = 283.0
 mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
@@ -424,192 +336,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fight2" type="RichTextLabel" parent="Pages/GenaPage"]
-margin_left = 383.0
-margin_top = 237.0
-margin_right = 539.0
-margin_bottom = 254.0
-mouse_filter = 2
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_colors/selection_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="TextureRect" type="TextureRect" parent="Pages/GenaPage"]
 modulate = Color( 0, 0, 0, 0.196078 )
-margin_left = 99.0
-margin_top = 57.0
-margin_right = 249.0
-margin_bottom = 246.0
-mouse_filter = 2
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PowersContainer" type="Container" parent="Pages/GenaPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 380.0
-margin_top = 50.0
-margin_right = 500.0
-margin_bottom = 84.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Pages/GenaPage/PowersContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/GenaPage/PowersContainer"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/GenaPage/PowersContainer"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="PowersContainer2" type="Container" parent="Pages/GenaPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 382.0
-margin_top = 87.0
-margin_right = 502.0
-margin_bottom = 121.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Pages/GenaPage/PowersContainer2"]
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/GenaPage/PowersContainer2"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
+margin_left = 57.0
+margin_top = 45.0
+margin_right = 207.0
+margin_bottom = 234.0
 mouse_filter = 2
 texture = ExtResource( 4 )
 expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/GenaPage/PowersContainer2"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 5 )
-expand = true
-
-[node name="PowersContainer3" type="Container" parent="Pages/GenaPage"]
-modulate = Color( 0, 0, 0, 1 )
-margin_left = 383.0
-margin_top = 125.0
-margin_right = 503.0
-margin_bottom = 159.0
-mouse_filter = 2
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Pages/GenaPage/PowersContainer3"]
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect2" type="TextureRect" parent="Pages/GenaPage/PowersContainer3"]
-anchor_left = 0.288931
-anchor_right = 0.288931
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="TextureRect3" type="TextureRect" parent="Pages/GenaPage/PowersContainer3"]
-anchor_left = 0.571044
-anchor_right = 0.571044
-margin_right = 30.0
-margin_bottom = 30.0
-mouse_filter = 2
-texture = ExtResource( 3 )
-expand = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="SpellSealUI" parent="CanvasLayer" instance=ExtResource( 7 )]
-visible = false
-
 [node name="Bookmarks" type="Control" parent="."]
-margin_left = 894.0
-margin_top = 81.0
-margin_right = 970.0
-margin_bottom = 188.0
+margin_left = 635.0
+margin_top = 121.0
+margin_right = 711.0
+margin_bottom = 228.0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Index" type="LinkButton" parent="Bookmarks"]
-margin_left = 7.0
-margin_top = 17.0
-margin_right = 47.0
-margin_bottom = 31.0
+margin_top = -1.0
+margin_right = 40.0
+margin_bottom = 13.0
 text = "Index"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cofrady" type="LinkButton" parent="Bookmarks"]
-margin_left = 7.0
-margin_top = 39.0
+margin_top = 21.0
 margin_right = 47.0
-margin_bottom = 53.0
+margin_bottom = 35.0
 text = "Cofrady"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sorcery" type="LinkButton" parent="Bookmarks"]
-margin_left = 7.0
-margin_top = 61.0
+margin_top = 43.0
 margin_right = 47.0
-margin_bottom = 75.0
+margin_bottom = 57.0
 text = "Sorcery"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Next" type="LinkButton" parent="."]
-margin_left = 821.0
-margin_top = 518.0
-margin_right = 885.0
-margin_bottom = 532.0
+margin_left = 565.0
+margin_top = 343.0
+margin_right = 629.0
+margin_bottom = 357.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Next Page"
 __meta__ = {
@@ -617,10 +398,10 @@ __meta__ = {
 }
 
 [node name="Prev" type="LinkButton" parent="."]
-margin_left = 139.0
-margin_top = 518.0
-margin_right = 179.0
-margin_bottom = 532.0
+margin_left = 67.0
+margin_top = 345.0
+margin_right = 156.0
+margin_bottom = 359.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Previous Page"
 __meta__ = {

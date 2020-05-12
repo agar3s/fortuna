@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Map/Tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Map/Assets/pared_3.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Map/Assets/pared_2.png" type="Texture" id=5]
 [ext_resource path="res://Map/Assets/pared_1.png" type="Texture" id=6]
 [ext_resource path="res://Map/Item.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Map/Assets/libros.png" type="Texture" id=8]
+[ext_resource path="res://Map/Assets/escritorio_1.png" type="Texture" id=10]
 
 [node name="Map" instance=ExtResource( 3 )]
 next_scene = "Map01b"
@@ -15,17 +17,39 @@ next_scene = "Map01b"
 position = Vector2( 134, 168 )
 coordinates = Vector3( 0, -2, 2 )
 
+[node name="Wall" parent="Tiles/Tile26" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -20 )
+item_texture = ExtResource( 5 )
+
 [node name="Tile25" parent="Tiles" index="1" instance=ExtResource( 1 )]
 position = Vector2( 0, 168 )
 coordinates = Vector3( -1, -1, 2 )
+
+[node name="Wall" parent="Tiles/Tile25" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -20 )
+item_texture = ExtResource( 5 )
+flip_h_over = true
 
 [node name="Tile23" parent="Tiles" index="2" instance=ExtResource( 1 )]
 position = Vector2( -67, 252 )
 coordinates = Vector3( -2, -1, 3 )
 
+[node name="Wall" parent="Tiles/Tile23" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( -33, -62.05 )
+item_texture = ExtResource( 4 )
+flip_h_over = true
+
 [node name="Tile14" parent="Tiles" index="3" instance=ExtResource( 1 )]
 position = Vector2( 201, 252 )
 coordinates = Vector3( 0, -3, 3 )
+
+[node name="Wall" parent="Tiles/Tile14" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 34, -62.05 )
+item_texture = ExtResource( 4 )
 
 [node name="Tile3" parent="Tiles" index="4" instance=ExtResource( 1 )]
 position = Vector2( 67, 252 )
@@ -35,6 +59,7 @@ empty = false
 [node name="Item" parent="Tiles/Tile3" index="5" instance=ExtResource( 7 )]
 spell = true
 type = "seal"
+key = "magic_seal_01b_a"
 
 [node name="Tile4" parent="Tiles" index="5" instance=ExtResource( 1 )]
 position = Vector2( 134, 336 )
@@ -51,10 +76,10 @@ coordinates = Vector3( -2, -2, 4 )
 [node name="Tile30" parent="Tiles" index="8" instance=ExtResource( 1 )]
 position = Vector2( 1005, 420 )
 coordinates = Vector3( 5, -10, 5 )
-empty = false
 
-[node name="Item" parent="Tiles/Tile30" index="5" instance=ExtResource( 7 )]
-position = Vector2( 0, -65 )
+[node name="Wall" parent="Tiles/Tile30" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -60.5 )
 item_texture = ExtResource( 2 )
 
 [node name="Tile33" parent="Tiles" index="9" instance=ExtResource( 1 )]
@@ -62,17 +87,25 @@ position = Vector2( 1139, 420 )
 coordinates = Vector3( 6, -11, 5 )
 empty = false
 
-[node name="Item" parent="Tiles/Tile33" index="5" instance=ExtResource( 7 )]
-position = Vector2( 0, -24 )
+[node name="Wall" parent="Tiles/Tile33" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -18 )
 item_texture = ExtResource( 5 )
+
+[node name="Item" parent="Tiles/Tile33" index="6" instance=ExtResource( 7 )]
+position = Vector2( -11, 8 )
+item_texture = ExtResource( 10 )
+type = "object"
+simple_description = "This desk contains rare potions and spells..."
 
 [node name="Tile45" parent="Tiles" index="10" instance=ExtResource( 1 )]
 position = Vector2( 1340, 504 )
 coordinates = Vector3( 7, -13, 6 )
 empty = false
 
-[node name="Item" parent="Tiles/Tile45" index="5" instance=ExtResource( 7 )]
-position = Vector2( 0, -24 )
+[node name="Wall" parent="Tiles/Tile45" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -18 )
 item_texture = ExtResource( 5 )
 
 [node name="Tile5" parent="Tiles" index="11" instance=ExtResource( 1 )]
@@ -88,13 +121,26 @@ position = Vector2( 871, 420 )
 coordinates = Vector3( 4, -9, 5 )
 empty = false
 
-[node name="Item" parent="Tiles/Tile29" index="5" instance=ExtResource( 7 )]
-position = Vector2( 0, -23 )
+[node name="Wall" parent="Tiles/Tile29" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 0, -18 )
 item_texture = ExtResource( 6 )
+
+[node name="Item" parent="Tiles/Tile29" index="6" instance=ExtResource( 7 )]
+position = Vector2( 21, -19 )
+item_texture = ExtResource( 8 )
+type = "object"
+simple_description = "Contains a series of forbidden books..."
 
 [node name="Tile9" parent="Tiles" index="14" instance=ExtResource( 1 )]
 position = Vector2( 804, 504 )
 coordinates = Vector3( 3, -9, 6 )
+
+[node name="Wall" parent="Tiles/Tile9" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( -33, -60 )
+item_texture = ExtResource( 4 )
+flip_h_over = true
 
 [node name="Tile43" parent="Tiles" index="15" instance=ExtResource( 1 )]
 position = Vector2( 938, 504 )
@@ -107,10 +153,10 @@ coordinates = Vector3( 5, -11, 6 )
 [node name="Tile34" parent="Tiles" index="17" instance=ExtResource( 1 )]
 position = Vector2( 1206, 504 )
 coordinates = Vector3( 6, -12, 6 )
-empty = false
 
-[node name="Item" parent="Tiles/Tile34" index="5" instance=ExtResource( 7 )]
-position = Vector2( 34, -66 )
+[node name="Wall" parent="Tiles/Tile34" index="5" instance=ExtResource( 7 )]
+modulate = Color( 0.352941, 0.301961, 0.282353, 1 )
+position = Vector2( 34, -60.5 )
 item_texture = ExtResource( 4 )
 
 [node name="Tile36" parent="Tiles" index="18" instance=ExtResource( 1 )]
@@ -121,21 +167,21 @@ coordinates = Vector3( -3, -2, 5 )
 position = Vector2( -134, 504 )
 coordinates = Vector3( -4, -2, 6 )
 
-[node name="Tile38" parent="Tiles" index="20" instance=ExtResource( 1 )]
-position = Vector2( -201, 588 )
-coordinates = Vector3( -5, -2, 7 )
+[node name="Tile40" parent="Tiles" index="20" instance=ExtResource( 1 )]
+position = Vector2( -67, 588 )
+coordinates = Vector3( -4, -3, 7 )
 
-[node name="Tile39" parent="Tiles" index="21" instance=ExtResource( 1 )]
+[node name="Tile41" parent="Tiles" index="21" instance=ExtResource( 1 )]
+position = Vector2( 67, 588 )
+coordinates = Vector3( -3, -4, 7 )
+
+[node name="Tile50" parent="Tiles" index="22" instance=ExtResource( 1 )]
+position = Vector2( 201, 588 )
+coordinates = Vector3( -2, -5, 7 )
+
+[node name="Tile39" parent="Tiles" index="23" instance=ExtResource( 1 )]
 position = Vector2( -134, 672 )
 coordinates = Vector3( -5, -3, 8 )
-
-[node name="Tile40" parent="Tiles" index="22" instance=ExtResource( 1 )]
-position = Vector2( -201, 756 )
-coordinates = Vector3( -6, -3, 9 )
-
-[node name="Tile41" parent="Tiles" index="23" instance=ExtResource( 1 )]
-position = Vector2( -268, 840 )
-coordinates = Vector3( -7, -3, 10 )
 
 [node name="Tile42" parent="Tiles" index="24" instance=ExtResource( 1 )]
 position = Vector2( -67, 756 )
@@ -153,6 +199,7 @@ empty = false
 [node name="Item" parent="Tiles/Tile32" index="5" instance=ExtResource( 7 )]
 spell = true
 type = "seal"
+key = "magic_seal_01b_c"
 
 [node name="Tile35" parent="Tiles" index="27" instance=ExtResource( 1 )]
 position = Vector2( 1273, 588 )
@@ -162,47 +209,39 @@ coordinates = Vector3( 6, -13, 7 )
 position = Vector2( 871, 588 )
 coordinates = Vector3( 3, -10, 7 )
 
-[node name="Tile28" parent="Tiles" index="29" instance=ExtResource( 1 )]
-position = Vector2( 938, 672 )
-coordinates = Vector3( 3, -11, 8 )
-
-[node name="Tile46" parent="Tiles" index="30" instance=ExtResource( 1 )]
-position = Vector2( 871, 756 )
-coordinates = Vector3( 2, -11, 9 )
-
-[node name="Tile24" parent="Tiles" index="31" instance=ExtResource( 1 )]
+[node name="Tile24" parent="Tiles" index="29" instance=ExtResource( 1 )]
 position = Vector2( 603, 588 )
 coordinates = Vector3( 1, -8, 7 )
 
-[node name="Tile15" parent="Tiles" index="32" instance=ExtResource( 1 )]
+[node name="Tile15" parent="Tiles" index="30" instance=ExtResource( 1 )]
 position = Vector2( 469, 588 )
 coordinates = Vector3( 0, -7, 7 )
 
-[node name="Tile" parent="Tiles" index="33" instance=ExtResource( 1 )]
+[node name="Tile2" parent="Tiles" index="31" instance=ExtResource( 1 )]
 position = Vector2( 737, 588 )
 coordinates = Vector3( 2, -9, 7 )
 
-[node name="Tile11" parent="Tiles" index="34" instance=ExtResource( 1 )]
+[node name="Tile11" parent="Tiles" index="32" instance=ExtResource( 1 )]
 position = Vector2( 268, 672 )
 coordinates = Vector3( -2, -6, 8 )
 
-[node name="Tile8" parent="Tiles" index="35" instance=ExtResource( 1 )]
+[node name="Tile8" parent="Tiles" index="33" instance=ExtResource( 1 )]
 position = Vector2( 201, 756 )
 coordinates = Vector3( -3, -6, 9 )
 
-[node name="Tile10" parent="Tiles" index="36" instance=ExtResource( 1 )]
+[node name="Tile10" parent="Tiles" index="34" instance=ExtResource( 1 )]
 position = Vector2( 134, 840 )
 coordinates = Vector3( -4, -6, 10 )
 
-[node name="Tile16" parent="Tiles" index="37" instance=ExtResource( 1 )]
+[node name="Tile16" parent="Tiles" index="35" instance=ExtResource( 1 )]
 position = Vector2( 201, 924 )
 coordinates = Vector3( -4, -7, 11 )
 
-[node name="Tile17" parent="Tiles" index="38" instance=ExtResource( 1 )]
+[node name="Tile17" parent="Tiles" index="36" instance=ExtResource( 1 )]
 position = Vector2( 0, 840 )
 coordinates = Vector3( -5, -5, 10 )
 
-[node name="Tile22" parent="Tiles" index="39" instance=ExtResource( 1 )]
+[node name="Tile22" parent="Tiles" index="37" instance=ExtResource( 1 )]
 position = Vector2( 67, 924 )
 coordinates = Vector3( -5, -6, 11 )
 empty = false
@@ -210,38 +249,39 @@ empty = false
 [node name="Item" parent="Tiles/Tile22" index="5" instance=ExtResource( 7 )]
 spell = true
 type = "seal"
+key = "magic_seal_01b_b"
 
-[node name="Tile19" parent="Tiles" index="40" instance=ExtResource( 1 )]
+[node name="Tile19" parent="Tiles" index="38" instance=ExtResource( 1 )]
 position = Vector2( -67, 924 )
 coordinates = Vector3( -6, -5, 11 )
 
-[node name="Tile48" parent="Tiles" index="41" instance=ExtResource( 1 )]
+[node name="Tile48" parent="Tiles" index="39" instance=ExtResource( 1 )]
 position = Vector2( 1072, 672 )
 coordinates = Vector3( 4, -12, 8 )
 
-[node name="Tile21" parent="Tiles" index="42" instance=ExtResource( 1 )]
+[node name="Tile21" parent="Tiles" index="40" instance=ExtResource( 1 )]
 position = Vector2( 0, 1008 )
 coordinates = Vector3( -6, -6, 12 )
 
-[node name="Tile18" parent="Tiles" index="43" instance=ExtResource( 1 )]
+[node name="Tile18" parent="Tiles" index="41" instance=ExtResource( 1 )]
 position = Vector2( 134, 1008 )
 coordinates = Vector3( -5, -7, 12 )
 
-[node name="Tile31" parent="Tiles" index="44" instance=ExtResource( 1 )]
+[node name="Tile31" parent="Tiles" index="42" instance=ExtResource( 1 )]
 position = Vector2( 1206, 672 )
 coordinates = Vector3( 5, -13, 8 )
 
-[node name="Tile47" parent="Tiles" index="45" instance=ExtResource( 1 )]
-position = Vector2( 1005, 756 )
-coordinates = Vector3( 3, -12, 9 )
-
-[node name="Tile49" parent="Tiles" index="46" instance=ExtResource( 1 )]
+[node name="Tile38" parent="Tiles" index="43" instance=ExtResource( 1 )]
 position = Vector2( 1139, 756 )
 coordinates = Vector3( 4, -13, 9 )
 
+[node name="Tile46" parent="Tiles" index="44" instance=ExtResource( 1 )]
+position = Vector2( 938, 672 )
+coordinates = Vector3( 3, -11, 8 )
+
 [node name="Character" parent="." index="1"]
-position = Vector2( 330, 588 )
-coordinates = Vector3( -1, -6, 7 )
+position = Vector2( 201, 588 )
+coordinates = Vector3( -2, -5, 7 )
 
 [node name="Sprite" parent="Character" index="0"]
 offset = Vector2( 0, 0 )

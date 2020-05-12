@@ -13,13 +13,21 @@ func _ready():
 	#set_seal_id(seal_id)
 	$TriangularGrid.connect('triangles_checked', self, 'on_triangles_checked')
 	set_pieces()
+	
+	$Background/CloseButton.connect("button_down", self, "close")
 
+func close():
+	Events.emit_signal("seal_closed", seal_id)
+	hide()
 
 func on_triangles_checked(correct):
 	if correct:
 		SpellSeals.destroy_seal(seal_id)
 		$Debug.text = 'solved!!!'
-		yield(get_tree().create_timer(0.3), "timeout")
+		$AnimationPlayer.play("destroy")
+		#yield(get_tree().create_timer(0.3), "timeout")
+		yield($AnimationPlayer, "animation_finished")
+		yield(get_tree().create_timer(0.1), "timeout")
 		hide()
 	else:
 		$Debug.text = 'incorrect'
