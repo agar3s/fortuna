@@ -10,7 +10,7 @@ length = 2.0
 loop = true
 step = 0.05
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Sprite:position:y")
+tracks/0/path = NodePath("../Item/Sprite:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -19,13 +19,43 @@ tracks/0/keys = {
 "points": PoolRealArray( -23, -0.25, 0, 0.248848, -7.11597, -30, -0.25, -0.116, 0.265149, 0.222082, -23, -0.25, -7, 0.25, 6.5, -16, -0.25, -0.375, 0.25, -0.375, -23, -0.251089, 6.66893, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5, 1, 1.5, 2 )
 }
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("../Item/Sprite:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.95, -0.00069195, 1.25, -0.25, 0, 0.25, 0, 1, -1.05, 0.000287771, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../Item/Sprite:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.96, 0.000287771, 1.25, -0.25, 0, 0.25, 0, 1, -1.04, 0.000287771, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("../Item/Sprite:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.93, -0.00069195, 1.35, -0.25, 0, 0.25, 0, 1, -1.05, -0.00069195, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
 
 [node name="Item" type="Node2D"]
 script = ExtResource( 2 )
 item_texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -26.3886 )
+position = Vector2( 0, -23 )
 texture = ExtResource( 1 )
 
 [node name="ItemDescriptors" parent="." instance=ExtResource( 3 )]

@@ -28,10 +28,12 @@ func _ready():
 	Events.connect("seal_activated", self, 'deactivate_spell_breaking', [true])
 	Events.connect("seal_closed", self, 'deactivate_spell_breaking', [false])
 	Events.connect("seal_destroyed", self, 'deactivate_spell_breaking', [false])
+	Events.connect("rune_pressed", self, 'show_rune')
 
 
-func add_item(_object):
+func add_item(_object: Dictionary):
 	var new_item = Item.instance()
+	print(_object)
 	new_item.key = _object.key
 	new_item.name = 'Item'
 	new_item.type = _object.type
@@ -83,3 +85,7 @@ func check_neighbors(coordinates):
 func display_seal():
 	spell_breaking = true
 	
+func show_rune(rune):
+	print(rune)
+	NarrativeScript.run_script('UI_runes', rune)
+

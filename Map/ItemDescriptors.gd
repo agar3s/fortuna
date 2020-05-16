@@ -1,7 +1,7 @@
 extends Node
 
 
-var keys = {
+const keys = {
 	'lena_map01': {
 		"character": "lena",
 		"dialogs": ["intro", "end"],
@@ -41,6 +41,28 @@ var keys = {
 		"on_sealed_destroyed": [{
 			"_signal": "object_adquired",
 			"_params": "spell_book"
+		}, {
+			"_signal": "item_unlocked",
+			"_params": {'key': 'stairs_01', 'coordinates': Vector3(-3.0, -4.0, 7.0), 'type': 'door'}
 		}]
+	},
+	'stairs_01': {
+		'item_texture': preload('res://Map/Assets/escalerasx2.png'),
+		'item_position': Vector2(-31, -27),
+		'item_scale': Vector2(0.5, 0.5),
+		'on_enter': [{
+			'_signal': 'change_scene',
+			'_params': 'Map01c'
+		}]
+	},
+	'lena_map01c': {
+		"character": "lena",
+		"dialogs": ["start_journey"],
+		"on_dialogue_ends": {
+			"start_journey": [{
+				'_signal': 'change_scene',
+				'_params': 'Map02'
+			}]
+		}
 	},
 }

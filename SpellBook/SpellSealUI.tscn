@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Sandbox/SpellSealUI.gd" type="Script" id=1]
 [ext_resource path="res://SpellBook/Runes/RuneF.tscn" type="PackedScene" id=2]
@@ -12,16 +12,73 @@
 [ext_resource path="res://Resources/baseTheme.tres" type="Theme" id=10]
 [ext_resource path="res://Resources/SandboxSpellBook.shader" type="Shader" id=11]
 [ext_resource path="res://Arena/Assets/guide.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Fonts/Domine-Bold.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Resources/pulse_rich_text_effect.gd" type="Script" id=14]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 use_filter = true
 font_data = ExtResource( 9 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "destroy"
+[sub_resource type="DynamicFont" id=3]
+size = 72
+outline_size = 5
+outline_color = Color( 0.0313726, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="RichTextEffect" id=4]
+resource_name = "RichTextPulse"
+script = ExtResource( 14 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.6
 step = 0.05
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("TriangularGrid:modulate:r")
@@ -31,7 +88,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.4 )
+"times": PoolRealArray( 0, 0.7 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("TriangularGrid:modulate:g")
@@ -41,7 +98,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.4 )
+"times": PoolRealArray( 0, 0.7 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("TriangularGrid:modulate:b")
@@ -51,7 +108,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.4 )
+"times": PoolRealArray( 0, 0.7 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath("TriangularGrid:modulate:a")
@@ -61,7 +118,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0.4, 1 )
+"times": PoolRealArray( 0.65, 1.5 )
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath("TriangularGrid:position:x")
@@ -70,8 +127,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 454, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 456, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 )
+"points": PoolRealArray( 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 456, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 452, -0.25, 0, 0.25, 0, 456, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0, 454, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath("TriangularGrid:position:y")
@@ -80,8 +137,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 301, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 303, -0.25, 0, 0.25, 0, 299, -0.25, 0, 0.25, 0, 306, -0.25, 0, 0.25, 0, 295, -0.25, 0, 0.25, 0, 301, -0.25, 0, 0.25, 0, 301, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 )
+"points": PoolRealArray( 301, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0, 300, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0, 303, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0, 299, -0.25, 0, 0.25, 0, 303, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0, 299, -0.25, 0, 0.25, 0, 295, -0.25, 0, 0.25, 0, 301, -0.25, 0, 0.25, 0, 301, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7 )
 }
 tracks/6/type = "bezier"
 tracks/6/path = NodePath("TriangularGrid:scale:x")
@@ -90,8 +147,8 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.4, 1 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1.2 )
 }
 tracks/7/type = "bezier"
 tracks/7/path = NodePath("TriangularGrid:scale:y")
@@ -100,8 +157,18 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.4, 1 )
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1.2 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("SealBreaked:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.00370598, -0.261886, 0.0112481, 0.25, 0, 1, -0.171376, -0.132686, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.2, 1.6 )
 }
 
 [node name="SpellSealUI" type="Control"]
@@ -130,7 +197,7 @@ __meta__ = {
 
 [node name="Background" type="ColorRect" parent="."]
 modulate = Color( 0.854902, 0.831373, 0.960784, 1 )
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -54.0
@@ -158,6 +225,7 @@ __meta__ = {
 
 [node name="TriangularGrid" parent="." instance=ExtResource( 7 )]
 position = Vector2( 454, 301 )
+configuration = [  ]
 
 [node name="pieces" type="Node2D" parent="."]
 position = Vector2( -54, 0 )
@@ -216,7 +284,7 @@ margin_left = 6.0
 margin_top = 472.0
 margin_right = 323.0
 margin_bottom = 555.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 0.788235, 0.423529, 1 )
 custom_constants/line_separation = 0
 text = "Drag  the blue  piece  to the center of the screen to match the silloute.
@@ -226,5 +294,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SealBreaked" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 211.0
+margin_top = 230.0
+margin_right = 697.0
+margin_bottom = 315.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.757813, 0.969727, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[tornado radius=1 freq=1]Seal Breaked![/tornado]"
+text = "Seal Breaked!"
+scroll_active = false
+custom_effects = [ SubResource( 4 ) ]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/destroy = SubResource( 3 )
+anims/close = SubResource( 5 )
+anims/destroy = SubResource( 6 )

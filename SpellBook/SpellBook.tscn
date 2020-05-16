@@ -200,7 +200,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 page = 2
-seal = "reyner_page_seal"
 
 [node name="Title" type="RichTextLabel" parent="Pages/ReynerPage"]
 anchor_left = 0.5

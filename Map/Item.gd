@@ -7,18 +7,34 @@ export (bool) var spell = false setget set_spell
 
 export (String, 'obstacle', 'character', 'seal', 'door', 'object') var type = 'obstacle'
 
-export (String) var key = 'lena_map01'
+export (String) var key = 'lena_map01' setget set_key
 
 var dialog_index = 0
 export (String) var simple_description = ''
 
 export (bool) var flip_h_over = false setget set_flip_h_over
 
+var properties = {}
+
 func _ready():
 	$Sprite.texture = item_texture
 	set_spell(spell)
+	set_key(key)
 	if type == 'seal':
 		Events.connect("seal_destroyed", self, 'on_seal_destroyed')
+	#position.y += 6
+
+func set_key(_key):
+	key = _key
+	if not $ItemDescriptors.keys.has(key):
+		properties = {}
+		return
+	properties = $ItemDescriptors.keys[key]
+	if properties.has('item_texture'):
+		set_item_texture(properties.item_texture)
+		position = properties.item_position
+		scale = properties.item_scale
+
 
 func set_spell(_spell):
 	spell = _spell
@@ -35,9 +51,7 @@ func set_item_texture(_item_texture):
 	
 
 func on_click():
-	if not $ItemDescriptors.keys.has(key): return
 	
-	var properties = $ItemDescriptors.keys[key]
 	print('event depending on this item in particular')
 	# what can do i do?
 	# something to pick
@@ -63,14 +77,15 @@ func on_click():
 			Events.emit_signal("seal_activated", properties.seal)
 		'object':
 			Events.emit_signal('dialog_triggered', false, 'Engel', simple_description)
-			
+		'door':
+			for trigger in properties.on_enter:
+				Events.emit_signal(trigger._signal, trigger._params)
 
 
 func on_hover():
 	pass
 
 func on_seal_destroyed(seal):
-	var properties = $ItemDescriptors.keys[key]
 	if seal != properties.seal: return
 	for trigger in properties.on_sealed_destroyed:
 		Events.emit_signal(trigger._signal, trigger._params)

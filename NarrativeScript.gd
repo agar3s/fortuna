@@ -66,7 +66,40 @@ var level_scripts = {
 		"end": [
 			{"right": true, "character": "Lena", "dialogue": "What are you waiting for?"},
 			{"right": true, "character": "Lena", "dialogue": "When you know enough to start your search, come back."}
+		],
+		"start_journey": [
+			{"right": false, "character": "Engel", "dialogue": "I got my father's book and other 2 crystals."},
+			{"right": false, "character": "Engel", "dialogue": "What should I do?"},
+			{"right": true, "character": "Lena", "dialogue": "The sorcerers you found in that book should know your father's location."},
+			{"right": true, "character": "Lena", "dialogue": "Fortunately, I know that Reyner lives in a hidden palace in the desert."},
+			{"right": true, "character": "Lena", "dialogue": "Start with him."},
+			{"right": false, "character": "Engel", "dialogue": "I'll do that!"},
+			{"right": true, "character": "Lena", "dialogue": "Engel..."},
+			{"right": false, "character": "Engel", "dialogue": "Mom..."},
+			{"right": true, "character": "Lena", "dialogue": "Bring your father home"},
+			{"right": false, "character": "Engel", "dialogue": "..."},
+			{"right": false, "character": "Engel", "dialogue": "Yes"},
 		]
+	},
+	"ui_runes": {
+		"rune_a": [
+			{"right": false, "character": "Engel", "dialogue": "the rune A"}
+		],
+		"rune_b": [
+			{"right": false, "character": "Engel", "dialogue": "the rune B"}
+		],
+		"rune_c": [
+			{"right": false, "character": "Engel", "dialogue": "the rune C"}
+		],
+		"rune_d": [
+			{"right": false, "character": "Engel", "dialogue": "the rune D"}
+		],
+		"rune_e": [
+			{"right": false, "character": "Engel", "dialogue": "the rune E"}
+		],
+		"rune_f": [
+			{"right": false, "character": "Engel", "dialogue": "the rune F"}
+		],
 	}
 }
 

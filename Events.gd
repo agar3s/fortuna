@@ -57,3 +57,10 @@ signal tutorial_closed()
 
 # warning-ignore:unused_signal
 signal spell_book_pressed()
+
+# warning-ignore:unused_signal
+signal rune_pressed(rune)
+
+
+
+

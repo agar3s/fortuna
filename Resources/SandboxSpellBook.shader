@@ -4,7 +4,7 @@ shader_type canvas_item;
 
 void fragment() {
 	
-	float waveStrength = 0.02;
+	float waveStrength = 0.08;
     float frequency = 30.0;
     float waveSpeed = 5.0;
     vec4 sunlightColor = vec4(0.45,0.75,0.91, 1.0);

@@ -5,6 +5,8 @@ signal cell_clicked
 export (float) var stroke = 0.05
 export (Texture) var base_sprite = preload("res://Assets/dark grass.png") setget set_base_sprite
 export (int) var offset_sprite_y = 0 setget set_offset_sprite_y
+export (Vector2) var scale_sprite = Vector2(1.0, 1.0) setget set_scale_sprite
+export (bool) var flip_h = false setget set_flip_h
 
 export (bool) var empty = true setget set_empty
 # tile on range
@@ -77,3 +79,11 @@ func on_exit():
 func set_in_range(_in_range):
 	in_range = _in_range
 	
+
+func set_scale_sprite(_scale_sprite):
+	scale_sprite = _scale_sprite
+	$Sprite.scale = scale_sprite
+
+func set_flip_h(_flip_h):
+	flip_h = _flip_h
+	$Sprite.flip_h = flip_h
