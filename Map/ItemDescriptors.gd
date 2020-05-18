@@ -82,6 +82,16 @@ const keys = {
 			}]
 		}
 	},
+	'krystine_map03': {
+		"character": 'krystine',
+		"dialogs": ["intro"],
+		"on_dialogue_ends": {
+			"intro": [{
+				'_signal': 'change_scene',
+				'_params': 'Level03'
+			}]
+		}
+	},
 	'magic_seal_04_01': {
 		'seal': 'alberich_01',
 		"on_sealed_destroyed": []

@@ -74,24 +74,28 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -67, -420 )
 coordinates = Vector3( 2, 3, -5 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile111" parent="Tiles" index="11" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 67, -420 )
 coordinates = Vector3( 3, 2, -5 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile113" parent="Tiles" index="12" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -134, -336 )
 coordinates = Vector3( 1, 3, -4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile112" parent="Tiles" index="13" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 134, -336 )
 coordinates = Vector3( 3, 1, -4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile10" parent="Tiles" index="14" instance=ExtResource( 3 )]
 position = Vector2( -335, -420 )
@@ -113,12 +117,14 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -67, -252 )
 coordinates = Vector3( 1, 2, -3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile115" parent="Tiles" index="18" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 67, -252 )
 coordinates = Vector3( 2, 1, -3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile17" parent="Tiles" index="19" instance=ExtResource( 3 )]
 position = Vector2( -201, -252 )
@@ -140,12 +146,14 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 0, -168 )
 coordinates = Vector3( 1, 1, -2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile117" parent="Tiles" index="23" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -67, -84 )
 coordinates = Vector3( 0, 1, -1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile16" parent="Tiles" index="24" instance=ExtResource( 3 )]
 position = Vector2( -335, -252 )
@@ -202,10 +210,12 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 67, -84 )
 coordinates = Vector3( 1, 0, -1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile119" parent="Tiles" index="35" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile23" parent="Tiles" index="36" instance=ExtResource( 3 )]
 position = Vector2( -268, -168 )
@@ -342,24 +352,28 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -201, 84 )
 coordinates = Vector3( -2, 1, 1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile121" parent="Tiles" index="63" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -67, 84 )
 coordinates = Vector3( -1, 0, 1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile122" parent="Tiles" index="64" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 67, 84 )
 coordinates = Vector3( 0, -1, 1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile123" parent="Tiles" index="65" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 201, 84 )
 coordinates = Vector3( 1, -2, 1 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile42" parent="Tiles" index="66" instance=ExtResource( 3 )]
 position = Vector2( -469, 84 )
@@ -381,48 +395,56 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -536, 168 )
 coordinates = Vector3( -5, 3, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile125" parent="Tiles" index="70" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -402, 168 )
 coordinates = Vector3( -4, 2, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile126" parent="Tiles" index="71" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -268, 168 )
 coordinates = Vector3( -3, 1, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile127" parent="Tiles" index="72" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -134, 168 )
 coordinates = Vector3( -2, 0, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile128" parent="Tiles" index="73" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 134, 168 )
 coordinates = Vector3( 0, -2, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile129" parent="Tiles" index="74" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 268, 168 )
 coordinates = Vector3( 1, -3, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile130" parent="Tiles" index="75" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 402, 168 )
 coordinates = Vector3( 2, -4, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile131" parent="Tiles" index="76" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 536, 168 )
 coordinates = Vector3( 3, -5, 2 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile46" parent="Tiles" index="77" instance=ExtResource( 3 )]
 position = Vector2( -737, 252 )
@@ -434,24 +456,28 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -603, 252 )
 coordinates = Vector3( -6, 3, 3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile133" parent="Tiles" index="79" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -335, 252 )
 coordinates = Vector3( -4, 1, 3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile134" parent="Tiles" index="80" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 335, 252 )
 coordinates = Vector3( 1, -4, 3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile135" parent="Tiles" index="81" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 603, 252 )
 coordinates = Vector3( 3, -6, 3 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile47" parent="Tiles" index="82" instance=ExtResource( 3 )]
 position = Vector2( -670, 336 )
@@ -473,12 +499,14 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -536, 336 )
 coordinates = Vector3( -6, 2, 4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile137" parent="Tiles" index="86" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( -402, 336 )
 coordinates = Vector3( -5, 1, 4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile57" parent="Tiles" index="87" instance=ExtResource( 3 )]
 position = Vector2( 469, 252 )
@@ -490,12 +518,14 @@ modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 402, 336 )
 coordinates = Vector3( 1, -5, 4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile139" parent="Tiles" index="89" instance=ExtResource( 3 )]
 modulate = Color( 1, 1, 1, 0.764706 )
 position = Vector2( 536, 336 )
 coordinates = Vector3( 2, -6, 4 )
 base_sprite = ExtResource( 6 )
+empty = false
 
 [node name="Tile48" parent="Tiles" index="90" instance=ExtResource( 3 )]
 position = Vector2( -603, 420 )

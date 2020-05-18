@@ -125,6 +125,48 @@ var level_scripts = {
 			{"right": false, "character": "Engel", "dialogue": "And you'll tell me the location of the other two sorceress"},
 		]
 	},
+	"krystine": {
+		"intro": [
+			{"right": true, "character": "Krystine", "dialogue": "So, you are Gunther's little daughter..."},
+			{"right": true, "character": "Krystine", "dialogue": "You don't look anything like him"},
+			{"right": false, "character": "Engel", "dialogue": "Yes I am..."},
+			{"right": false, "character": "Engel", "dialogue": "It seems that you and my dad were very close."},
+			{"right": false, "character": "Engel", "dialogue": "So I need you to give me your crystal and help me free him."},
+			{"right": true, "character": "Krystine", "dialogue": "Oh girl..."},
+			{"right": true, "character": "Krystine", "dialogue": "As much as I want to see Gunther again, We can't let him come back."},
+			{"right": true, "character": "Krystine", "dialogue": "He endangered us all and deserves his punishment."},
+			{"right": false, "character": "Engel", "dialogue": "He did it all for love"},
+			{"right": false, "character": "Engel", "dialogue": "He wanted to find the cure for my mother"},
+			{"right": true, "character": "Krystine", "dialogue": "[shake rate=20 level=5]Hahaha![/shake], how naive you are girl..."},
+			{"right": true, "character": "Krystine", "dialogue": "Gunther was just looking for how to become more powerful"},
+			{"right": true, "character": "Krystine", "dialogue": "and he didn't hesitate a second when the answer was..."},
+			{"right": true, "character": "Krystine", "dialogue": "to access devil powers..."},
+			{"right": true, "character": "Krystine", "dialogue": "...and use the people who loved him."},
+			{"right": false, "character": "Engel", "dialogue": "You were afraid of him"},
+			{"right": false, "character": "Engel", "dialogue": "He would have been able to control that power"},
+			{"right": true, "character": "Krystine", "dialogue": "I believed in him"},
+			{"right": true, "character": "Krystine", "dialogue": "And I give everything to him..."},
+			{"right": true, "character": "Krystine", "dialogue": "but his heart's intentions were dark."},
+			{"right": true, "character": "Krystine", "dialogue": "We couldn't allow him to continue..."},
+			{"right": true, "character": "Krystine", "dialogue": "just as I can't allow you to release him"}
+		]
+	},
+	"level03": {
+		"begin": [
+			{"right": false, "character": "Engel", "dialogue": "I'll go over you and whoever stands in the way of saving my father!"},
+			{"right": true, "character": "Krystine", "dialogue": "I don't think you have what it takes..."}
+			
+		],
+		"defeated": [
+			{"right": true, "character": "Krystine", "dialogue": "Gunther will remain locked up forever"},
+			{"right": true, "character": "Krystine", "dialogue": "as he deserves."}
+		],
+		"winner": [
+			{"right": true, "character": "Krystine", "dialogue": "...."},
+			{"right": false, "character": "Engel", "dialogue": "What do you think about me now?"},
+			{"right": true, "character": "Krystine", "dialogue": "That you don't know what are you doing."},
+		]
+	},
 	"alberich": {
 		"paimons_gate": [
 			{"right": false, "character": "Engel", "dialogue": "Alberich!?"},
