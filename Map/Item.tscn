@@ -10,7 +10,7 @@ length = 2.0
 loop = true
 step = 0.05
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("../Item/Sprite:position:y")
+tracks/0/path = NodePath("Sprite:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5, 2 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("../Item/Sprite:modulate:r")
+tracks/1/path = NodePath("Sprite:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("../Item/Sprite:modulate:g")
+tracks/2/path = NodePath("Sprite:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -40,7 +40,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1, 2 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("../Item/Sprite:modulate:b")
+tracks/3/path = NodePath("Sprite:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false

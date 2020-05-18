@@ -4,3 +4,9 @@
 
 [node name="Inventory" type="Node"]
 script = ExtResource( 1 )
+rune_a = true
+rune_b = true
+rune_c = true
+rune_d = true
+rune_e = true
+rune_f = true

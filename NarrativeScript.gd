@@ -81,6 +81,100 @@ var level_scripts = {
 			{"right": false, "character": "Engel", "dialogue": "Yes"},
 		]
 	},
+	"reyner": {
+		"intro": [
+			{"right": true, "character": "Reyner", "dialogue": "What are you doing here, child?"},
+			{"right": false, "character": "Engel", "dialogue": "You are Reyner The Red Scorpion."},
+			{"right": false, "character": "Engel", "dialogue": "My name is Engel Reizmann daugther of Gunther Reizman, the DemonKiller!"},
+			{"right": true, "character": "Reyner", "dialogue": "Ha!"},
+			{"right": true, "character": "Reyner", "dialogue": "... You mean the Demon Summoner."},
+			{"right": false, "character": "Engel", "dialogue": "Everything he did, he did it to save his wife."},
+			{"right": true, "character": "Reyner", "dialogue": "Gunther was a selfish man..."},
+			{"right": true, "character": "Reyner", "dialogue": "Everything he did was for his own glory."},
+			{"right": true, "character": "Reyner", "dialogue": "Why do you come here?"},
+			{"right": false, "character": "Engel", "dialogue": "I want to know my father location"},
+			{"right": true, "character": "Reyner", "dialogue": "Ha!"},
+			{"right": true, "character": "Reyner", "dialogue": "... your father is trapped in Paimon's fortress"},
+			{"right": true, "character": "Reyner", "dialogue": "... and will be there for all the eternity"},
+			{"right": false, "character": "Engel", "dialogue": "Well..."},
+			{"right": false, "character": "Engel", "dialogue": "[shake rate=30 level=10]I'll set him free![/shake]"},
+			{"right": true, "character": "Reyner", "dialogue": "Ha!"},
+			{"right": true, "character": "Reyner", "dialogue": "... Even if you can make it to that place"},
+			{"right": true, "character": "Reyner", "dialogue": "You'll still need all the six BeastHearth's pieces."},
+			{"right": false, "character": "Engel", "dialogue": "I already have three of them"},
+			{"right": false, "character": "Engel", "dialogue": "... and I'll find the way to get the other three."},
+			{"right": true, "character": "Reyner", "dialogue": "[shake rate=30 level=10]!!![/shake]"},
+			{"right": true, "character": "Reyner", "dialogue": "That's too much power for a child!"},
+			{"right": true, "character": "Reyner", "dialogue": "[shake rate=30 level=10]Give them to me![/shake]"},
+			{"right": false, "character": "Engel", "dialogue": "Of course not"},
+			{"right": false, "character": "Engel", "dialogue": "you will be the one to give me yours"},
+			{"right": true, "character": "Reyner", "dialogue": "We shall see..."},
+		]
+	},
+	"level02": {
+		"begin": [
+			{"right": true, "character": "Reyner", "dialogue": "Show me what you can do!"}
+		],
+		"defeated": [
+			{"right": true, "character": "Reyner", "dialogue": "Ha!"},
+			{"right": true, "character": "Reyner", "dialogue": "Did you really think you could defeat the Red Scorpion?"}
+		],
+		"winner": [
+			{"right": true, "character": "Reyner", "dialogue": "This cannot be true"},
+			{"right": false, "character": "Engel", "dialogue": "I'll get your BeastHearth piece..."},
+			{"right": false, "character": "Engel", "dialogue": "And you'll tell me the location of the other two sorceress"},
+		]
+	},
+	"alberich": {
+		"paimons_gate": [
+			{"right": false, "character": "Engel", "dialogue": "Alberich!?"},
+			{"right": true, "character": "Alberich", "dialogue": "Engel, you are a great sorcerer..."},
+			{"right": true, "character": "Alberich", "dialogue": "The path you choose is not the right one."},
+			{"right": false, "character": "Engel", "dialogue": "What are you doing in this place?"},
+			{"right": true, "character": "Alberich", "dialogue": "I'm here to persuade you to don't free him"},
+			{"right": false, "character": "Engel", "dialogue": "[shake rate=10 level=1]What are you talking about?[/shake]"},
+			{"right": false, "character": "Engel", "dialogue": "[shake rate=20 level=5]How is even possible for you to be here?[/shake]"},
+			{"right": false, "character": "Engel", "dialogue": "[shake rate=30 level=10]How did you arrive after than me?[/shake]"},
+			{"right": true, "character": "Alberich", "dialogue": "It took some days..."},
+			{"right": true, "character": "Alberich", "dialogue": "But a powerfull spell brought me here"},
+			{"right": false, "character": "Engel", "dialogue": "Days?"},
+			{"right": false, "character": "Engel", "dialogue": "I just arrived some minutes ago..."},
+			{"right": true, "character": "Alberich", "dialogue": "The time pass slower here..."},
+			{"right": true, "character": "Alberich", "dialogue": "Your mother is getting worse..."},
+			{"right": true, "character": "Alberich", "dialogue": "You should be with her, on his deathbed."},
+			{"right": false, "character": "Engel", "dialogue": "What are you talking about?"},
+			{"right": false, "character": "Engel", "dialogue": "[shake rate=30 level=10]!!![/shake]"},
+			{"right": false, "character": "Engel", "dialogue": "..."},
+			{"right": false, "character": "Engel", "dialogue": "Then..."},
+			{"right": false, "character": "Engel", "dialogue": "I don't have no more time to waste..."},
+			{"right": false, "character": "Engel", "dialogue": "Get out of my way"},
+			{"right": false, "character": "Engel", "dialogue": "I'm going to free Gunther."}
+		],
+		"defeated": [
+			{"right": false, "character": "Engel", "dialogue": "Is defeated"},
+			{"right": false, "character": "Engel", "dialogue": "He can't stop me."},
+		],
+		"stop": [
+			{"right": true, "character": "Alberich", "dialogue": "..."},
+			{"right": false, "character": "Engel", "dialogue": "I don't have no more time to waste..."},
+		]
+	},
+	"level05": {
+		"begin": [
+			{"right": true, "character": "Alberich", "dialogue": "I'm sorry but I must to stop you"},
+			{"right": false, "character": "Engel", "dialogue": "I beat you recently."},
+			{"right": false, "character": "Engel", "dialogue": "You have nothing to do against me."},
+		],
+		"defeated": [
+			{"right": true, "character": "Alberich", "dialogue": "It's time to return..."},
+		],
+		"winner": [
+			{"right": false, "character": "Engel", "dialogue": "You are not a rival for me"},
+			{"right": true, "character": "Alberich", "dialogue": "Please don't do it!"}
+			#{"right": false, "character": "Engel", "dialogue": "There's no one to stand in my way anymore"},
+			#{"right": false, "character": "Engel", "dialogue": "I've made it!"},
+		]
+	},
 	"ui_runes": {
 		"rune_a": [
 			{"right": false, "character": "Engel", "dialogue": "the rune A"}

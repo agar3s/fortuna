@@ -40,6 +40,7 @@ func set_coordinates(_coordinates):
 	coordinates = _coordinates
 	$Label.text = str(coordinates)
 	$Label.rect_rotation -= self.rotation_degrees
+	print(coordinates)
 
 func set_rotation_degrees(_rotation_degrees):
 	.set_rotation_degrees(_rotation_degrees)

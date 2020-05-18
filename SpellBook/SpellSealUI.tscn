@@ -190,6 +190,7 @@ anchor_bottom = 1.0
 margin_left = -50.0
 margin_right = 131.0
 margin_bottom = 45.0
+mouse_filter = 2
 texture = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -225,7 +226,6 @@ __meta__ = {
 
 [node name="TriangularGrid" parent="." instance=ExtResource( 7 )]
 position = Vector2( 454, 301 )
-configuration = [  ]
 
 [node name="pieces" type="Node2D" parent="."]
 position = Vector2( -54, 0 )
@@ -296,17 +296,21 @@ __meta__ = {
 
 [node name="SealBreaked" type="RichTextLabel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 211.0
-margin_top = 230.0
-margin_right = 697.0
-margin_bottom = 315.0
+margin_left = 176.0
+margin_top = 228.0
+margin_right = 734.0
+margin_bottom = 313.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.757813, 0.969727, 1, 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
-bbcode_text = "[tornado radius=1 freq=1]Seal Breaked![/tornado]"
-text = "Seal Breaked!"
+bbcode_text = "[tornado radius=1 freq=1]Seal Destroyed![/tornado]"
+text = "Seal Destroyed!"
 scroll_active = false
 custom_effects = [ SubResource( 4 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 5 )

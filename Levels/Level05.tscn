@@ -1,17 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Arena/Assets/paimon_dimension.jpg" type="Texture" id=2]
+[ext_resource path="res://Arena/Assets/Engel_face.png" type="Texture" id=3]
+[ext_resource path="res://Arena/Assets/Engel.png" type="Texture" id=4]
 
 [node name="Arena" instance=ExtResource( 1 )]
 level_name = "level05"
-next_scene = "Level06"
+next_scene = "Map05b"
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource( 2 )
 
+[node name="Player_placeholder_a" parent="." index="1"]
+active = false
+order = 1
+armor = 0
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
+body_texture = ExtResource( 4 )
+avatar_texture = ExtResource( 3 )
+body_offset = Vector2( 0, 0 )
+body_scale = Vector2( 1, 1 )
+side = 1
+
 [node name="Player_placeholder_b" parent="." index="2"]
+active = false
 hit_points = 16
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
+body_scale = Vector2( 1, 1 )
 cube_indexes = [ "015", "019", "019" ]
 
 [node name="AvatarPlayer1" parent="." index="7"]

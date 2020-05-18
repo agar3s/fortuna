@@ -4,7 +4,7 @@
 [ext_resource path="res://SpellBook/TriangularGrid.gd" type="Script" id=2]
 [ext_resource path="res://Map/Assets/sello_grande.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "explosion"
 length = 0.4
 tracks/0/type = "bezier"
@@ -38,8 +38,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.4 )
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "loop"
+[sub_resource type="Animation" id=2]
 length = 3.0
 loop = true
 tracks/0/type = "bezier"
@@ -439,5 +438,5 @@ position = Vector2( 264, 333 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "loop"
-anims/explosion = SubResource( 2 )
-anims/loop = SubResource( 1 )
+anims/explosion = SubResource( 1 )
+anims/loop = SubResource( 2 )

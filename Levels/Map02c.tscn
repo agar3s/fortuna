@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Map02b.tscn" type="PackedScene" id=1]
+
+[node name="Map02c" instance=ExtResource( 1 )]
+level_name = "Map02c"
+
+[node name="Item" parent="Tiles/Tile" index="5"]
+key = "reyner_map02c"

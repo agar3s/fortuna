@@ -1,0 +1,1482 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Arena/Assets/Alberich.png" type="Texture" id=1]
+[ext_resource path="res://Map/Assets/torre_dimension.png" type="Texture" id=2]
+[ext_resource path="res://Map/Assets/dimension.png" type="Texture" id=3]
+[ext_resource path="res://Map/Map.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Map/Tile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Map/Item.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+const float cloudscale = 1.9;
+const float speed = 1.5;
+const float clouddark = 0.5;
+const float cloudlight = 0.9;
+const float cloudcover = 0.1;
+const float cloudalpha = 5.0;
+const float skytint = 0.2;
+const vec3 skycolour1 = vec3(0.06, 0.0, 0.03);
+const vec3 skycolour2 = vec3(0.05, 0.1, 0.02);
+
+const mat2 m = mat2( vec2(1.6,  1.2), vec2(-1.2,  1.6) );
+
+vec2 hash( vec2 p ) {
+	p = vec2(dot(p,vec2(127.1,311.7)), dot(p,vec2(269.5,183.3)));
+	return -1.0 + 2.0*fract(sin(p)*43758.5453123);
+}
+
+float noise( in vec2 p ) {
+    const float K1 = 0.366025404; // (sqrt(3)-1)/2;
+    const float K2 = 0.211324865; // (3-sqrt(3))/6;
+	vec2 i = floor(p + (p.x+p.y)*K1);	
+    vec2 a = p - i + (i.x+i.y)*K2;
+    vec2 o = (a.x>a.y) ? vec2(1.0,0.0) : vec2(0.0,1.0); //vec2 of = 0.5 + 0.5*vec2(sign(a.x-a.y), sign(a.y-a.x));
+    vec2 b = a - o + K2;
+	vec2 c = a - 1.0 + 2.0*K2;
+    vec3 h = max(0.5-vec3(dot(a,a), dot(b,b), dot(c,c) ), 0.0 );
+	vec3 n = h*h*h*h*vec3( dot(a,hash(i+0.0)), dot(b,hash(i+o)), dot(c,hash(i+1.0)));
+    return dot(n, vec3(70.0));	
+}
+
+float fbm(vec2 n) {
+	float total = 0.0, amplitude = 0.1;
+	for (int i = 0; i < 7; i++) {
+		total += noise(n) * amplitude;
+		n = m * n;
+		amplitude *= 0.4;
+	}
+	return total;
+}
+
+// -----------------------------------------------
+
+void fragment() {
+	vec2 iResolution = SCREEN_PIXEL_SIZE;
+	vec2 fragCoord = FRAGCOORD.xy;
+    vec2 p = fragCoord.xy * iResolution.xy;
+	vec2 uv = p*vec2(iResolution.x/iResolution.y,1.0);    
+    float time = TIME * speed*0.1;
+    float q = fbm(uv * cloudscale * 0.5);
+    
+    //ridged noise shape
+	float r = 0.0;
+	uv *= cloudscale;
+    uv -= q - time;
+    float weight = 0.8;
+    for (int i=0; i<8; i++){
+		r += abs(weight*noise( uv ));
+        uv = m*uv + time;
+		weight *= 0.7;
+    }
+    
+    //noise shape
+	float f = 0.0;
+    uv = p*vec2(iResolution.x/iResolution.y,1.0);
+	uv *= cloudscale;
+    uv -= q - time;
+    weight = 0.7;
+    for (int i=0; i<8; i++){
+		f += weight*noise( uv );
+        uv = m*uv + time;
+		weight *= 0.6;
+    }
+    
+    f *= r + f;
+    
+    //noise colour
+    float c = 0.0;
+    time = TIME * speed * 0.5;
+    uv = p*vec2(iResolution.x/iResolution.y,1.0);
+	uv *= cloudscale*2.0;
+    uv -= q - time;
+    weight = 0.4;
+    for (int i=0; i<7; i++){
+		c += weight*noise( uv );
+        uv = m*uv + time;
+		weight *= 0.6;
+    }
+    
+    //noise ridge colour
+    float c1 = 0.01;
+    time = TIME * speed * 0.5;
+    uv = p*vec2(iResolution.x/iResolution.y,1.0);
+	uv *= cloudscale*3.0;
+    uv -= q - time;
+    weight = 0.4;
+    for (int i=0; i<7; i++){
+		c1 += abs(weight*noise( uv ));
+        uv = m*uv + time;
+		weight *= 0.6;
+    }
+	
+    c += c1;
+    
+    vec3 skycolour = mix(skycolour2, skycolour1, p.y);
+    vec3 cloudcolour = vec3(0.5, 0.0, 1.5) * clamp((clouddark + cloudlight*c), 0.0, 1.0);
+   
+    f = cloudcover + cloudalpha*f*r;
+    
+    vec3 result = mix(skycolour, clamp(skytint * skycolour + cloudcolour, 0.0, 1.0), clamp(f + c, 0.0, 1.0));
+    
+	COLOR = vec4( result, 1.0 );
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="Map" instance=ExtResource( 4 )]
+level_name = "Map05"
+next_scene = "Level05"
+
+[node name="Tile6" parent="Tiles" index="0" instance=ExtResource( 5 )]
+position = Vector2( -67, -756 )
+coordinates = Vector3( 4, 5, -9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile7" parent="Tiles" index="1" instance=ExtResource( 5 )]
+position = Vector2( -335, -756 )
+coordinates = Vector3( 2, 7, -9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile198" parent="Tiles" index="2" instance=ExtResource( 5 )]
+position = Vector2( 1809, 840 )
+coordinates = Vector3( 8.5, -18.5, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile197" parent="Tiles" index="3" instance=ExtResource( 5 )]
+position = Vector2( 1675, 840 )
+coordinates = Vector3( 7.5, -17.5, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile3" parent="Tiles" index="4" instance=ExtResource( 5 )]
+position = Vector2( 0, -672 )
+coordinates = Vector3( 4, 4, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile34" parent="Tiles" index="5" instance=ExtResource( 5 )]
+position = Vector2( 134, -672 )
+coordinates = Vector3( 5, 3, -8 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile34" index="5" instance=ExtResource( 6 )]
+spell = true
+type = "seal"
+key = "magic_seal_04_03"
+
+[node name="Tile108" parent="Tiles" index="6" instance=ExtResource( 5 )]
+position = Vector2( 804, -672 )
+coordinates = Vector3( 10, -2, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile109" parent="Tiles" index="7" instance=ExtResource( 5 )]
+position = Vector2( 938, -672 )
+coordinates = Vector3( 11, -3, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile110" parent="Tiles" index="8" instance=ExtResource( 5 )]
+position = Vector2( 1072, -672 )
+coordinates = Vector3( 12, -4, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile111" parent="Tiles" index="9" instance=ExtResource( 5 )]
+position = Vector2( 1139, -588 )
+coordinates = Vector3( 12, -5, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile11" parent="Tiles" index="10" instance=ExtResource( 5 )]
+position = Vector2( -536, -672 )
+coordinates = Vector3( 0, 8, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile196" parent="Tiles" index="11" instance=ExtResource( 5 )]
+position = Vector2( 1608, 0 )
+coordinates = Vector3( 12, -12, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile153" parent="Tiles" index="12" instance=ExtResource( 5 )]
+position = Vector2( -670, -672 )
+coordinates = Vector3( -1, 9, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile133" parent="Tiles" index="13" instance=ExtResource( 5 )]
+position = Vector2( -402, -672 )
+coordinates = Vector3( 1, 7, -8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile10" parent="Tiles" index="14" instance=ExtResource( 5 )]
+position = Vector2( -469, -588 )
+coordinates = Vector3( 0, 7, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile195" parent="Tiles" index="15" instance=ExtResource( 5 )]
+position = Vector2( 1742, 0 )
+coordinates = Vector3( 13, -13, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile194" parent="Tiles" index="16" instance=ExtResource( 5 )]
+position = Vector2( 1675, 84 )
+coordinates = Vector3( 12, -13, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile156" parent="Tiles" index="17" instance=ExtResource( 5 )]
+position = Vector2( -737, -588 )
+coordinates = Vector3( -2, 9, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile155" parent="Tiles" index="18" instance=ExtResource( 5 )]
+position = Vector2( -871, -588 )
+coordinates = Vector3( -3, 10, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile35" parent="Tiles" index="19" instance=ExtResource( 5 )]
+position = Vector2( -67, -588 )
+coordinates = Vector3( 3, 4, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile193" parent="Tiles" index="20" instance=ExtResource( 5 )]
+position = Vector2( 469, 1260 )
+coordinates = Vector3( -4, -11, 15 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile229" parent="Tiles" index="21" instance=ExtResource( 5 )]
+position = Vector2( 0, 1176 )
+coordinates = Vector3( -7, -7, 14 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile31" parent="Tiles" index="22" instance=ExtResource( 5 )]
+position = Vector2( 469, -588 )
+coordinates = Vector3( 7, 0, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile107" parent="Tiles" index="23" instance=ExtResource( 5 )]
+position = Vector2( 737, -588 )
+coordinates = Vector3( 9, -2, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile32" parent="Tiles" index="24" instance=ExtResource( 5 )]
+position = Vector2( 335, -588 )
+coordinates = Vector3( 6, 1, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile33" parent="Tiles" index="25" instance=ExtResource( 5 )]
+position = Vector2( 201, -588 )
+coordinates = Vector3( 5, 2, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile9" parent="Tiles" index="26" instance=ExtResource( 5 )]
+position = Vector2( -134, -504 )
+coordinates = Vector3( 2, 4, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile132" parent="Tiles" index="27" instance=ExtResource( 5 )]
+position = Vector2( -402, -504 )
+coordinates = Vector3( 0, 6, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile134" parent="Tiles" index="28" instance=ExtResource( 5 )]
+position = Vector2( -536, -504 )
+coordinates = Vector3( -1, 7, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile192" parent="Tiles" index="29" instance=ExtResource( 5 )]
+position = Vector2( 938, 1008 )
+coordinates = Vector3( 1, -13, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile191" parent="Tiles" index="30" instance=ExtResource( 5 )]
+position = Vector2( 1742, 168 )
+coordinates = Vector3( 12, -14, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile190" parent="Tiles" index="31" instance=ExtResource( 5 )]
+position = Vector2( 1608, 168 )
+coordinates = Vector3( 11, -13, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile154" parent="Tiles" index="32" instance=ExtResource( 5 )]
+position = Vector2( -938, -504 )
+coordinates = Vector3( -4, 10, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile30" parent="Tiles" index="33" instance=ExtResource( 5 )]
+position = Vector2( 536, -504 )
+coordinates = Vector3( 7, -1, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile106" parent="Tiles" index="34" instance=ExtResource( 5 )]
+position = Vector2( 804, -504 )
+coordinates = Vector3( 9, -3, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile8" parent="Tiles" index="35" instance=ExtResource( 5 )]
+position = Vector2( 268, -504 )
+coordinates = Vector3( 5, 1, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile37" parent="Tiles" index="36" instance=ExtResource( 5 )]
+position = Vector2( -268, -504 )
+coordinates = Vector3( 1, 5, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile131" parent="Tiles" index="37" instance=ExtResource( 5 )]
+position = Vector2( -402, -336 )
+coordinates = Vector3( -1, 5, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile135" parent="Tiles" index="38" instance=ExtResource( 5 )]
+position = Vector2( -603, -420 )
+coordinates = Vector3( -2, 7, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile189" parent="Tiles" index="39" instance=ExtResource( 5 )]
+position = Vector2( 871, 1092 )
+coordinates = Vector3( 0, -13, 13 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile188" parent="Tiles" index="40" instance=ExtResource( 5 )]
+position = Vector2( 737, 1092 )
+coordinates = Vector3( -1, -12, 13 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile187" parent="Tiles" index="41" instance=ExtResource( 5 )]
+position = Vector2( 1541, 252 )
+coordinates = Vector3( 10, -13, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile152" parent="Tiles" index="42" instance=ExtResource( 5 )]
+position = Vector2( -871, -420 )
+coordinates = Vector3( -4, 9, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile186" parent="Tiles" index="43" instance=ExtResource( 5 )]
+position = Vector2( 804, 1176 )
+coordinates = Vector3( -1, -13, 14 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile151" parent="Tiles" index="44" instance=ExtResource( 5 )]
+position = Vector2( -938, -336 )
+coordinates = Vector3( -5, 9, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile64" parent="Tiles" index="45" instance=ExtResource( 5 )]
+position = Vector2( 0, -336 )
+coordinates = Vector3( 2, 2, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile29" parent="Tiles" index="46" instance=ExtResource( 5 )]
+position = Vector2( 469, -420 )
+coordinates = Vector3( 6, -1, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile105" parent="Tiles" index="47" instance=ExtResource( 5 )]
+position = Vector2( 871, -420 )
+coordinates = Vector3( 9, -4, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile172" parent="Tiles" index="48" instance=ExtResource( 5 )]
+position = Vector2( 1005, -420 )
+coordinates = Vector3( 10, -5, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile173" parent="Tiles" index="49" instance=ExtResource( 5 )]
+position = Vector2( 1139, -420 )
+coordinates = Vector3( 11, -6, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile19" parent="Tiles" index="50" instance=ExtResource( 5 )]
+position = Vector2( 603, -420 )
+coordinates = Vector3( 7, -2, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile24" parent="Tiles" index="51" instance=ExtResource( 5 )]
+position = Vector2( 268, -336 )
+coordinates = Vector3( 4, 0, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile28" parent="Tiles" index="52" instance=ExtResource( 5 )]
+position = Vector2( 670, -336 )
+coordinates = Vector3( 7, -3, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile85" parent="Tiles" index="53" instance=ExtResource( 5 )]
+position = Vector2( 804, -336 )
+coordinates = Vector3( 8, -4, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile62" parent="Tiles" index="54" instance=ExtResource( 5 )]
+position = Vector2( 871, -252 )
+coordinates = Vector3( 8, -5, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile38" parent="Tiles" index="55" instance=ExtResource( 5 )]
+position = Vector2( -134, -336 )
+coordinates = Vector3( 1, 3, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile129" parent="Tiles" index="56" instance=ExtResource( 5 )]
+position = Vector2( -603, -252 )
+coordinates = Vector3( -3, 6, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile185" parent="Tiles" index="57" instance=ExtResource( 5 )]
+position = Vector2( 67, 1260 )
+coordinates = Vector3( -7, -8, 15 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile228" parent="Tiles" index="58" instance=ExtResource( 5 )]
+position = Vector2( -402, 1176 )
+coordinates = Vector3( -10, -4, 14 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile184" parent="Tiles" index="59" instance=ExtResource( 5 )]
+position = Vector2( 1541, 420 )
+coordinates = Vector3( 9, -14, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile150" parent="Tiles" index="60" instance=ExtResource( 5 )]
+position = Vector2( -1139, -252 )
+coordinates = Vector3( -7, 10, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile157" parent="Tiles" index="61" instance=ExtResource( 5 )]
+position = Vector2( -871, -252 )
+coordinates = Vector3( -5, 8, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile180" parent="Tiles" index="62" instance=ExtResource( 5 )]
+position = Vector2( 1407, -336 )
+coordinates = Vector3( 12.5, -8.5, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile179" parent="Tiles" index="63" instance=ExtResource( 5 )]
+position = Vector2( 1541, -336 )
+coordinates = Vector3( 13.5, -9.5, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile130" parent="Tiles" index="64" instance=ExtResource( 5 )]
+position = Vector2( -469, -252 )
+coordinates = Vector3( -2, 5, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile65" parent="Tiles" index="65" instance=ExtResource( 5 )]
+position = Vector2( -201, -252 )
+coordinates = Vector3( 0, 3, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile183" parent="Tiles" index="66" instance=ExtResource( 5 )]
+position = Vector2( 1675, 420 )
+coordinates = Vector3( 10, -15, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile182" parent="Tiles" index="67" instance=ExtResource( 5 )]
+position = Vector2( 335, 1260 )
+coordinates = Vector3( -5, -10, 15 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile227" parent="Tiles" index="68" instance=ExtResource( 5 )]
+position = Vector2( -134, 1176 )
+coordinates = Vector3( -8, -6, 14 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile158" parent="Tiles" index="69" instance=ExtResource( 5 )]
+position = Vector2( 134, -336 )
+coordinates = Vector3( 3, 1, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile260" parent="Tiles" index="70" instance=ExtResource( 5 )]
+position = Vector2( 335, -252 )
+coordinates = Vector3( 4, -1, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile63" parent="Tiles" index="71" instance=ExtResource( 5 )]
+position = Vector2( 0, -504 )
+coordinates = Vector3( 3, 3, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile5" parent="Tiles" index="72" instance=ExtResource( 5 )]
+position = Vector2( 402, -168 )
+coordinates = Vector3( 4, -2, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile39" parent="Tiles" index="73" instance=ExtResource( 5 )]
+position = Vector2( -670, -168 )
+coordinates = Vector3( -4, 6, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile148" parent="Tiles" index="74" instance=ExtResource( 5 )]
+position = Vector2( -938, -168 )
+coordinates = Vector3( -6, 8, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile206" parent="Tiles" index="75" instance=ExtResource( 5 )]
+position = Vector2( -603, 756 )
+coordinates = Vector3( -9, 0, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile178" parent="Tiles" index="76" instance=ExtResource( 5 )]
+position = Vector2( 1742, -252 )
+coordinates = Vector3( 14.5, -11.5, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile177" parent="Tiles" index="77" instance=ExtResource( 5 )]
+position = Vector2( 1340, -252 )
+coordinates = Vector3( 11.5, -8.5, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile21" parent="Tiles" index="78" instance=ExtResource( 5 )]
+position = Vector2( 0, -168 )
+coordinates = Vector3( 1, 1, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="A" parent="Tiles/Tile21" index="5" instance=ExtResource( 6 )]
+modulate = Color( 0, 0, 0, 0.627451 )
+position = Vector2( 6, -29 )
+scale = Vector2( 0.4, 0.4 )
+item_texture = ExtResource( 1 )
+type = "character"
+key = "alberich_map04"
+
+[node name="Tile36" parent="Tiles" index="79" instance=ExtResource( 5 )]
+position = Vector2( 134, -168 )
+coordinates = Vector3( 2, 0, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile181" parent="Tiles" index="80" instance=ExtResource( 5 )]
+position = Vector2( 134, 1344 )
+coordinates = Vector3( -7, -9, 16 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile226" parent="Tiles" index="81" instance=ExtResource( 5 )]
+position = Vector2( -335, 1260 )
+coordinates = Vector3( -10, -5, 15 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile22" parent="Tiles" index="82" instance=ExtResource( 5 )]
+position = Vector2( -134, -168 )
+coordinates = Vector3( 0, 2, -2 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile22" index="5" instance=ExtResource( 6 )]
+spell = true
+type = "seal"
+key = "magic_seal_04_05"
+
+[node name="Tile25" parent="Tiles" index="83" instance=ExtResource( 5 )]
+position = Vector2( 603, -252 )
+coordinates = Vector3( 6, -3, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile26" parent="Tiles" index="84" instance=ExtResource( 5 )]
+position = Vector2( 938, -168 )
+coordinates = Vector3( 8, -6, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile23" parent="Tiles" index="85" instance=ExtResource( 5 )]
+position = Vector2( 335, -84 )
+coordinates = Vector3( 3, -2, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile68" parent="Tiles" index="86" instance=ExtResource( 5 )]
+position = Vector2( 670, -168 )
+coordinates = Vector3( 6, -4, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile76" parent="Tiles" index="87" instance=ExtResource( 5 )]
+position = Vector2( 737, -84 )
+coordinates = Vector3( 6, -5, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile69" parent="Tiles" index="88" instance=ExtResource( 5 )]
+position = Vector2( 1072, -168 )
+coordinates = Vector3( 9, -7, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile252" parent="Tiles" index="89" instance=ExtResource( 5 )]
+position = Vector2( 1139, -84 )
+coordinates = Vector3( 9, -8, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile253" parent="Tiles" index="90" instance=ExtResource( 5 )]
+position = Vector2( 1273, -84 )
+coordinates = Vector3( 10, -9, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile4" parent="Tiles" index="91" instance=ExtResource( 5 )]
+position = Vector2( 67, -84 )
+coordinates = Vector3( 1, 0, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile40" parent="Tiles" index="92" instance=ExtResource( 5 )]
+position = Vector2( -469, -84 )
+coordinates = Vector3( -3, 4, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile128" parent="Tiles" index="93" instance=ExtResource( 5 )]
+position = Vector2( -737, -84 )
+coordinates = Vector3( -5, 6, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile149" parent="Tiles" index="94" instance=ExtResource( 5 )]
+position = Vector2( -1005, -84 )
+coordinates = Vector3( -7, 8, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile147" parent="Tiles" index="95" instance=ExtResource( 5 )]
+position = Vector2( -1139, -84 )
+coordinates = Vector3( -8, 9, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile205" parent="Tiles" index="96" instance=ExtResource( 5 )]
+position = Vector2( -536, 840 )
+coordinates = Vector3( -9, -1, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile204" parent="Tiles" index="97" instance=ExtResource( 5 )]
+position = Vector2( -670, 840 )
+coordinates = Vector3( -10, 0, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile176" parent="Tiles" index="98" instance=ExtResource( 5 )]
+position = Vector2( 1675, -168 )
+coordinates = Vector3( 13.5, -11.5, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile175" parent="Tiles" index="99" instance=ExtResource( 5 )]
+position = Vector2( 1407, -168 )
+coordinates = Vector3( 11.5, -9.5, -2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile174" parent="Tiles" index="100" instance=ExtResource( 5 )]
+position = Vector2( 1206, -252 )
+coordinates = Vector3( 10.5, -7.5, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile" parent="Tiles" index="101" instance=ExtResource( 5 )]
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile" index="5" instance=ExtResource( 6 )]
+position = Vector2( 0, 8 )
+item_texture = ExtResource( 2 )
+
+[node name="Tile41" parent="Tiles" index="102" instance=ExtResource( 5 )]
+position = Vector2( -536, 0 )
+coordinates = Vector3( -4, 4, 0 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Tile127" parent="Tiles" index="103" instance=ExtResource( 5 )]
+position = Vector2( -804, 0 )
+coordinates = Vector3( -6, 6, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile146" parent="Tiles" index="104" instance=ExtResource( 5 )]
+position = Vector2( -938, 0 )
+coordinates = Vector3( -7, 7, 0 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile146" index="5" instance=ExtResource( 6 )]
+spell = true
+type = "seal"
+key = "magic_seal_04_02"
+
+[node name="Tile203" parent="Tiles" index="105" instance=ExtResource( 5 )]
+position = Vector2( -469, 924 )
+coordinates = Vector3( -9, -2, 11 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Tile202" parent="Tiles" index="106" instance=ExtResource( 5 )]
+position = Vector2( -402, 1008 )
+coordinates = Vector3( -9, -3, 12 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Tile53" parent="Tiles" index="107" instance=ExtResource( 5 )]
+position = Vector2( 402, 0 )
+coordinates = Vector3( 3, -3, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile220" parent="Tiles" index="108" instance=ExtResource( 5 )]
+position = Vector2( -1273, -588 )
+coordinates = Vector3( -6, 13, -7 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Tile77" parent="Tiles" index="109" instance=ExtResource( 5 )]
+position = Vector2( 804, 0 )
+coordinates = Vector3( 6, -6, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile95" parent="Tiles" index="110" instance=ExtResource( 5 )]
+position = Vector2( 938, 0 )
+coordinates = Vector3( 7, -7, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile254" parent="Tiles" index="111" instance=ExtResource( 5 )]
+position = Vector2( 1340, 0 )
+coordinates = Vector3( 10, -10, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile2" parent="Tiles" index="112" instance=ExtResource( 5 )]
+position = Vector2( 536, 0 )
+coordinates = Vector3( 4, -4, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile61" parent="Tiles" index="113" instance=ExtResource( 5 )]
+position = Vector2( 134, 0 )
+coordinates = Vector3( 1, -1, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile219" parent="Tiles" index="114" instance=ExtResource( 5 )]
+position = Vector2( -1273, 252 )
+coordinates = Vector3( -11, 8, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile251" parent="Tiles" index="115" instance=ExtResource( 5 )]
+position = Vector2( 804, -924 )
+coordinates = Vector3( 11.5, -0.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile218" parent="Tiles" index="116" instance=ExtResource( 5 )]
+position = Vector2( -1407, -588 )
+coordinates = Vector3( -7, 14, -7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile224" parent="Tiles" index="117" instance=ExtResource( 5 )]
+position = Vector2( 1809, 420 )
+coordinates = Vector3( 11, -16, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile43" parent="Tiles" index="118" instance=ExtResource( 5 )]
+position = Vector2( -335, -84 )
+coordinates = Vector3( -2, 3, -1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile99" parent="Tiles" index="119" instance=ExtResource( 5 )]
+position = Vector2( 737, 84 )
+coordinates = Vector3( 5, -6, 1 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile99" index="5" instance=ExtResource( 6 )]
+spell = true
+type = "seal"
+key = "magic_seal_04_04"
+
+[node name="Tile125" parent="Tiles" index="120" instance=ExtResource( 5 )]
+position = Vector2( -603, 84 )
+coordinates = Vector3( -5, 4, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile126" parent="Tiles" index="121" instance=ExtResource( 5 )]
+position = Vector2( -737, 84 )
+coordinates = Vector3( -6, 5, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile145" parent="Tiles" index="122" instance=ExtResource( 5 )]
+position = Vector2( -1139, 84 )
+coordinates = Vector3( -9, 8, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile143" parent="Tiles" index="123" instance=ExtResource( 5 )]
+position = Vector2( -1005, 84 )
+coordinates = Vector3( -8, 7, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile201" parent="Tiles" index="124" instance=ExtResource( 5 )]
+position = Vector2( -670, 1008 )
+coordinates = Vector3( -11, -1, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile200" parent="Tiles" index="125" instance=ExtResource( 5 )]
+position = Vector2( -536, 1008 )
+coordinates = Vector3( -10, -2, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile60" parent="Tiles" index="126" instance=ExtResource( 5 )]
+position = Vector2( -201, 84 )
+coordinates = Vector3( -2, 1, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile255" parent="Tiles" index="127" instance=ExtResource( 5 )]
+position = Vector2( 1206, 0 )
+coordinates = Vector3( 9, -9, 0 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile12" parent="Tiles" index="128" instance=ExtResource( 5 )]
+position = Vector2( 603, 84 )
+coordinates = Vector3( 4, -5, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile217" parent="Tiles" index="129" instance=ExtResource( 5 )]
+position = Vector2( -1206, 336 )
+coordinates = Vector3( -11, 7, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile250" parent="Tiles" index="130" instance=ExtResource( 5 )]
+position = Vector2( 871, -840 )
+coordinates = Vector3( 11.5, -1.5, -10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile94" parent="Tiles" index="131" instance=ExtResource( 5 )]
+position = Vector2( 1005, 84 )
+coordinates = Vector3( 7, -8, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile101" parent="Tiles" index="132" instance=ExtResource( 5 )]
+position = Vector2( 1139, 84 )
+coordinates = Vector3( 8, -9, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile102" parent="Tiles" index="133" instance=ExtResource( 5 )]
+position = Vector2( 1407, 84 )
+coordinates = Vector3( 10, -11, 1 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile216" parent="Tiles" index="134" instance=ExtResource( 5 )]
+position = Vector2( -1139, 420 )
+coordinates = Vector3( -11, 6, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile249" parent="Tiles" index="135" instance=ExtResource( 5 )]
+position = Vector2( 268, -924 )
+coordinates = Vector3( 7.5, 3.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile78" parent="Tiles" index="136" instance=ExtResource( 5 )]
+position = Vector2( 804, 168 )
+coordinates = Vector3( 5, -7, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile104" parent="Tiles" index="137" instance=ExtResource( 5 )]
+position = Vector2( 1206, 168 )
+coordinates = Vector3( 8, -10, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile42" parent="Tiles" index="138" instance=ExtResource( 5 )]
+position = Vector2( -402, 168 )
+coordinates = Vector3( -4, 2, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile136" parent="Tiles" index="139" instance=ExtResource( 5 )]
+position = Vector2( -804, 168 )
+coordinates = Vector3( -7, 5, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile142" parent="Tiles" index="140" instance=ExtResource( 5 )]
+position = Vector2( -1072, 168 )
+coordinates = Vector3( -9, 7, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile248" parent="Tiles" index="141" instance=ExtResource( 5 )]
+position = Vector2( 335, -840 )
+coordinates = Vector3( 7.5, 2.5, -10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile247" parent="Tiles" index="142" instance=ExtResource( 5 )]
+position = Vector2( 670, -924 )
+coordinates = Vector3( 10.5, 0.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile199" parent="Tiles" index="143" instance=ExtResource( 5 )]
+position = Vector2( -603, 1092 )
+coordinates = Vector3( -11, -2, 13 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile57" parent="Tiles" index="144" instance=ExtResource( 5 )]
+position = Vector2( 134, 168 )
+coordinates = Vector3( 0, -2, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile84" parent="Tiles" index="145" instance=ExtResource( 5 )]
+position = Vector2( 402, 168 )
+coordinates = Vector3( 2, -4, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile215" parent="Tiles" index="146" instance=ExtResource( 5 )]
+position = Vector2( -1474, -504 )
+coordinates = Vector3( -8, 14, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile223" parent="Tiles" index="147" instance=ExtResource( 5 )]
+position = Vector2( 1742, 504 )
+coordinates = Vector3( 10, -16, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile214" parent="Tiles" index="148" instance=ExtResource( 5 )]
+position = Vector2( -1206, -504 )
+coordinates = Vector3( -6, 12, -6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile58" parent="Tiles" index="149" instance=ExtResource( 5 )]
+position = Vector2( 0, 168 )
+coordinates = Vector3( -1, -1, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile59" parent="Tiles" index="150" instance=ExtResource( 5 )]
+position = Vector2( -134, 168 )
+coordinates = Vector3( -2, 0, 2 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile13" parent="Tiles" index="151" instance=ExtResource( 5 )]
+position = Vector2( -335, 252 )
+coordinates = Vector3( -4, 1, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile239" parent="Tiles" index="152" instance=ExtResource( 5 )]
+position = Vector2( -1139, -1092 )
+coordinates = Vector3( -2, 15, -13 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile140" parent="Tiles" index="153" instance=ExtResource( 5 )]
+position = Vector2( -1005, 252 )
+coordinates = Vector3( -9, 6, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile246" parent="Tiles" index="154" instance=ExtResource( 5 )]
+position = Vector2( 1072, -924 )
+coordinates = Vector3( 13.5, -2.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile141" parent="Tiles" index="155" instance=ExtResource( 5 )]
+position = Vector2( -603, 252 )
+coordinates = Vector3( -6, 3, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile56" parent="Tiles" index="156" instance=ExtResource( 5 )]
+position = Vector2( 201, 252 )
+coordinates = Vector3( 0, -3, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile238" parent="Tiles" index="157" instance=ExtResource( 5 )]
+position = Vector2( -603, -1092 )
+coordinates = Vector3( 2, 11, -13 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile83" parent="Tiles" index="158" instance=ExtResource( 5 )]
+position = Vector2( 469, 252 )
+coordinates = Vector3( 2, -5, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile66" parent="Tiles" index="159" instance=ExtResource( 5 )]
+position = Vector2( 536, 336 )
+coordinates = Vector3( 2, -6, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile67" parent="Tiles" index="160" instance=ExtResource( 5 )]
+position = Vector2( 670, 336 )
+coordinates = Vector3( 3, -7, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile213" parent="Tiles" index="161" instance=ExtResource( 5 )]
+position = Vector2( -737, -420 )
+coordinates = Vector3( -3, 8, -5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile222" parent="Tiles" index="162" instance=ExtResource( 5 )]
+position = Vector2( 1809, 588 )
+coordinates = Vector3( 10, -17, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile212" parent="Tiles" index="163" instance=ExtResource( 5 )]
+position = Vector2( -1340, 504 )
+coordinates = Vector3( -13, 7, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile245" parent="Tiles" index="164" instance=ExtResource( 5 )]
+position = Vector2( 67, -840 )
+coordinates = Vector3( 5.5, 4.5, -10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile211" parent="Tiles" index="165" instance=ExtResource( 5 )]
+position = Vector2( -1273, 588 )
+coordinates = Vector3( -13, 6, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile210" parent="Tiles" index="166" instance=ExtResource( 5 )]
+position = Vector2( -1139, 588 )
+coordinates = Vector3( -12, 5, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile79" parent="Tiles" index="167" instance=ExtResource( 5 )]
+position = Vector2( 871, 252 )
+coordinates = Vector3( 5, -8, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile256" parent="Tiles" index="168" instance=ExtResource( 5 )]
+position = Vector2( 1273, 252 )
+coordinates = Vector3( 8, -11, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile257" parent="Tiles" index="169" instance=ExtResource( 5 )]
+position = Vector2( 1005, 252 )
+coordinates = Vector3( 6, -9, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile103" parent="Tiles" index="170" instance=ExtResource( 5 )]
+position = Vector2( 1407, 252 )
+coordinates = Vector3( 9, -12, 3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile14" parent="Tiles" index="171" instance=ExtResource( 5 )]
+position = Vector2( -268, 336 )
+coordinates = Vector3( -4, 0, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile237" parent="Tiles" index="172" instance=ExtResource( 5 )]
+position = Vector2( -1072, -1008 )
+coordinates = Vector3( -2, 14, -12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile27" parent="Tiles" index="173" instance=ExtResource( 5 )]
+position = Vector2( -670, 336 )
+coordinates = Vector3( -7, 3, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile139" parent="Tiles" index="174" instance=ExtResource( 5 )]
+position = Vector2( -938, 336 )
+coordinates = Vector3( -9, 5, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile244" parent="Tiles" index="175" instance=ExtResource( 5 )]
+position = Vector2( 1206, -924 )
+coordinates = Vector3( 14.5, -3.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile243" parent="Tiles" index="176" instance=ExtResource( 5 )]
+position = Vector2( 469, -1008 )
+coordinates = Vector3( 9.5, 2.5, -12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile54" parent="Tiles" index="177" instance=ExtResource( 5 )]
+position = Vector2( 268, 336 )
+coordinates = Vector3( 0, -4, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile236" parent="Tiles" index="178" instance=ExtResource( 5 )]
+position = Vector2( -536, -1008 )
+coordinates = Vector3( 2, 10, -12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile209" parent="Tiles" index="179" instance=ExtResource( 5 )]
+position = Vector2( -1340, -336 )
+coordinates = Vector3( -8, 12, -4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile221" parent="Tiles" index="180" instance=ExtResource( 5 )]
+position = Vector2( 1876, 672 )
+coordinates = Vector3( 10, -18, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile80" parent="Tiles" index="181" instance=ExtResource( 5 )]
+position = Vector2( 938, 336 )
+coordinates = Vector3( 5, -9, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile98" parent="Tiles" index="182" instance=ExtResource( 5 )]
+position = Vector2( 1072, 336 )
+coordinates = Vector3( 6, -10, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile160" parent="Tiles" index="183" instance=ExtResource( 5 )]
+position = Vector2( 335, 420 )
+coordinates = Vector3( 0, -5, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile235" parent="Tiles" index="184" instance=ExtResource( 5 )]
+position = Vector2( -469, -924 )
+coordinates = Vector3( 2, 9, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile208" parent="Tiles" index="185" instance=ExtResource( 5 )]
+position = Vector2( -1273, -252 )
+coordinates = Vector3( -8, 11, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile55" parent="Tiles" index="186" instance=ExtResource( 5 )]
+position = Vector2( 402, 504 )
+coordinates = Vector3( 0, -6, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile70" parent="Tiles" index="187" instance=ExtResource( 5 )]
+position = Vector2( 536, 504 )
+coordinates = Vector3( 1, -7, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile258" parent="Tiles" index="188" instance=ExtResource( 5 )]
+position = Vector2( 1072, 504 )
+coordinates = Vector3( 5, -11, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile165" parent="Tiles" index="189" instance=ExtResource( 5 )]
+position = Vector2( 1474, 504 )
+coordinates = Vector3( 8, -14, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile15" parent="Tiles" index="190" instance=ExtResource( 5 )]
+position = Vector2( -201, 420 )
+coordinates = Vector3( -4, -1, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile234" parent="Tiles" index="191" instance=ExtResource( 5 )]
+position = Vector2( -1005, -924 )
+coordinates = Vector3( -2, 13, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile17" parent="Tiles" index="192" instance=ExtResource( 5 )]
+position = Vector2( -603, 420 )
+coordinates = Vector3( -7, 2, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile138" parent="Tiles" index="193" instance=ExtResource( 5 )]
+position = Vector2( -804, 336 )
+coordinates = Vector3( -8, 4, 4 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile242" parent="Tiles" index="194" instance=ExtResource( 5 )]
+position = Vector2( 536, -924 )
+coordinates = Vector3( 9.5, 1.5, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile16" parent="Tiles" index="195" instance=ExtResource( 5 )]
+position = Vector2( -469, 420 )
+coordinates = Vector3( -6, 1, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile44" parent="Tiles" index="196" instance=ExtResource( 5 )]
+position = Vector2( -67, 420 )
+coordinates = Vector3( -3, -2, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile45" parent="Tiles" index="197" instance=ExtResource( 5 )]
+position = Vector2( 67, 420 )
+coordinates = Vector3( -2, -3, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile233" parent="Tiles" index="198" instance=ExtResource( 5 )]
+position = Vector2( -1273, -924 )
+coordinates = Vector3( -4, 15, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile232" parent="Tiles" index="199" instance=ExtResource( 5 )]
+position = Vector2( -871, -924 )
+coordinates = Vector3( -1, 12, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile231" parent="Tiles" index="200" instance=ExtResource( 5 )]
+position = Vector2( -737, -924 )
+coordinates = Vector3( 0, 11, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile230" parent="Tiles" index="201" instance=ExtResource( 5 )]
+position = Vector2( -603, -924 )
+coordinates = Vector3( 1, 10, -11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile207" parent="Tiles" index="202" instance=ExtResource( 5 )]
+position = Vector2( -1407, -252 )
+coordinates = Vector3( -9, 12, -3 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile82" parent="Tiles" index="203" instance=ExtResource( 5 )]
+position = Vector2( 871, 420 )
+coordinates = Vector3( 4, -9, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile100" parent="Tiles" index="204" instance=ExtResource( 5 )]
+position = Vector2( 1273, 420 )
+coordinates = Vector3( 7, -12, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile81" parent="Tiles" index="205" instance=ExtResource( 5 )]
+position = Vector2( 737, 420 )
+coordinates = Vector3( 3, -8, 5 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile71" parent="Tiles" index="206" instance=ExtResource( 5 )]
+position = Vector2( 603, 588 )
+coordinates = Vector3( 1, -8, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile93" parent="Tiles" index="207" instance=ExtResource( 5 )]
+position = Vector2( 871, 588 )
+coordinates = Vector3( 3, -10, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile163" parent="Tiles" index="208" instance=ExtResource( 5 )]
+position = Vector2( 1139, 588 )
+coordinates = Vector3( 5, -12, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile167" parent="Tiles" index="209" instance=ExtResource( 5 )]
+position = Vector2( 1407, 588 )
+coordinates = Vector3( 7, -14, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile171" parent="Tiles" index="210" instance=ExtResource( 5 )]
+position = Vector2( 1608, 672 )
+coordinates = Vector3( 8, -16, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile47" parent="Tiles" index="211" instance=ExtResource( 5 )]
+position = Vector2( 268, 504 )
+coordinates = Vector3( -1, -5, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile159" parent="Tiles" index="212" instance=ExtResource( 5 )]
+position = Vector2( 134, 504 )
+coordinates = Vector3( -2, -4, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile122" parent="Tiles" index="213" instance=ExtResource( 5 )]
+position = Vector2( -670, 504 )
+coordinates = Vector3( -8, 2, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile137" parent="Tiles" index="214" instance=ExtResource( 5 )]
+position = Vector2( -938, 504 )
+coordinates = Vector3( -10, 4, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile241" parent="Tiles" index="215" instance=ExtResource( 5 )]
+position = Vector2( 737, -840 )
+coordinates = Vector3( 10.5, -0.5, -10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile240" parent="Tiles" index="216" instance=ExtResource( 5 )]
+position = Vector2( 469, -840 )
+coordinates = Vector3( 8.5, 1.5, -10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile121" parent="Tiles" index="217" instance=ExtResource( 5 )]
+position = Vector2( -402, 504 )
+coordinates = Vector3( -6, 0, 6 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile48" parent="Tiles" index="218" instance=ExtResource( 5 )]
+position = Vector2( 201, 588 )
+coordinates = Vector3( -2, -5, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile117" parent="Tiles" index="219" instance=ExtResource( 5 )]
+position = Vector2( -67, 588 )
+coordinates = Vector3( -4, -3, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile120" parent="Tiles" index="220" instance=ExtResource( 5 )]
+position = Vector2( -469, 588 )
+coordinates = Vector3( -7, 0, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile259" parent="Tiles" index="221" instance=ExtResource( 5 )]
+position = Vector2( -201, 588 )
+coordinates = Vector3( -5, -2, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile124" parent="Tiles" index="222" instance=ExtResource( 5 )]
+position = Vector2( -871, 588 )
+coordinates = Vector3( -10, 3, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile123" parent="Tiles" index="223" instance=ExtResource( 5 )]
+position = Vector2( -737, 588 )
+coordinates = Vector3( -9, 2, 7 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile49" parent="Tiles" index="224" instance=ExtResource( 5 )]
+position = Vector2( 134, 672 )
+coordinates = Vector3( -3, -5, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile116" parent="Tiles" index="225" instance=ExtResource( 5 )]
+position = Vector2( 0, 672 )
+coordinates = Vector3( -4, -4, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile119" parent="Tiles" index="226" instance=ExtResource( 5 )]
+position = Vector2( -402, 672 )
+coordinates = Vector3( -7, -1, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile72" parent="Tiles" index="227" instance=ExtResource( 5 )]
+position = Vector2( 670, 672 )
+coordinates = Vector3( 1, -9, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile75" parent="Tiles" index="228" instance=ExtResource( 5 )]
+position = Vector2( 938, 672 )
+coordinates = Vector3( 3, -11, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile161" parent="Tiles" index="229" instance=ExtResource( 5 )]
+position = Vector2( 1206, 672 )
+coordinates = Vector3( 5, -13, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile166" parent="Tiles" index="230" instance=ExtResource( 5 )]
+position = Vector2( 1474, 672 )
+coordinates = Vector3( 7, -15, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile50" parent="Tiles" index="231" instance=ExtResource( 5 )]
+position = Vector2( 201, 756 )
+coordinates = Vector3( -3, -6, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile113" parent="Tiles" index="232" instance=ExtResource( 5 )]
+position = Vector2( -67, 756 )
+coordinates = Vector3( -5, -4, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile118" parent="Tiles" index="233" instance=ExtResource( 5 )]
+position = Vector2( -335, 756 )
+coordinates = Vector3( -7, -2, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile73" parent="Tiles" index="234" instance=ExtResource( 5 )]
+position = Vector2( 737, 756 )
+coordinates = Vector3( 1, -10, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile74" parent="Tiles" index="235" instance=ExtResource( 5 )]
+position = Vector2( 871, 756 )
+coordinates = Vector3( 2, -11, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile162" parent="Tiles" index="236" instance=ExtResource( 5 )]
+position = Vector2( 1139, 756 )
+coordinates = Vector3( 4, -13, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile169" parent="Tiles" index="237" instance=ExtResource( 5 )]
+position = Vector2( 1407, 756 )
+coordinates = Vector3( 6, -15, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile225" parent="Tiles" index="238" instance=ExtResource( 5 )]
+position = Vector2( 1943, 756 )
+coordinates = Vector3( 10, -19, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile52" parent="Tiles" index="239" instance=ExtResource( 5 )]
+position = Vector2( 402, 672 )
+coordinates = Vector3( -1, -7, 8 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile51" parent="Tiles" index="240" instance=ExtResource( 5 )]
+position = Vector2( 335, 756 )
+coordinates = Vector3( -2, -7, 9 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile114" parent="Tiles" index="241" instance=ExtResource( 5 )]
+position = Vector2( -134, 840 )
+coordinates = Vector3( -6, -4, 10 )
+base_sprite = ExtResource( 3 )
+empty = false
+
+[node name="Item" parent="Tiles/Tile114" index="5" instance=ExtResource( 6 )]
+spell = true
+type = "seal"
+key = "magic_seal_04_01"
+flip_h_over = true
+
+[node name="Tile144" parent="Tiles" index="242" instance=ExtResource( 5 )]
+position = Vector2( 402, 840 )
+coordinates = Vector3( -2, -8, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile115" parent="Tiles" index="243" instance=ExtResource( 5 )]
+position = Vector2( -268, 840 )
+coordinates = Vector3( -7, -3, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile86" parent="Tiles" index="244" instance=ExtResource( 5 )]
+position = Vector2( 670, 840 )
+coordinates = Vector3( 0, -10, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile96" parent="Tiles" index="245" instance=ExtResource( 5 )]
+position = Vector2( 938, 840 )
+coordinates = Vector3( 2, -12, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile97" parent="Tiles" index="246" instance=ExtResource( 5 )]
+position = Vector2( 1072, 840 )
+coordinates = Vector3( 3, -13, 10 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile87" parent="Tiles" index="247" instance=ExtResource( 5 )]
+position = Vector2( 603, 924 )
+coordinates = Vector3( -1, -10, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile164" parent="Tiles" index="248" instance=ExtResource( 5 )]
+position = Vector2( 1139, 924 )
+coordinates = Vector3( 3, -14, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile168" parent="Tiles" index="249" instance=ExtResource( 5 )]
+position = Vector2( 1273, 924 )
+coordinates = Vector3( 4, -15, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile170" parent="Tiles" index="250" instance=ExtResource( 5 )]
+position = Vector2( 1407, 924 )
+coordinates = Vector3( 5, -16, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile92" parent="Tiles" index="251" instance=ExtResource( 5 )]
+position = Vector2( 67, 924 )
+coordinates = Vector3( -5, -6, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile112" parent="Tiles" index="252" instance=ExtResource( 5 )]
+position = Vector2( -67, 924 )
+coordinates = Vector3( -6, -5, 11 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile88" parent="Tiles" index="253" instance=ExtResource( 5 )]
+position = Vector2( 536, 1008 )
+coordinates = Vector3( -2, -10, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile89" parent="Tiles" index="254" instance=ExtResource( 5 )]
+position = Vector2( 402, 1008 )
+coordinates = Vector3( -3, -9, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile90" parent="Tiles" index="255" instance=ExtResource( 5 )]
+position = Vector2( 268, 1008 )
+coordinates = Vector3( -4, -8, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Tile91" parent="Tiles" index="256" instance=ExtResource( 5 )]
+position = Vector2( 134, 1008 )
+coordinates = Vector3( -5, -7, 12 )
+base_sprite = ExtResource( 3 )
+
+[node name="Character" parent="." index="1"]
+position = Vector2( 335, 420 )
+coordinates = Vector3( 0, -5, 5 )
+
+[node name="Camera2D" parent="Character" index="1"]
+zoom = Vector2( 1.3, 1.3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}

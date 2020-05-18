@@ -34,6 +34,7 @@ func set_key(_key):
 		set_item_texture(properties.item_texture)
 		position = properties.item_position
 		scale = properties.item_scale
+		set_flip_h_over(properties.item_flip_h)
 
 
 func set_spell(_spell):

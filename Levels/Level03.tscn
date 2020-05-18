@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Arena/Assets/Krystinnnnn.png" type="Texture" id=2]
 [ext_resource path="res://Arena/Assets/woods.jpg" type="Texture" id=3]
 [ext_resource path="res://Arena/Assets/Krystin_face.png" type="Texture" id=4]
+[ext_resource path="res://Arena/Assets/Engel_face.png" type="Texture" id=5]
+[ext_resource path="res://Arena/Assets/Engel.png" type="Texture" id=6]
 
 [node name="Arena" instance=ExtResource( 1 )]
 level_name = "Level03"
@@ -12,12 +14,30 @@ next_scene = "Level04"
 [node name="Background" parent="." index="0"]
 texture = ExtResource( 3 )
 
+[node name="Player_placeholder_a" parent="." index="1"]
+active = false
+order = 1
+armor = 0
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
+body_texture = ExtResource( 6 )
+avatar_texture = ExtResource( 5 )
+body_offset = Vector2( 0, 0 )
+body_scale = Vector2( 1, 1 )
+side = 1
+
 [node name="Player_placeholder_b" parent="." index="2"]
 character_name = "Krystine"
+active = false
 hit_points = 16
 max_hit_points = 16
+max_armor = 3
+demon_armor = 0
+max_demon_armor = 3
 body_texture = ExtResource( 2 )
 avatar_texture = ExtResource( 4 )
+body_scale = Vector2( 1, 1 )
 cube_indexes = [ "005", "008", "012" ]
 
 [node name="DemonPool" parent="." index="3"]
