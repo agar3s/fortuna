@@ -6,7 +6,7 @@ signal cast_unlocked
 signal cubes_rolled
 signal max_roll_reached
 
-export (Array, String) var cube_indexes = ['001', '001', '001'] setget set_cube_indexes
+export (Array, String) var cube_indexes = ['001', '001', '001', '001', '001'] setget set_cube_indexes
 
 var roll_count = 0
 var roll_limit = 3 setget set_roll_limit
@@ -83,7 +83,8 @@ func reset():
 func get_combo():
 	var combo = []
 	for cube in $Cubes.get_children():
-		combo.append(cube.get_face_value())
+		if cube.selected:
+			combo.append(cube.get_face_value())
 	return combo
 
 
@@ -118,7 +119,8 @@ func set_locked(_locked):
 func force_result(faces):
 	print('force results ', faces)
 	var _index = 0
-	for cube in $Cubes.get_children():
+	for face in faces:
+		var cube = $Cubes.get_child(_index)
 		cube.force_next_result(faces[_index])
 		_index += 1
 	

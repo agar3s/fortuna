@@ -15,6 +15,7 @@ var keeped = false setget set_keep
 var keepable = true
 var rolling = false
 var index = 0
+var selected = false setget set_selected
 
 var next_face_result = ''
 var face_ids = {}
@@ -26,6 +27,7 @@ func _ready():
 	$Hitbox.connect('mouse_entered', self, 'on_hover')
 	$Hitbox.connect('mouse_exited', self, 'on_out')
 	find_face_ids()
+	$LinkButton.connect("button_down", self, 'toggle_select')
 
 func find_face_ids():
 	var _index = 0
@@ -66,6 +68,16 @@ func set_face(face_index):
 	face_up = face_index
 	$Faces.get_child(face_up).show()
 
+func set_selected(value):
+	if keeped:
+		selected = value
+	if selected:
+		$LinkButton.text = 'unselect'
+	else:
+		$LinkButton.text = 'select'
+
+func toggle_select():
+	set_selected(!selected)
 
 func set_id(value):
 	id = value
@@ -73,6 +85,7 @@ func set_id(value):
 	var i = 0
 	for child in $Faces.get_children():
 		child.id = face_indexes[i]
+		$Miniature.get_child(i).id = face_indexes[i]
 		i += 1
 	
 	find_face_ids()
@@ -83,11 +96,13 @@ func set_keep(value):
 	if keeped and not value:
 		#play animation to discard cube
 		$AnimationPlayer.play("discard")
+		selected = false
 	elif not keeped and value:
 		# play animation to keep the cube
 		$AnimationPlayer.play("keep")
 	
 	keeped = value
+	$LinkButton.visible = keeped
 	emit_signal('on_keep', keeped)
 	# temp visual feedback
 

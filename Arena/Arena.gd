@@ -94,7 +94,7 @@ func on_player_turn_ends(player):
 	
 	prev_player.active = false
 	prev_player.get_node('CubeSet').hide()
-	if active_player.has_node('Bot'):
+	if active_player.has_node('Bot') and active_player.get_node('Bot').enabled:
 		$CubeSection.hide()
 	else:
 		$CubeSection.show()

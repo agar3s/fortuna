@@ -1033,20 +1033,21 @@ func find_combos(faces: Array, is_critical = false):
 	faces.sort()
 	
 	# check combo of 3
-	var combo = '%s-%s-%s' % faces
-	if is_critical and values.has(combo + '!'):
-		return [combo + '!']
+	if len(faces) == 3:
+		var combo = '%s-%s-%s' % faces
+		if is_critical and values.has(combo + '!'):
+			return [combo + '!']
+			
+		if values.has(combo):
+			return [combo]
 		
-	if values.has(combo):
-		return [combo]
-	
-	combo = ['%s-%s' % [faces[0], faces[1]], faces[2]]
-	if values.has(combo[0]):
-		return combo
-	
-	combo = [faces[0], '%s-%s' % [faces[1], faces[2]]]
-	if values.has(combo[1]):
-		return combo
+		combo = ['%s-%s' % [faces[0], faces[1]], faces[2]]
+		if values.has(combo[0]):
+			return combo
+		
+		combo = [faces[0], '%s-%s' % [faces[1], faces[2]]]
+		if values.has(combo[1]):
+			return combo
 
 	return faces
 

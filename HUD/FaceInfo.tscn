@@ -12,14 +12,14 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 use_filter = true
 extra_spacing_top = -3
 extra_spacing_bottom = -4
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 24
 use_filter = true
 extra_spacing_top = -3
@@ -37,7 +37,7 @@ __meta__ = {
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.54902 )
+color = Color( 0, 0, 0, 0.905882 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,8 +73,8 @@ margin_left = 91.0
 margin_top = 37.0
 margin_right = 355.0
 margin_bottom = 109.0
-custom_fonts/bold_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 bbcode_enabled = true
 bbcode_text = "[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."

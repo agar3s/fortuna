@@ -32,7 +32,7 @@ export (Texture) var avatar_texture = preload('res://Arena/Assets/Engel_face.png
 export (Vector2) var body_offset = Vector2(0, 0) setget set_body_offset
 export (Vector2) var body_scale = Vector2(1.0, 1.0) setget set_body_scale
 
-export (Array, String) var cube_indexes = ['001', '001', '001']
+export (Array, String) var cube_indexes = ['001', '001', '001', '001', '001']
 
 var states = []
 export (int) var side = 1

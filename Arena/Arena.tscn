@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Arena/Assets/tournament_bg.jpg" type="Texture" id=1]
 [ext_resource path="res://Arena/Character.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://HUD/DialogLeft.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Arena/Assets/Alberich_face.png" type="Texture" id=14]
 [ext_resource path="res://Resources/baseTheme.tres" type="Theme" id=15]
+[ext_resource path="res://Map/Assets/sello_grande.png" type="Texture" id=16]
 [ext_resource path="res://HUD/InventoryHUD.tscn" type="PackedScene" id=17]
 [ext_resource path="res://HUD/FaceInfo.tscn" type="PackedScene" id=18]
 
@@ -152,6 +153,7 @@ script = ExtResource( 8 )
 __meta__ = {
 "_edit_vertical_guides_": [ 512.0 ]
 }
+display_dialogue = false
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -160,36 +162,33 @@ centered = false
 [node name="Player_placeholder_a" parent="." instance=ExtResource( 2 )]
 position = Vector2( 314, 400 )
 character_name = "Engel"
-hit_points = 10
-max_hit_points = 10
-cube_indexes = [ "001", "002", "021" ]
+cube_indexes = [ "001", "002", "021", "001", "002" ]
 
 [node name="Player_placeholder_b" parent="." instance=ExtResource( 2 )]
 position = Vector2( 710, 400 )
 character_name = "Alberich"
 order = 2
-hit_points = 10
-max_hit_points = 10
 armor = 3
 body_texture = ExtResource( 4 )
 avatar_texture = ExtResource( 14 )
 body_offset = Vector2( -10, 23 )
-cube_indexes = [ "003", "006", "011" ]
+cube_indexes = [ "003", "006", "011", "003", "006" ]
 side = -1
 
 [node name="Bot" parent="Player_placeholder_b" instance=ExtResource( 9 )]
+enabled = false
 
 [node name="DemonPool" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 39 )
 
 [node name="CubeSection" type="Node2D" parent="."]
-position = Vector2( 511, 485 )
+position = Vector2( 511, 536 )
 
 [node name="Cast" type="Button" parent="CubeSection"]
-margin_left = 22.0
-margin_top = 11.0
-margin_right = 142.0
-margin_bottom = 46.0
+margin_left = -333.0
+margin_top = -74.0
+margin_right = -213.0
+margin_bottom = -39.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 15 )
 disabled = true
@@ -199,10 +198,10 @@ __meta__ = {
 }
 
 [node name="Roll" type="Button" parent="CubeSection"]
-margin_left = -142.0
-margin_top = 13.0
-margin_right = -22.0
-margin_bottom = 48.0
+margin_left = -336.0
+margin_top = -14.0
+margin_right = -216.0
+margin_bottom = 21.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 15 )
 disabled = true
@@ -212,7 +211,7 @@ __meta__ = {
 }
 
 [node name="CubesetPosition" type="Position2D" parent="CubeSection"]
-position = Vector2( 0, -68 )
+position = Vector2( 0, -8 )
 
 [node name="BattleEngine" parent="." instance=ExtResource( 7 )]
 
@@ -261,7 +260,6 @@ margin_left = 329.0
 margin_top = 251.0
 margin_right = 694.0
 margin_bottom = 367.0
-id = "01"
 
 [node name="InventoryHUD" parent="HUD" instance=ExtResource( 17 )]
 
@@ -291,3 +289,8 @@ margin_bottom = -16.0
 anims/ends_scene = SubResource( 1 )
 anims/restart = SubResource( 2 )
 anims/start_scene = SubResource( 3 )
+
+[node name="sello_grande" type="Sprite" parent="."]
+position = Vector2( 510, 312 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )

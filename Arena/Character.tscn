@@ -180,9 +180,9 @@ position = Vector2( 0, -110.5 )
 texture = ExtResource( 3 )
 
 [node name="CubeSet" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 0, 49 )
 z_index = 30
-cube_indexes = [ "001", "001", "001" ]
 
 [node name="States" type="Node2D" parent="."]
 position = Vector2( 0, 100 )

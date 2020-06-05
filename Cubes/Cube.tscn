@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36, 36 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "Locked"
 length = 0.15
 step = 0.025
@@ -41,7 +41,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 length = 0.35
 step = 0.05
 tracks/0/type = "bezier"
@@ -65,7 +65,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 30, -0.25, 0, 0, -23.1227, 0, -0.128924, -0.0272951, 0.25, 0 ),
+"points": PoolRealArray( -60, 0, 0, 0, -23.1227, 0, -0.128924, -0.0272951, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.3 )
 }
 
@@ -78,7 +78,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.27151, -2.81953, 30, -0.112079, 15.4771, 0.0981781, 1.26461 ),
+"points": PoolRealArray( 0, -0.25, 0, 0.27151, -2.81953, -60, 0, 30, 0.0981781, 1.26461 ),
 "times": PoolRealArray( 0, 0.3 )
 }
 
@@ -87,13 +87,17 @@ script = ExtResource( 1 )
 face_indexes = [ "01", "02", "06", "07", "12", "13" ]
 
 [node name="Faces" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Face1" parent="Faces" instance=ExtResource( 2 )]
 id = "01"
 icon = 4
 texture_resource = "res://Cubes/Assets/01_c_demoniaco.jpg"
 title = "Demon invocation"
-description = "[b]Instant:[/b] Add 1 demon token [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."
+description = "[b]Instant:[/b] Add 1 demon stalker [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."
 karma = -2
 
 [node name="Face2" parent="Faces" instance=ExtResource( 2 )]
@@ -102,7 +106,7 @@ id = "02"
 icon = 58
 texture_resource = "res://Cubes/Assets/02_b_mental.jpg"
 title = "Mind Lock"
-description = "[b]Instant:[/b] Lock this cube
+description = "[b]Instant:[/b] Lock this Thought
  [img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img] apply 3 damage to yourself."
 karma = -2
 
@@ -140,16 +144,95 @@ icon = 59
 texture_resource = "res://Cubes/Assets/13_control.jpg"
 title = "Control"
 description = "[img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img]
-[b]Cast:[/b] Remove all your demon tokens [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]."
+[b]Cast:[/b] Remove all your demon stalkers [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]."
+karma = 1
+
+[node name="Miniature" type="Node2D" parent="."]
+
+[node name="Face" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( -32.413, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "01"
+icon = 4
+texture_resource = "res://Cubes/Assets/01_c_demoniaco.jpg"
+title = "Demon invocation"
+description = "[b]Instant:[/b] Add 1 demon stalker [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img] to yourself."
+karma = -2
+
+[node name="Face2" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( -19.413, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "02"
+icon = 58
+texture_resource = "res://Cubes/Assets/02_b_mental.jpg"
+title = "Mind Lock"
+description = "[b]Instant:[/b] Lock this Thought
+ [img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img][img=<20>x<20>]res://Cubes/Assets/02_b_mental.jpg[/img] apply 3 damage to yourself."
+karma = -2
+
+[node name="Face3" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( -6.41296, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "06"
+icon = 66
+texture_resource = "res://Cubes/Assets/06_fire_spell.jpg"
+title = "Fire Ball"
+description = "[b]Cast:[/b] Apply 1 fire damage to oponent"
+karma = 1
+
+[node name="Face4" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( 6.58704, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "07"
+icon = 56
+texture_resource = "res://Cubes/Assets/07_ice_blast.jpg"
+title = "Ice Blast"
+description = "[b]Cast:[/b] Apply 1 ice damage to oponent"
+karma = 1
+
+[node name="Face5" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( 19.587, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "12"
+icon = 53
+texture_resource = "res://Cubes/Assets/12_Heal.jpg"
+title = "Heal"
+description = "[b]Cast:[/b] Recover 1 hit points."
+karma = 1
+
+[node name="Face6" parent="Miniature" instance=ExtResource( 2 )]
+position = Vector2( 32.587, 45.4317 )
+scale = Vector2( 0.15, 0.15 )
+id = "13"
+icon = 59
+texture_resource = "res://Cubes/Assets/13_control.jpg"
+title = "Control"
+description = "[img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img][img=<20>x<20>]res://Cubes/Assets/13_control.jpg[/img]
+[b]Cast:[/b] Remove all your demon stalkers [img=<20>x<20>]res://Cubes/Assets/01_c_demoniaco.jpg[/img]."
 karma = 1
 
 [node name="Hitbox" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Locked = SubResource( 6 )
-anims/cube_enters = SubResource( 7 )
+anims/Locked = SubResource( 2 )
+anims/cube_enters = SubResource( 3 )
 anims/discard = SubResource( 4 )
 anims/keep = SubResource( 5 )
+
+[node name="LinkButton" type="LinkButton" parent="."]
+visible = false
+margin_left = -20.6648
+margin_top = -54.7719
+margin_right = 19.3352
+margin_bottom = -40.7719
+text = "Select"
+__meta__ = {
+"_edit_use_anchors_": false
+}

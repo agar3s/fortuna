@@ -7,13 +7,16 @@ var cubeset: CubeSet
 
 var strategy = 'random'
 var skip_cast = false
+export var enabled = true
 
 func _ready():
+	if !enabled: return
 	player = get_parent()
 	if player is Character:
 		player.connect("active_changed", self, 'check_turn')
 		cubeset = player.get_node('CubeSet')
 		cubeset.connect('cubes_rolled', self, 'on_cubes_rolled')
+		
 
 func check_turn(active):
 	if not active: return
@@ -34,5 +37,7 @@ func on_cubes_rolled(_faces):
 	if skip_cast: 
 		return
 	yield(get_tree().create_timer(0.5), "timeout")
+	
+		
 	player.send_cast()
 
