@@ -11,12 +11,13 @@
 script = ExtResource( 3 )
 
 [node name="SimpleCube" parent="." instance=ExtResource( 5 )]
+position = Vector2( 12, 16 )
 
 [node name="SubsetCubes" parent="." instance=ExtResource( 6 )]
-position = Vector2( 24, 176 )
+position = Vector2( 131, 281 )
 
 [node name="Arena" parent="." instance=ExtResource( 4 )]
-position = Vector2( 408, 48 )
+position = Vector2( 525, 243 )
 
 [node name="ComboValidator" type="Node2D" parent="."]
 position = Vector2( 376, 440 )
@@ -52,6 +53,6 @@ points = PoolVector2Array( 320, 0, 320, 336 )
 width = 2.0
 
 [node name="Line2D2" type="Line2D" parent="dividers"]
-position = Vector2( 0, -8 )
+position = Vector2( 14, -153 )
 points = PoolVector2Array( 0, 168, 384, 168 )
 width = 3.0
